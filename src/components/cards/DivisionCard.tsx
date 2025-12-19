@@ -12,12 +12,17 @@ export const DivisionCard = ({ division, index }: DivisionCardProps) => {
     const accentColor = division.accentColor || '#F05B22'; // Default accent
 
     return (
-        <Link
-            to={`/divisions/${division.slug}`}
-            className="group block relative overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-xl transition-all duration-300"
-            style={{ '--accent': accentColor } as React.CSSProperties}
-        >
-            <div className="h-64 overflow-hidden">
+        <div className="relative group h-full">
+            <div
+                className="absolute inset-0 rounded-lg translate-x-1.5 translate-y-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"
+                style={{ backgroundColor: accentColor }}
+            />
+            <Link
+                to={`/divisions/${division.slug}`}
+                className="relative z-10 block overflow-hidden rounded-lg bg-white shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-300 border border-neutral-100 h-full"
+                style={{ '--accent': accentColor } as React.CSSProperties}
+            >
+                <div className="h-64 overflow-hidden">
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
                 <img
                     src={division.heroImage}
@@ -42,6 +47,7 @@ export const DivisionCard = ({ division, index }: DivisionCardProps) => {
                 </div>
                 <div className="absolute bottom-0 left-0 h-1 w-0 bg-[var(--accent)] group-hover:w-full transition-all duration-300" />
             </div>
-        </Link>
+            </Link>
+        </div>
     );
 };

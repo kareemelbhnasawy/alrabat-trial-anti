@@ -15,7 +15,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
 
     return (
         <div className="relative group h-full">
-            <div className="absolute inset-0 bg-accent slant-br translate-x-1.5 translate-y-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0" />
+            <div
+                className="absolute inset-0 slant-br translate-x-1.5 translate-y-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"
+                style={{ backgroundColor: accentColor }}
+            />
             <Link to={`/projects/${project.slug}`} className="relative z-10 block h-full bg-white slant-br shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-300 overflow-hidden flex flex-col">
                 {/* Image Section */}
                 <div className="relative h-64 overflow-hidden">
