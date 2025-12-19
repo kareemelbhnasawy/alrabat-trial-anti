@@ -15,7 +15,7 @@ const ITEMS = [
     },
     {
         title: "Marine",
-        image: "https://images.unsplash.com/photo-1569091791842-7cf9646b19ca?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1691732615771-1d6cada73c20?auto=format&fit=crop&w=800&q=80",
         color: "bg-accent",
         textComp: "text-white",
         desc: "Coastal protection and quay wall construction.",
@@ -23,7 +23,7 @@ const ITEMS = [
     },
     {
         title: "Ground Improvement",
-        image: "https://images.unsplash.com/photo-1621905251189-08b9bfd5f578?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1758634057888-7a4f9e50322a?auto=format&fit=crop&w=800&q=80",
         color: "bg-white",
         textComp: "text-primary",
         desc: "Advanced soil stabilization techniques.",

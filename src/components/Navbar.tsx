@@ -40,7 +40,7 @@ export const Navbar = () => {
             )}
         >
             <div className="container-custom flex items-center justify-between">
-                <Logo />
+                <Logo isScrolled={isScrolled || isOpen} />
 
                 {/* Desktop Nav */}
                 <div className="hidden lg:flex items-center space-x-8">

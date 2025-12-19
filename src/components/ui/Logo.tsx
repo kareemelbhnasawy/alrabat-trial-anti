@@ -1,16 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Logo = () => {
+interface LogoProps {
+    isScrolled?: boolean;
+}
+
+export const Logo = ({ isScrolled = false }: LogoProps) => {
     return (
-        <Link to="/" className="flex flex-col leading-none group">
-            <div className="flex items-baseline space-x-1">
-                <span className="text-2xl font-display font-extrabold text-primary tracking-tighter">ALRABAT</span>
-                <span className="text-2xl font-display font-light text-accent">SE</span>
-            </div>
-            <span className="text-[0.65rem] uppercase tracking-[0.2em] text-primary/80 font-medium group-hover:text-accent transition-colors">
-                Specialized Engineering
-            </span>
+        <Link to="/" className="flex items-center gap-3 group">
+            {/* Square Logo Icon - white when not scrolled, colored when scrolled */}
+            <img
+                src={isScrolled ? "/assets/square-logo.png" : "/assets/square-logo-white.png"}
+                alt="Alrabat SE"
+                className="h-16 w-16 object-contain transition-opacity duration-300"
+            />
+
+            {/* ALRABAT SE Text Logo - transparent when not scrolled, green when scrolled */}
+            <img
+                src={isScrolled ? "/assets/ALRABAT_SE_logo_green.png" : "/assets/alrabat_se_logo_transparent.png"}
+                alt="ALRABAT SE"
+                className="h-8 w-auto object-contain transition-opacity duration-300"
+            />
         </Link>
     );
 };

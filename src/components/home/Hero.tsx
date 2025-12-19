@@ -25,13 +25,20 @@ export const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <span className="inline-block py-2 px-4 border border-white/30 rounded-full text-xs font-bold tracking-[0.2em] uppercase mb-6 bg-white/10 backdrop-blur-sm">
+                    {/* <span className="inline-block py-2 px-4 border border-white/30 rounded-full text-xs font-bold tracking-[0.2em] uppercase mb-6 bg-white/10 backdrop-blur-sm">
                         Dubai · United Arab Emirates
-                    </span>
+                    </span> */}
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight leading-tight mb-6">
-                        The Bond <br />
-                        <span className="text-accent">of Success</span>
+                    <div className="flex justify-center mb-8">
+                        <img
+                            src="/assets/square-logo.png"
+                            alt="Alrabat SE Logo"
+                            className="h-80 md:h-40 lg:h-80 w-auto object-contain"
+                        />
+                    </div>
+
+                    <h1 className="text-[3.6rem] font-medium tracking-tight leading-tight mb-6">
+                        THE BOND OF <span className="text-accent">SUCCESS</span>
                     </h1>
 
                     <p className="max-w-2xl mx-auto text-lg md:text-xl text-neutral-200 mb-10 font-light leading-relaxed">
