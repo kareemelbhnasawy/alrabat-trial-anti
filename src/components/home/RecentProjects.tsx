@@ -9,7 +9,7 @@ export const RecentProjects = () => {
     const recent = projects.slice(0, 3);
 
     return (
-        <Section orangeAccent slantedTop>
+        <Section slantedTop>
             <div className="container-custom mb-12 flex flex-col md:flex-row justify-between items-end">
                 <div>
                     <span className="text-accent font-bold tracking-widest uppercase text-sm mb-2 block">Portfolio</span>

@@ -5,7 +5,6 @@ import { Facebook, Linkedin, Instagram, ArrowRight, Twitter } from 'lucide-react
 export const Footer = () => {
     return (
         <footer className="bg-primary text-white pt-32 pb-10 slant-divider-lg -mt-20 relative">
-            <div className="slant-accent-stripe top-0 left-0" style={{ clipPath: 'polygon(-2px 80px, 80px -2px, calc(100% + 2px) -2px, calc(100% + 2px) 3px, 80px 3px, -2px 83px)' }} />
             <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 {/* Brand */}
                 <div className="space-y-6">

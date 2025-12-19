@@ -51,7 +51,7 @@ export const Navbar = () => {
                             className={({ isActive }) =>
                                 clsx(
                                     "text-sm font-medium tracking-wide transition-colors hover:text-accent",
-                                    isActive ? "text-accent" : "text-primary/80"
+                                    isActive ? "text-accent" : (isScrolled ? "text-primary/80" : "text-white")
                                 )
                             }
                         >
@@ -65,7 +65,10 @@ export const Navbar = () => {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="lg:hidden text-primary"
+                    className={clsx(
+                        "lg:hidden transition-colors",
+                        isScrolled || isOpen ? "text-primary" : "text-white"
+                    )}
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}

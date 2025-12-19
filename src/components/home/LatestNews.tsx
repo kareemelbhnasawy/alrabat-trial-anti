@@ -9,7 +9,7 @@ export const LatestNews = () => {
     const latest = news.slice(0, 3);
 
     return (
-        <Section className="bg-neutral-50" slantedTop orangeAccent>
+        <Section className="bg-neutral-50" slantedTop>
             <div className="container-custom mb-12 flex flex-col md:flex-row justify-between items-end">
                 <div>
                     <span className="text-accent font-bold tracking-widest uppercase text-sm mb-2 block text-neutral-500">Updates</span>
