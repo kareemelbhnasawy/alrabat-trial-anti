@@ -32,8 +32,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Manrope', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', 'sans-serif'], // Bold headings
+        sans: ['"JEKO"', 'sans-serif'], // JEKO regular for body copy and extended text
+        display: ['"JEKO"', 'sans-serif'], // JEKO extrabold for headlines and strong visual impact
       },
       animation: {
         'marquee': 'marquee 25s linear infinite',
