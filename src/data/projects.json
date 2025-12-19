@@ -1,0 +1,160 @@
+[
+    {
+        "id": "proj-1",
+        "title": "Sky Tower Foundations",
+        "slug": "sky-tower-foundations",
+        "divisionSlug": "foundations",
+        "category": "Major Projects",
+        "location": "Business Bay, Dubai",
+        "year": "2023",
+        "summary": "Deep piling execution for a 60-storey mixed-use development in challenging soil conditions.",
+        "scope": [
+            "120 nos. Bored Piles (Dia 1200mm, Depth 45m)",
+            "Secant Pile Wall Shoring (3500 sqm)",
+            "Dewatering & Excavation"
+        ],
+        "challenges": [
+            "High groundwater level requiring continuous dewatering.",
+            "Proximity to adjacent operational metro line.",
+            "Strict vibration limits."
+        ],
+        "solutions": [
+            "Utilized double-casing method for pile alignment.",
+            "Real-time vibration monitoring sensors installed.",
+            "24/7 dewatering system with automated backups."
+        ],
+        "tags": [
+            "High-Rise",
+            "Piling",
+            "Shoring"
+        ],
+        "heroImage": "https://images.unsplash.com/photo-1590986429158-9c4f2c7a7e3d?auto=format&fit=crop&w=1600&q=80",
+        "gallery": [
+            "https://images.unsplash.com/photo-1531834685032-c34bf0d84c7c?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+        ],
+        "metrics": {
+            "Concrete Poured": "15,000 m³",
+            "Steel Used": "2,500 Tons",
+            "Man-hours": "50,000+"
+        }
+    },
+    {
+        "id": "proj-2",
+        "title": "Marina Mall Extension",
+        "slug": "marina-mall-extension",
+        "divisionSlug": "foundations",
+        "category": "Major Projects",
+        "location": "Abu Dhabi, UAE",
+        "year": "2022",
+        "summary": "Expansion of existing mall foundations utilizing micropiles in confined spaces.",
+        "scope": [
+            "400 nos. Micropiles",
+            "Structural Retrofitting",
+            "Load Transfer Beams"
+        ],
+        "challenges": [
+            "Working inside operational mall (night shifts only).",
+            "Low headroom restriction (3.5m)."
+        ],
+        "solutions": [
+            "Deployed specialized low-headroom compact piling rigs.",
+            "Acoustic fabricated enclosures to minimize noise."
+        ],
+        "tags": [
+            "Retail",
+            "Micropiles",
+            "Retrofit"
+        ],
+        "heroImage": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80",
+        "gallery": [],
+        "metrics": {
+            "Micropiles": "400 nos.",
+            "Zero Incidents": "Safety Award"
+        }
+    },
+    {
+        "id": "proj-3",
+        "title": "Industrial Zone Stabilization",
+        "slug": "industrial-zone-stabilization",
+        "divisionSlug": "ground-improvement",
+        "category": "Projects",
+        "location": "Jebel Ali, Dubai",
+        "year": "2024",
+        "summary": "Large-scale soil densification for a logistics warehouse complex.",
+        "scope": [
+            "Vibro Compaction (50,000 sqm)",
+            "Dynamic Compaction for roadways"
+        ],
+        "challenges": [
+            "Loose silty sand layers.",
+            "Tight delivery schedule of 3 months."
+        ],
+        "solutions": [
+            "Deployed 3 Vibroflots simultaneously.",
+            "Grid-based quality control with CPT testing daily."
+        ],
+        "tags": [
+            "Industrial",
+            "Soil Improvement"
+        ],
+        "heroImage": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1600&q=80",
+        "gallery": [],
+        "metrics": {
+            "Area Treated": "50,000 m²",
+            "Bearing Capacity": "200 kPa"
+        }
+    },
+    {
+        "id": "proj-4",
+        "title": "Expo 2020 Access Roads",
+        "slug": "expo-2020-access-roads",
+        "divisionSlug": "infrastructure",
+        "category": "Major Projects",
+        "location": "Dubai South",
+        "year": "2020",
+        "summary": "Enabling works and temporary access roads for the Expo 2020 site.",
+        "scope": [
+            "10km Temporary Roads",
+            "Site Fencing & Hoarding",
+            "Vegetation Removal"
+        ],
+        "challenges": [],
+        "solutions": [],
+        "tags": [
+            "Infrastructure",
+            "Roads",
+            "Government"
+        ],
+        "heroImage": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1600&q=80",
+        "gallery": [],
+        "metrics": {
+            "Road Length": "10 km",
+            "Completion": "On Time"
+        }
+    },
+    {
+        "id": "proj-5",
+        "title": "Palm Jumeirah Shoreline",
+        "slug": "palm-jumeirah-shoreline",
+        "divisionSlug": "marine",
+        "category": "Projects",
+        "location": "Palm Jumeirah",
+        "year": "2021",
+        "summary": "Rehabilitation of rock revetment and beach reprofiling.",
+        "scope": [
+            "Rock Armour Placement",
+            "Beach Sand Replenishment"
+        ],
+        "challenges": [],
+        "solutions": [],
+        "tags": [
+            "Marine",
+            "Coastal",
+            "Residential"
+        ],
+        "heroImage": "https://images.unsplash.com/photo-1572979854884-699741a32a68?auto=format&fit=crop&w=1600&q=80",
+        "gallery": [],
+        "metrics": {}
+    }
+]

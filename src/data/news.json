@@ -1,0 +1,64 @@
+[
+    {
+        "id": "news-1",
+        "title": "Alrabat SE Awarded Iconic Tower Foundation Contract",
+        "slug": "awarded-iconic-tower",
+        "category": "Contract Wins",
+        "date": "2024-11-15",
+        "readingTime": "3 min",
+        "excerpt": "We are proud to announce our appointment as the enabling works contractor for the new Dubai Creek Marina tower.",
+        "heroImage": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+        "bodyBlocks": [
+            {
+                "type": "paragraph",
+                "content": "Alrabat Specialized Engineering has secured the prestigious contract for the foundation and enabling works of the upcoming Iconic Tower in Dubai Creek Harbour. This project underscores our reputation for handling complex geotechnical challenges in high-profile developments."
+            },
+            {
+                "type": "quote",
+                "content": "This award is a testament to our team's technical excellence and our unwavering commitment to quality.",
+                "author": "Mohamed Ahmed Ghalwash, Chairman"
+            },
+            {
+                "type": "paragraph",
+                "content": "The scope involves over 500 bored piles and a massive continuous diaphragm wall. Mobilization is set to begin next week, with an estimated completion timeline of 14 months."
+            }
+        ],
+        "relatedSlugs": [
+            "sky-tower-foundations"
+        ]
+    },
+    {
+        "id": "news-2",
+        "title": "New Fleet of Bauer BG-36 Rigs Arrives",
+        "slug": "new-piling-rigs",
+        "category": "Equipment",
+        "date": "2024-10-01",
+        "readingTime": "2 min",
+        "excerpt": "Expanding our capabilities with the latest in deep drilling technology.",
+        "heroImage": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&w=1600&q=80",
+        "bodyBlocks": [
+            {
+                "type": "paragraph",
+                "content": "To support our growing project portfolio, Alrabat SE has acquired three new Bauer BG-36 piling rigs. These state-of-the-art machines are capable of drilling to depths of over 80 meters with diameters up to 2500mm."
+            }
+        ],
+        "relatedSlugs": []
+    },
+    {
+        "id": "news-3",
+        "title": "Safety Milestone: 5 Million Man-hours LTI Free",
+        "slug": "safety-milestone-2024",
+        "category": "Corporate",
+        "date": "2024-09-10",
+        "readingTime": "2 min",
+        "excerpt": "Celebrating our commitment to safety across all operational sites.",
+        "heroImage": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=80",
+        "bodyBlocks": [
+            {
+                "type": "paragraph",
+                "content": "Safety is our core value. We are thrilled to celebrate achieving 5 million man-hours without a Lost Time Injury (LTI) across our projects in UAE."
+            }
+        ],
+        "relatedSlugs": []
+    }
+]

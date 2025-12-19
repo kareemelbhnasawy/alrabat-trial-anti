@@ -1,0 +1,139 @@
+[
+    {
+        "id": "div-1",
+        "name": "Foundations",
+        "slug": "foundations",
+        "accentColor": "#961E1E",
+        "heroImage": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?autoplay=format&fit=crop&w=1600&q=80",
+        "summary": "Deep foundation solutions ensuring structural integrity for high-rise and complex infrastructure.",
+        "capabilities": [
+            "Bored Piling (up to 2500mm diameter)",
+            "CFA Piling (Continuous Flight Auger)",
+            "Micropiles & Minipiles",
+            "Shoring Systems (Secant/Contiguous/Soldier Piles)",
+            "Sheet Piling works"
+        ],
+        "keyServices": [
+            "Design & Execution",
+            "Static Load Testing",
+            "Integrity Testing"
+        ],
+        "relatedProjectSlugs": [
+            "sky-tower-foundations",
+            "marina-mall-extension"
+        ]
+    },
+    {
+        "id": "div-2",
+        "name": "Ground Improvement",
+        "slug": "ground-improvement",
+        "accentColor": "#996200",
+        "heroImage": "https://images.unsplash.com/photo-1621905251189-08b9bfd5f578?auto=format&fit=crop&w=1600&q=80",
+        "summary": "Advanced soil stabilization techniques to enhance load-bearing capacity and mitigate settlement.",
+        "capabilities": [
+            "Vibro Compaction / Vibro Replacment",
+            "Dynamic Compaction",
+            "Rapid Impact Compaction (RIC)",
+            "Stone Columns",
+            "Grouting & Soil Mixing"
+        ],
+        "keyServices": [
+            "Soil Analysis & Design",
+            "Liquefaction Mitigation",
+            "Ground Densification"
+        ],
+        "relatedProjectSlugs": [
+            "industrial-zone-stabilization"
+        ]
+    },
+    {
+        "id": "div-3",
+        "name": "Infrastructure",
+        "slug": "infrastructure",
+        "accentColor": "#703000",
+        "heroImage": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
+        "summary": "Comprehensive civil works including roads, utilities, and enabling works for mega-developments.",
+        "capabilities": [
+            "Site Preparation & Earthworks",
+            "Roads & Pavements",
+            "Drainage & Sewage Networks",
+            "Utility Corridors",
+            "Excavation & Backfilling"
+        ],
+        "keyServices": [
+            "Enabling Works Packages",
+            "Traffic Diversion",
+            "Dewatering"
+        ],
+        "relatedProjectSlugs": [
+            "expo-2020-access-roads"
+        ]
+    },
+    {
+        "id": "div-4",
+        "name": "Marine",
+        "slug": "marine",
+        "accentColor": "#005C9B",
+        "heroImage": "https://images.unsplash.com/photo-1569091791842-7cf9646b19ca?auto=format&fit=crop&w=1600&q=80",
+        "summary": "Specialized marine construction services for ports, jetties, and coastal protection.",
+        "capabilities": [
+            "Quay Walls & Jetties",
+            "Dredging & Reclamation",
+            "Breakwaters & Revetments",
+            "Marine Piling (Offshore/Nearshore)",
+            "Underwater Concreting"
+        ],
+        "keyServices": [
+            "Coastal Protection",
+            "Marina Construction",
+            "Sheet Pile Cofferdams"
+        ],
+        "relatedProjectSlugs": [
+            "palm-jumeirah-shoreline"
+        ]
+    },
+    {
+        "id": "div-5",
+        "name": "Equipment",
+        "slug": "equipment",
+        "accentColor": "#137C1A",
+        "heroImage": "https://images.unsplash.com/photo-1581094794329-cdac82aadbcc?auto=format&fit=crop&w=1600&q=80",
+        "summary": "A vast fleet of state-of-the-art heavy machinery available for specialized rental and project support.",
+        "capabilities": [
+            "Piling Rigs (Bauer, Liebherr)",
+            "Cranes (Crawler & Mobile)",
+            "Vibro Hammers",
+            "Excavators & Wheel Loaders",
+            "Generators & Compressors"
+        ],
+        "keyServices": [
+            "Equipment Rental",
+            "Maintenance Services",
+            "Operator Supply"
+        ],
+        "relatedProjectSlugs": []
+    },
+    {
+        "id": "div-6",
+        "name": "Consulting",
+        "slug": "consulting",
+        "accentColor": "#4B5563",
+        "heroImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
+        "summary": "Engineering expertise tailored to solving complex geotechnical challenges before breaking ground.",
+        "capabilities": [
+            "Geotechnical Design & Analysis",
+            "Value Engineering Solutions",
+            "Feasibility Studies",
+            "Project Management Consultancy",
+            "Site Investigation Oversight"
+        ],
+        "keyServices": [
+            "Design Review",
+            "Cost Optimization",
+            "Technical Advisory"
+        ],
+        "relatedProjectSlugs": [
+            "iconic-tower-design"
+        ]
+    }
+]

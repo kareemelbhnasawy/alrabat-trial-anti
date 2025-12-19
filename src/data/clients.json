@@ -1,0 +1,50 @@
+[
+    {
+        "category": "Developers",
+        "description": "Partnering with visionary developers to lay the groundwork for iconic skylines.",
+        "typicalNeeds": [
+            "Feasibility Studies",
+            "Enabling Works",
+            "Deep Foundations"
+        ],
+        "exampleLogos": [
+            "Emaar",
+            "Damac",
+            "Nakheel",
+            "Aldar",
+            "Dubai Properties"
+        ]
+    },
+    {
+        "category": "Contractors",
+        "description": "Supporting main contractors with specialized geotechnical and piling expertise.",
+        "typicalNeeds": [
+            "Subcontracted Piling",
+            "Shoring Systems",
+            "Dewatering"
+        ],
+        "exampleLogos": [
+            "Arabtec",
+            "Al Naboodah",
+            "ASGC",
+            "Six Construct",
+            "Acciona"
+        ]
+    },
+    {
+        "category": "Consultants",
+        "description": "Collaborating with engineering consultants to deliver verified, safe, and optimized ground solutions.",
+        "typicalNeeds": [
+            "Design Verification",
+            "Load Testing Reports",
+            "Geotechnical Surveys"
+        ],
+        "exampleLogos": [
+            "Aecom",
+            "WSP",
+            "Atkins",
+            "Khatib & Alami",
+            "Dar Al-Handasah"
+        ]
+    }
+]
