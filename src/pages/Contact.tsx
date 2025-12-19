@@ -8,7 +8,7 @@ export const Contact = () => {
 
     return (
         <>
-            <div className="pt-32 pb-20 bg-neutral-dark text-white text-center">
+            <div className="pt-32 pb-40 bg-neutral-dark text-white text-center slant-divider-bottom-lg">
                 <h1 className="text-5xl font-display font-bold mb-4">Contact Us</h1>
                 <p className="text-neutral-400">We are ready to discuss your next challenge.</p>
             </div>

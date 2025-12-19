@@ -30,7 +30,7 @@ export const ProjectDetail = () => {
     return (
         <>
             {/* Hero */}
-            <div className="relative h-[70vh] w-full">
+            <div className="relative h-[70vh] w-full slant-divider-bottom-lg">
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30 z-10" />
                     <img src={project.heroImage} alt={project.title} className="w-full h-full object-cover" />
@@ -88,7 +88,7 @@ export const ProjectDetail = () => {
                         </div>
                     </div>
 
-                    <div className="bg-neutral-50 p-8 rounded-lg h-fit border border-neutral-100">
+                    <div className="bg-neutral-50 p-8 slant-br h-fit border border-neutral-100">
                         <h3 className="text-xl font-bold text-primary mb-6 uppercase tracking-wider">Scope of Work</h3>
                         <ul className="space-y-4">
                             {project.scope.map((s, i) => (
@@ -103,8 +103,8 @@ export const ProjectDetail = () => {
 
             {/* Metrics */}
             {Object.keys(project.metrics).length > 0 && (
-                <div className="bg-primary text-white py-16">
-                    <div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="bg-primary text-white py-24 slant-divider-lg slant-divider-bottom-lg -my-20 relative z-10">
+                    <div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-8 py-12">
                         {Object.entries(project.metrics).map(([key, value]) => (
                             <div key={key} className="text-center">
                                 <div className="text-4xl lg:text-5xl font-bold mb-2 text-accent">{value}</div>
@@ -122,7 +122,7 @@ export const ProjectDetail = () => {
                         <h2 className="text-3xl font-bold text-primary mb-8">Project Gallery</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {project.gallery.map((img, i) => (
-                                <img key={i} src={img} alt={`Gallery ${i}`} className="rounded-lg shadow-sm hover:shadow-lg transition-shadow w-full h-64 object-cover" />
+                                <img key={i} src={img} alt={`Gallery ${i}`} className="slant-br shadow-sm hover:shadow-lg transition-shadow w-full h-64 object-cover" />
                             ))}
                         </div>
                     </div>
@@ -131,7 +131,7 @@ export const ProjectDetail = () => {
 
             {/* Related */}
             {related.length > 0 && (
-                <Section className="bg-neutral-50">
+                <Section className="bg-neutral-50" slantedTop>
                     <div className="container-custom">
                         <div className="flex justify-between items-end mb-8">
                             <h2 className="text-3xl font-bold text-primary">Similar Projects</h2>

@@ -29,10 +29,14 @@ export const Hero = () => {
                         Dubai · United Arab Emirates
                     </span>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight mb-6 leading-tight">
-                        The Bond <br />
-                        <span className="text-accent">of Success</span>
-                    </h1>
+                    <div className="inline-block relative mb-6">
+                        <div className="absolute inset-0 bg-accent slant-br -mx-8 -my-4 translate-x-3 translate-y-3 z-[-2]" />
+                        <div className="absolute inset-0 bg-primary slant-br -mx-8 -my-4 z-[-1]" />
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight leading-tight px-4">
+                            The Bond <br />
+                            <span className="text-accent underline-offset-8">of Success</span>
+                        </h1>
+                    </div>
 
                     <p className="max-w-2xl mx-auto text-lg md:text-xl text-neutral-200 mb-10 font-light leading-relaxed">
                         Your foundation experts in piling, shoring & ground engineering.

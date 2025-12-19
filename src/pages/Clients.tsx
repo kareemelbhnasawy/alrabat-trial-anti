@@ -6,7 +6,7 @@ import { Button } from '../components/ui/Button';
 export const Clients = () => {
     return (
         <>
-            <div className="pt-32 pb-20 bg-neutral-dark text-white text-center">
+            <div className="pt-32 pb-40 bg-neutral-dark text-white text-center slant-divider-bottom-lg">
                 <div className="container-custom">
                     <span className="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Trusted Partners</span>
                     <h1 className="text-5xl font-display font-bold mb-6">Our Clients</h1>
@@ -34,7 +34,7 @@ export const Clients = () => {
 
                             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
                                 {category.exampleLogos.map((logo, i) => (
-                                    <div key={i} className="aspect-square bg-white border border-neutral-100 rounded-lg flex items-center justify-center p-6 shadow-sm hover:shadow-md transition-shadow group">
+                                    <div key={i} className="aspect-square bg-white border border-neutral-100 slant-br flex items-center justify-center p-6 shadow-sm hover:shadow-md transition-shadow group">
                                         <span className="text-neutral-300 font-bold text-lg text-center group-hover:text-primary transition-colors">{logo}</span>
                                         {/* In real app, img tag here */}
                                     </div>

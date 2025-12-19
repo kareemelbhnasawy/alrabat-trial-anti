@@ -10,7 +10,7 @@ export const Divisions = () => {
     return (
         <>
             {/* Hero */}
-            <div className="bg-primary text-white pt-32 pb-20 relative overflow-hidden">
+            <div className="bg-primary text-white pt-32 pb-40 relative overflow-hidden slant-divider-bottom-lg">
                 <div className="absolute inset-0 z-0 opacity-20">
                     <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=80" alt="Background" className="w-full h-full object-cover" />
                 </div>

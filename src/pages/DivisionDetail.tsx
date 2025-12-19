@@ -36,7 +36,7 @@ export const DivisionDetail = () => {
     return (
         <>
             {/* Hero */}
-            <div className="relative h-[60vh] min-h-[500px] flex items-center">
+            <div className="relative h-[60vh] min-h-[500px] flex items-center slant-divider-bottom-lg">
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-primary/80 z-10" />
                     <img src={division.heroImage} alt={division.name} className="w-full h-full object-cover" />
@@ -72,7 +72,7 @@ export const DivisionDetail = () => {
                         <h2 className="text-3xl font-display font-bold text-primary mb-8">Key Services</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {division.keyServices.map((service, idx) => (
-                                <div key={idx} className="bg-neutral-50 p-6 rounded-lg border-l-4 border-primary hover:bg-white hover:shadow-md transition-all">
+                                <div key={idx} className="bg-neutral-50 p-6 slant-br border-l-4 border-primary hover:bg-white hover:shadow-md transition-all">
                                     <h3 className="font-bold text-primary mb-2">{service}</h3>
                                 </div>
                             ))}
@@ -83,7 +83,7 @@ export const DivisionDetail = () => {
 
             {/* Related Projects */}
             {relatedProjects.length > 0 && (
-                <Section className="bg-neutral-50">
+                <Section className="bg-neutral-50" slantedTop>
                     <div className="container-custom">
                         <h2 className="text-3xl font-display font-bold text-primary mb-12">Related Projects</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -96,7 +96,7 @@ export const DivisionDetail = () => {
             )}
 
             {/* CTA */}
-            <div className="bg-primary-dark text-white py-24">
+            <div className="bg-primary-dark text-white py-32 slant-divider-lg -mt-20 relative z-10">
                 <div className="container-custom text-center">
                     <h2 className="text-4xl font-display font-bold mb-6">Ready to start your project?</h2>
                     <p className="text-neutral-300 mb-10 max-w-2xl mx-auto">

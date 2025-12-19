@@ -29,19 +29,22 @@ export const Overview = () => {
                     <div className="absolute -top-10 -right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
                     <div className="relative z-10 grid grid-cols-2 gap-4">
                         <div className="space-y-4 mt-8">
-                            <div className="bg-white p-6 shadow-xl rounded-lg border-t-4 border-accent">
-                                <h3 className="text-4xl font-bold text-primary mb-1">15+</h3>
+                            <div className="bg-white p-6 shadow-xl slant-br relative overflow-hidden group">
+                                <div className="absolute top-0 left-0 right-0 h-1.5 bg-accent" />
+                                <h3 className="text-4xl font-bold text-primary mb-1 mt-2">15+</h3>
                                 <p className="text-sm text-neutral-500 font-medium uppercase">Years Experience</p>
                             </div>
-                            <div className="bg-primary p-6 shadow-xl rounded-lg text-white">
-                                <h3 className="text-4xl font-bold mb-1">6</h3>
+                            <div className="bg-primary p-6 shadow-xl slant-tl text-white relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-24 h-1.5 bg-accent" />
+                                <h3 className="text-4xl font-bold mb-1 mt-2">6</h3>
                                 <p className="text-sm text-white/70 font-medium uppercase">Specialized Divisions</p>
                             </div>
                         </div>
                         <div className="space-y-4">
                             <div className="bg-neutral-bg p-6"></div> {/* Spacer */}
-                            <div className="bg-white p-6 shadow-xl rounded-lg border-t-4 border-primary">
-                                <h3 className="text-4xl font-bold text-primary mb-1">5M+</h3>
+                            <div className="bg-white p-6 shadow-xl slant-br relative overflow-hidden">
+                                <div className="absolute top-0 left-0 right-0 h-1.5 bg-primary" />
+                                <h3 className="text-4xl font-bold text-primary mb-1 mt-2">5M+</h3>
                                 <p className="text-sm text-neutral-500 font-medium uppercase">Safe Man-Hours</p>
                             </div>
                         </div>

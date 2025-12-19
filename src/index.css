@@ -8,10 +8,17 @@
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-neutral-bg text-neutral-dark font-sans antialiased overflow-x-hidden;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display font-bold tracking-tight;
   }
 }
@@ -20,14 +27,40 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
+  /* Slanted Edges */
+  .slant-br {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%);
+  }
+
+  .slant-tl {
+    clip-path: polygon(40px 0, 100% 0, 100% 100%, 0 100%, 0 40px);
+  }
+
+  /* Advanced Dividers */
+  .slant-divider-lg {
+    clip-path: polygon(0 80px, 80px 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .slant-divider-bottom-lg {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), calc(100% - 80px) 100%, 0 100%);
+  }
+
+  .slant-accent-stripe {
+    @apply absolute bg-accent w-full z-20 top-0 left-0;
+    height: 100px;
+    pointer-events: none;
+  }
+
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
+
   ::-webkit-scrollbar-track {
     @apply bg-neutral-100;
   }
+
   ::-webkit-scrollbar-thumb {
     @apply bg-primary-light/50 rounded-full hover:bg-primary;
   }
