@@ -7,7 +7,7 @@ export const Overview = () => {
         <Section>
             <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <span className="text-accent font-bold tracking-widest uppercase text-sm mb-2 block">Who We Are</span>
+                    <span className="text-accent font-normal tracking-widest uppercase text-sm mb-2 block">Who We Are</span>
                     <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-6">
                         Building the foundation <br /> of the future.
                     </h2>

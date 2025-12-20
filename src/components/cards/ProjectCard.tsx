@@ -32,7 +32,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                     {/* Division Chip */}
                     <div className="absolute top-4 left-4 z-20">
                         <span
-                            className="text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-sm shadow-sm"
+                            className="text-white text-xs font-normal uppercase tracking-wider px-3 py-1.5 rounded-sm shadow-sm"
                             style={{ backgroundColor: accentColor }}
                         >
                             {division?.name || project.category}

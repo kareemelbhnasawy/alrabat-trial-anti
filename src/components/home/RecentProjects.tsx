@@ -12,7 +12,7 @@ export const RecentProjects = () => {
         <Section slantedTop>
             <div className="container-custom mb-12 flex flex-col md:flex-row justify-between items-end">
                 <div>
-                    <span className="text-accent font-bold tracking-widest uppercase text-sm mb-2 block">Portfolio</span>
+                    <span className="text-accent font-normal tracking-widest uppercase text-sm mb-2 block">Portfolio</span>
                     <h2 className="text-4xl font-display font-bold text-primary">Featured Projects</h2>
                 </div>
                 <Button variant="outline" onClick={() => window.location.href = '/projects'} className="mt-4 md:mt-0">

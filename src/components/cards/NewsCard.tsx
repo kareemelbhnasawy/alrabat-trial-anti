@@ -20,7 +20,7 @@ export const NewsCard = ({ news }: NewsCardProps) => {
                     />
                 </div>
                 <div className="p-8 flex flex-col flex-1">
-                    <div className="flex items-center text-xs font-bold text-accent uppercase tracking-wider mb-3">
+                    <div className="flex items-center text-xs font-normal text-accent uppercase tracking-wider mb-3">
                         <span>{news.category}</span>
                         <span className="mx-2 text-neutral-300">•</span>
                         <span className="text-neutral-500">{news.date}</span>
@@ -31,7 +31,7 @@ export const NewsCard = ({ news }: NewsCardProps) => {
                     <p className="text-neutral-500 text-sm leading-relaxed mb-6 flex-1">
                         {news.excerpt}
                     </p>
-                    <div className="flex items-center text-primary font-bold text-sm">
+                    <div className="flex items-center text-primary font-medium text-sm">
                         Read Article <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                     </div>
                 </div>

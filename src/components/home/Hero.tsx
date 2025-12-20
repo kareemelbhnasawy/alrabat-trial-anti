@@ -29,11 +29,11 @@ export const Hero = () => {
                         Dubai · United Arab Emirates
                     </span> */}
 
-                    <div className="flex justify-center mb-8">
+                    <div className="flex justify-center mb-0">
                         <img
                             src="/assets/square-logo.png"
                             alt="Alrabat SE Logo"
-                            className="h-80 md:h-40 lg:h-80 w-auto object-contain"
+                            className="h-40 md:h-20 lg:h-40 w-auto object-cover"
                         />
                     </div>
 

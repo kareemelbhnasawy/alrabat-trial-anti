@@ -41,7 +41,7 @@ export const DivisionCard = ({ division, index }: DivisionCardProps) => {
                     <p className="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2">
                         {division.summary}
                     </p>
-                    <div className="flex items-center text-primary font-bold text-sm group-hover:text-[var(--accent)] transition-colors">
+                    <div className="flex items-center text-primary font-medium text-sm group-hover:text-[var(--accent)] transition-colors">
                         Learn More <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                     </div>
                 </div>
