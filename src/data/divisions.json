@@ -6,6 +6,24 @@
         "accentColor": "#961E1E",
         "heroImage": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80",
         "summary": "Deep foundation solutions ensuring structural integrity for high-rise and complex infrastructure.",
+        "introSection": {
+            "title": "SPECIALIZED FOUNDATIONS",
+            "description": "Deep foundation engineering is the bedrock of modern infrastructure. We provide comprehensive solutions to ensure structural stability in the most challenging soil conditions.",
+            "services": [
+                {
+                    "title": "BORED PILING",
+                    "description": "Installation of large-diameter piles for high-rise buildings and heavy bridges."
+                },
+                {
+                    "title": "SHORING SYSTEMS",
+                    "description": "Secant and contiguous pile walls to support deep excavations safely."
+                },
+                {
+                    "title": "GROUND ANCHORS",
+                    "description": "Temporary and permanent anchoring systems for retaining structures."
+                }
+            ]
+        },
         "capabilities": [
             "Bored Piling (up to 2500mm diameter)",
             "CFA Piling (Continuous Flight Auger)",
@@ -30,6 +48,24 @@
         "accentColor": "#996200",
         "heroImage": "https://images.unsplash.com/photo-1758634057888-7a4f9e50322a?auto=format&fit=crop&w=1600&q=80",
         "summary": "Advanced soil stabilization techniques to enhance load-bearing capacity and mitigate settlement.",
+        "introSection": {
+            "title": "GROUND ENGINEERING",
+            "description": "We transform problematic soils into solid foundations through advanced ground improvement techniques, optimizing project costs and timelines.",
+            "services": [
+                {
+                    "title": "VIBRO COMPACTION",
+                    "description": "Densification of granular soils to increase bearing capacity and reduce settlement."
+                },
+                {
+                    "title": "DYNAMIC COMPACTION",
+                    "description": "High-energy impact densification for large-scale land reclamation projects."
+                },
+                {
+                    "title": "STONE COLUMNS",
+                    "description": "Vertical inclusions to reinforce soft cohesive soils and accelerate consolidation."
+                }
+            ]
+        },
         "capabilities": [
             "Vibro Compaction / Vibro Replacment",
             "Dynamic Compaction",
@@ -53,6 +89,24 @@
         "accentColor": "#703000",
         "heroImage": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
         "summary": "Comprehensive civil works including roads, utilities, and enabling works for mega-developments.",
+        "introSection": {
+            "title": "SPECIALIZED ENGINEERING",
+            "description": "Enabling works refer to the comprehensive preparation of a construction site, addressing all preparatory needs efficiently and effectively.",
+            "services": [
+                {
+                    "title": "SITE PREPARATION",
+                    "description": "Site Fence, Hoarding, Signboard, Port cabins, removal of vegetation and site leveling."
+                },
+                {
+                    "title": "EXCAVATION AND EARTHWORKS",
+                    "description": "Digging and moving soil to create foundations and level the site."
+                },
+                {
+                    "title": "TEMPORARY ACCESS ROADS",
+                    "description": "Constructing roads for machinery and material transport."
+                }
+            ]
+        },
         "capabilities": [
             "Site Preparation & Earthworks",
             "Roads & Pavements",
@@ -76,6 +130,24 @@
         "accentColor": "#005C9B",
         "heroImage": "https://images.unsplash.com/photo-1691732615771-1d6cada73c20?auto=format&fit=crop&w=1600&q=80",
         "summary": "Specialized marine construction services for ports, jetties, and coastal protection.",
+        "introSection": {
+            "title": "MARINE CONSTRUCTION",
+            "description": "We deliver intricate marine structures and coastal protection solutions, working in challenging offshore and nearshore environments.",
+            "services": [
+                {
+                    "title": "QUAY WALLS & JETTIES",
+                    "description": "Construction of durable berthing structures for ports and harbors."
+                },
+                {
+                    "title": "DREDGING works",
+                    "description": "Deepening of waterways and land reclamation for coastal development."
+                },
+                {
+                    "title": "COASTAL PROTECTION",
+                    "description": "Breakwaters and rock revetments to protect shorelines from erosion."
+                }
+            ]
+        },
         "capabilities": [
             "Quay Walls & Jetties",
             "Dredging & Reclamation",
@@ -99,6 +171,24 @@
         "accentColor": "#137C1A",
         "heroImage": "https://images.unsplash.com/photo-1759390304567-c322de52f8bc?auto=format&fit=crop&w=1600&q=80",
         "summary": "A vast fleet of state-of-the-art heavy machinery available for specialized rental and project support.",
+        "introSection": {
+            "title": "HEAVY MACHINERY",
+            "description": "Our fleet supports complex construction needs with reliable, high-performance equipment and expert operators.",
+            "services": [
+                {
+                    "title": "PILING RIGS",
+                    "description": "Advanced Bauer and Liebherr rigs for deep foundation execution."
+                },
+                {
+                    "title": "LIFTING SOLUTIONS",
+                    "description": "Mobile and crawler cranes for heavy lifting operations."
+                },
+                {
+                    "title": "EARTHMOVING",
+                    "description": "Excavators, loaders, and dozers for efficient site preparation."
+                }
+            ]
+        },
         "capabilities": [
             "Piling Rigs (Bauer, Liebherr)",
             "Cranes (Crawler & Mobile)",
@@ -120,6 +210,24 @@
         "accentColor": "#4B5563",
         "heroImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
         "summary": "Engineering expertise tailored to solving complex geotechnical challenges before breaking ground.",
+        "introSection": {
+            "title": "TECHNICAL CONSULTANCY",
+            "description": "Expert engineering advice to optimize designs, mitigate risks, and enhance project value from the ground up.",
+            "services": [
+                {
+                    "title": "GEOTECHNICAL DESIGN",
+                    "description": "Optimized foundation designs based on rigorous soil analysis."
+                },
+                {
+                    "title": "VALUE ENGINEERING",
+                    "description": "Cost-saving technical solutions without compromising performance."
+                },
+                {
+                    "title": "FEASIBILITY STUDIES",
+                    "description": "Technical and economic assessment of project viability."
+                }
+            ]
+        },
         "capabilities": [
             "Geotechnical Design & Analysis",
             "Value Engineering Solutions",

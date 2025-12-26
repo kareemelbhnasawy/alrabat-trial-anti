@@ -23,6 +23,14 @@ export interface Division {
     heroImage: string;
     summary: string;
     accentColor?: string;
+    introSection?: {
+        title: string;
+        description: string;
+        services: {
+            title: string;
+            description: string;
+        }[];
+    };
     capabilities: string[];
     keyServices: string[];
     relatedProjectSlugs: string[];

@@ -53,8 +53,50 @@ export const DivisionDetail = () => {
                 </div>
             </div>
 
+            {/* Intro Section */}
+            {division.introSection && (
+                <div className="container-custom py-24">
+                    <div className="max-w-4xl mx-auto">
+                         {/* Accent Mark */}
+                         <div 
+                            className="w-16 h-2 mb-6 transform -skew-x-12" 
+                            style={{ backgroundColor: '#F05B22' }} 
+                        />
+                        
+                        <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-8 uppercase leading-tight">
+                            {division.introSection.title}
+                        </h2>
+
+                        <p className="text-xl text-neutral-600 leading-relaxed mb-12">
+                            {division.introSection.description}
+                        </p>
+
+                        <div className="mb-8">
+                            <h3 className="text-lg font-bold text-primary mb-6">Our services include:</h3>
+                            <ul className="space-y-6">
+                                {division.introSection.services.map((service, idx) => (
+                                    <li key={idx}>
+                                        <div className="flex items-start">
+                                            {/* Custom Bullet */}
+                                            <div 
+                                                className="w-4 h-1 mt-3 mr-4 transform -skew-x-12 flex-shrink-0" 
+                                                style={{ backgroundColor: division.accentColor || '#025440' }} 
+                                            />
+                                            <div>
+                                                <h4 className="text-lg font-bold text-primary uppercase mb-1">{service.title}</h4>
+                                                <p className="text-neutral-600 text-lg">{service.description}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             {/* Capabilities & Services */}
-            <Section>
+            <Section className="bg-neutral-bg">
                 <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div>
                         <h2 className="text-3xl font-display font-bold text-primary mb-8">Core Capabilities</h2>
