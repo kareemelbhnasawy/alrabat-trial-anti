@@ -9,20 +9,16 @@ interface DivisionCardProps {
 }
 
 export const DivisionCard = ({ division, index }: DivisionCardProps) => {
-    const accentColor = division.accentColor || '#F05B22'; // Default accent
-
     return (
         <div className="relative group h-full">
             <div
-                className="absolute inset-0 rounded-lg translate-x-1.5 translate-y-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"
-                style={{ backgroundColor: accentColor }}
+                className="absolute inset-0 rounded-lg translate-x-2.5 translate-y-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0 border border-neutral-300 bg-neutral-200"
             />
             <Link
                 to={`/divisions/${division.slug}`}
                 className="relative z-10 block overflow-hidden rounded-lg bg-white shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-300 border border-neutral-100 h-full"
-                style={{ '--accent': accentColor } as React.CSSProperties}
             >
-                <div className="h-64 overflow-hidden">
+                <div className="h-56 overflow-hidden">
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors z-10" />
                 <img
                     src={division.heroImage}
@@ -35,17 +31,17 @@ export const DivisionCard = ({ division, index }: DivisionCardProps) => {
                     0{index + 1}
                 </span>
                 <div className="relative z-10">
-                    <h3 className="text-2xl font-display font-bold text-primary mb-3 group-hover:text-[var(--accent)] transition-colors">
+                    <h3 className="text-xl font-display font-bold text-primary mb-3 group-hover:text-opacity-80 transition-colors">
                         {division.name}
                     </h3>
                     <p className="text-neutral-500 text-sm leading-relaxed mb-6 line-clamp-2">
                         {division.summary}
                     </p>
-                    <div className="flex items-center text-primary font-medium text-sm group-hover:text-[var(--accent)] transition-colors">
+                    <div className="flex items-center text-primary font-medium text-sm">
                         Learn More <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                     </div>
                 </div>
-                <div className="absolute bottom-0 left-0 h-1 w-0 bg-[var(--accent)] group-hover:w-full transition-all duration-300" />
+                {/* Removed bottom accent bar */}
             </div>
             </Link>
         </div>

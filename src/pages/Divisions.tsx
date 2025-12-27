@@ -1,8 +1,7 @@
-import React from 'react';
+import { NewsCard } from '../components/cards/NewsCard';
 import { Section } from '../components/ui/Section';
-import { DivisionCard } from '../components/cards/DivisionCard';
 import divisionsData from '../data/divisions.json';
-import type { Division } from '../types';
+import type { Division, NewsArticle } from '../types';
 
 export const Divisions = () => {
     const divisions = divisionsData as unknown as Division[];
@@ -27,7 +26,12 @@ export const Divisions = () => {
             <Section>
                 <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {divisions.map((division, idx) => (
-                        <DivisionCard key={division.id} division={division} index={idx} />
+                        <NewsCard 
+                            key={division.id} 
+                            news={division as any} 
+                            basePath="divisions"
+                            accentColor={division.accentColor}
+                        />
                     ))}
                 </div>
             </Section>

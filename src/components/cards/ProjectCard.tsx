@@ -16,8 +16,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
         <div className="relative group h-full">
             <div
-                className="absolute inset-0 slant-br translate-x-1.5 translate-y-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"
-                style={{ backgroundColor: accentColor }}
+                className="absolute inset-0 slant-br translate-x-2.5 translate-y-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0 border border-neutral-300 bg-neutral-200"
             />
             <Link to={`/projects/${project.slug}`} className="relative z-10 block h-full bg-white slant-br shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-300 overflow-hidden flex flex-col">
                 {/* Image Section */}
@@ -60,14 +59,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                         {project.summary}
                     </p>
 
-                    {/* Bottom Slanted Strip */}
-                    <div
-                        className="absolute bottom-0 right-0 w-full h-12 transition-all duration-300 z-10 pointer-events-none"
-                        style={{
-                            backgroundColor: accentColor,
-                            clipPath: 'polygon(0 calc(100% - 2px), calc(100% - 42px) calc(100% - 2px), calc(100% - 2px) calc(100% - 42px), 100% calc(100% - 41.5px), 100% 100%, 0 100%)'
-                        }}
-                    />
+
                 </div>
             </Link>
         </div>
