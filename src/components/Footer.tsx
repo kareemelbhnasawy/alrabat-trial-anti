@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Linkedin, Instagram, ArrowRight, Twitter } from 'lucide-react';
+import { Logo } from './ui/Logo';
 
 export const Footer = () => {
     return (
@@ -8,10 +9,8 @@ export const Footer = () => {
             <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 {/* Brand */}
                 <div className="space-y-6">
-                    <div className="flex flex-col leading-none">
-                        <span className="text-3xl font-display font-extrabold tracking-tighter text-white">ALRABAT</span>
-                        <span className="text-3xl font-display font-light text-accent">SE</span>
-                        <span className="mt-2 text-xs uppercase tracking-[0.2em] text-white/60">Specialized Engineering</span>
+                    <div className="mb-6">
+                        <Logo />
                     </div>
                     <p className="text-neutral-300 text-sm leading-relaxed max-w-xs">
                         "THE BOND OF SUCCESS"
@@ -52,7 +51,7 @@ export const Footer = () => {
                 </div>
 
                 {/* Newsletter */}
-                <div>
+                {/* <div>
                     <h4 className="font-display font-bold text-lg mb-6 text-accent">Stay Updated</h4>
                     <p className="text-sm text-neutral-300 mb-4">Subscribe to our newsletter for the latest engineering insights.</p>
                     <form className="space-y-3">
@@ -65,7 +64,7 @@ export const Footer = () => {
                             Subscribe <ArrowRight size={16} className="ml-2" />
                         </button>
                     </form>
-                </div>
+                </div> */}
             </div>
 
             <div className="container-custom pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400">
