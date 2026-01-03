@@ -3,16 +3,35 @@ import { useData } from "../../context/DataContext";
 import { Button } from "../../components/ui/Button";
 import { Link } from "react-router-dom";
 import { Edit2, Trash2, Plus } from "lucide-react";
+import { ConfirmationModal } from "../../components/ui/ConfirmationModal";
+import { useState } from "react";
 
 export const ProjectList = () => {
   const { projects, deleteProject, divisions } = useData();
+  const [deleteId, setDeleteId] = useState<string | null>(null);
 
   const getDivisionColor = (slug: string) => {
     return divisions.find((d) => d.slug === slug)?.accentColor || "#E5E7EB";
   };
 
+  const handleDelete = () => {
+    if (deleteId) {
+      deleteProject(deleteId);
+      setDeleteId(null);
+    }
+  };
+
   return (
     <div>
+      <ConfirmationModal
+        isOpen={!!deleteId}
+        title="Delete Project"
+        message="Are you sure you want to delete this project? This action cannot be undone."
+        confirmLabel="Delete"
+        isDestructive
+        onConfirm={handleDelete}
+        onCancel={() => setDeleteId(null)}
+      />
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-primary">Projects</h1>
         <Link to="/admin/projects/new">
@@ -62,7 +81,7 @@ export const ProjectList = () => {
                     <Edit2 size={16} />
                   </Link>
                   <button
-                    onClick={() => deleteProject(project.id)}
+                    onClick={() => setDeleteId(project.id)}
                     className="inline-block p-2 text-neutral-400 hover:text-red-500"
                   >
                     <Trash2 size={16} />

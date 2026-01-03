@@ -3,12 +3,31 @@ import { useData } from "../../context/DataContext";
 import { Button } from "../../components/ui/Button";
 import { Link } from "react-router-dom";
 import { Edit2, Trash2, Plus } from "lucide-react";
+import { ConfirmationModal } from "../../components/ui/ConfirmationModal";
+import { useState } from "react";
 
 export const NewsList = () => {
   const { news, deleteNews } = useData();
+  const [deleteId, setDeleteId] = useState<string | null>(null);
+
+  const handleDelete = () => {
+    if (deleteId) {
+      deleteNews(deleteId);
+      setDeleteId(null);
+    }
+  };
 
   return (
     <div>
+      <ConfirmationModal
+        isOpen={!!deleteId}
+        title="Delete Article"
+        message="Are you sure you want to delete this article? This action cannot be undone."
+        confirmLabel="Delete"
+        isDestructive
+        onConfirm={handleDelete}
+        onCancel={() => setDeleteId(null)}
+      />
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-primary">News & Insights</h1>
         <Link to="/admin/news/new">
@@ -47,7 +66,7 @@ export const NewsList = () => {
                     <Edit2 size={16} />
                   </Link>
                   <button
-                    onClick={() => deleteNews(item.id)}
+                    onClick={() => setDeleteId(item.id)}
                     className="inline-block p-2 text-neutral-400 hover:text-red-500"
                   >
                     <Trash2 size={16} />
