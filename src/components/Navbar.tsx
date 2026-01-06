@@ -164,7 +164,7 @@ export const Navbar = () => {
                           >
                             <span className="w-1.5 h-1.5 rounded-full mr-3 bg-primary transition-transform group-hover:scale-125" />
                             <div className="font-bold text-xs uppercase tracking-wider text-left text-neutral-900 group-hover:text-primary transition-colors">
-                              All Divisions
+                              Our Divisions
                             </div>
                           </div>
                           {divisionsData.map((division) => (
@@ -322,7 +322,7 @@ export const Navbar = () => {
                             }}
                             className="text-primary/80 py-1 cursor-pointer font-medium hover:text-accent transition-colors"
                           >
-                            All Divisions
+                            Our Divisions
                           </div>
                           {divisionsData.map((division) => (
                             <div
