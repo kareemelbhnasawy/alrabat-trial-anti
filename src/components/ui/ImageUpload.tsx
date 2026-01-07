@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Upload, X, Image as ImageIcon } from "lucide-react";
 import { Button } from "./Button";
+import { supabase } from "../../lib/supabase";
 
 interface ImageUploadProps {
   value?: string;
@@ -19,14 +20,30 @@ export const ImageUpload = ({
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFile = (file: File) => {
+  const handleFile = async (file: File) => {
     setIsLoading(true);
-    // Simulate network delay
-    setTimeout(() => {
-      const mockUrl = URL.createObjectURL(file);
-      onChange(mockUrl);
+    try {
+      const fileExt = file.name.split(".").pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("media")
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      const { data } = supabase.storage.from("media").getPublicUrl(filePath);
+
+      onChange(data.publicUrl);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      alert("Error uploading image");
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   const handleDrop = (e: React.DragEvent) => {
@@ -37,17 +54,12 @@ export const ImageUpload = ({
     }
   };
 
-  const handleMockUpload = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      // Random Unsplash Image
-      const randomId = Math.floor(Math.random() * 1000);
-      onChange(
-        `https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80&random=${randomId}`
-      ); // Using key construction image as base but randomized for cache busting
-      setIsLoading(false);
-    }, 1000);
-  };
+  // Mock upload removed as we now use real upload
+  // Kept button for UX but will trigger file select essentially or maybe separate "Test" button?
+  // Let's replace "Mock Upload" with nothing or just keep "Select File" as primary.
+  // Reviewing previous code: "Mock Upload" button was explicitly there.
+  // I will remove the "Mock Upload" button to avoid confusion, or map it to a demo image if requested,
+  // but better to encourage real uploads now. I'll just remove the "Mock Upload" button.
 
   return (
     <div className={`space-y-2 ${className}`}>
@@ -107,14 +119,6 @@ export const ImageUpload = ({
                   onClick={() => fileInputRef.current?.click()}
                 >
                   Select File
-                </Button>
-                <Button
-                  type="button"
-                  size="sm"
-                  variant="ghost"
-                  onClick={handleMockUpload}
-                >
-                  Mock Upload
                 </Button>
               </div>
             </div>

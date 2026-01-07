@@ -1,20 +1,114 @@
 /* Import JEKO font - ensure you have the font files in your project or use a CDN */
 /* You'll need to add JEKO font files to your project and configure them using @font-face */
 @font-face {
-  font-family: 'JEKO';
-  src: url('/fonts/JEKO-Regular.woff2') format('woff2'),
-       url('/fonts/JEKO-Regular.woff') format('woff');
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Thin_Italic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Light_Italic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'JEKO';
-  src: url('/fonts/JEKO-ExtraBold.woff2') format('woff2'),
-       url('/fonts/JEKO-ExtraBold.woff') format('woff');
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Regular_Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Medium_Italic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_SemiBold_Italic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Bold_Italic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Black.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JEKO";
+  src: url("./fonts/Jeko_Black_Italic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -49,7 +143,13 @@
 
   /* Slanted Edges */
   .slant-br {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 40px),
+      calc(100% - 40px) 100%,
+      0 100%
+    );
   }
 
   .slant-tl {
@@ -62,7 +162,13 @@
   }
 
   .slant-divider-bottom-lg {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 80px), calc(100% - 80px) 100%, 0 100%);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 80px),
+      calc(100% - 80px) 100%,
+      0 100%
+    );
   }
 
   .slant-accent-stripe {
