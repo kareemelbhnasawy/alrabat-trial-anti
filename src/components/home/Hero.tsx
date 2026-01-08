@@ -31,7 +31,7 @@ export const Hero = () => {
 
           <div className="flex justify-center mb-0">
             <img
-              src="/assets/square-logo.png"
+              src="https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/square-logo.png"
               alt="Alrabat SE Logo"
               className="h-40 md:h-20 lg:h-40 w-auto object-cover"
             />
