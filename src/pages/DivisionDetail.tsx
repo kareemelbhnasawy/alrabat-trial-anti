@@ -44,11 +44,25 @@ export const DivisionDetail = () => {
       <div className="relative h-[60vh] min-h-[500px] flex items-center slant-divider-bottom-lg">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-primary/60 z-10" />
-          <img
-            src={division.heroImage}
-            alt={division.name}
-            className="w-full h-full object-cover"
-          />
+          {division.heroVideo ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              poster={division.heroImage}
+            >
+              <source src={division.heroVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <img
+              src={division.heroImage}
+              alt={division.name}
+              className="w-full h-full object-cover"
+            />
+          )}
         </div>
         <div className="container-custom relative z-20 text-white">
           <Link

@@ -7,15 +7,24 @@ export const Hero = () => {
   return (
     <div className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Video */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-primary/50 z-10 mix-blend-multiply" />
         <div className="absolute inset-0 bg-black/30 z-10" />
-        <img
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=80"
-          alt="Construction Site"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
-        {/* Placeholder for video - replacing with image for stability if video unavailable */}
+          poster="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=80"
+        >
+          <source
+            src="https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/videos/construction-professional.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Content */}

@@ -5,6 +5,7 @@
         "slug": "foundations",
         "accentColor": "#961E1E",
         "heroImage": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80",
+        "heroVideo": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/videos/construction-professional.mp4",
         "summary": "Deep foundation solutions ensuring structural integrity for high-rise and complex infrastructure.",
         "introSection": {
             "title": "SPECIALIZED FOUNDATIONS",
@@ -47,6 +48,7 @@
         "slug": "ground-improvement",
         "accentColor": "#996200",
         "heroImage": "https://images.unsplash.com/photo-1758634057888-7a4f9e50322a?auto=format&fit=crop&w=1600&q=80",
+        "heroVideo": "https://videos.pexels.com/video-files/2835338/2835338-uhd_2560_1440_24fps.mp4",
         "summary": "Advanced soil stabilization techniques to enhance load-bearing capacity and mitigate settlement.",
         "introSection": {
             "title": "GROUND ENGINEERING",
@@ -88,6 +90,7 @@
         "slug": "infrastructure",
         "accentColor": "#703000",
         "heroImage": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
+        "heroVideo": "https://videos.pexels.com/video-files/2040082/2040082-uhd_2560_1440_25fps.mp4",
         "summary": "Comprehensive civil works including roads, utilities, and enabling works for mega-developments.",
         "introSection": {
             "title": "SPECIALIZED ENGINEERING",
@@ -129,6 +132,7 @@
         "slug": "marine",
         "accentColor": "#005C9B",
         "heroImage": "https://images.unsplash.com/photo-1691732615771-1d6cada73c20?auto=format&fit=crop&w=1600&q=80",
+        "heroVideo": "https://videos.pexels.com/video-files/853923/853923-hd_1920_1080_25fps.mp4",
         "summary": "Specialized marine construction services for ports, jetties, and coastal protection.",
         "introSection": {
             "title": "MARINE CONSTRUCTION",
@@ -170,6 +174,7 @@
         "slug": "equipment",
         "accentColor": "#137C1A",
         "heroImage": "https://images.unsplash.com/photo-1759390304567-c322de52f8bc?auto=format&fit=crop&w=1600&q=80",
+        "heroVideo": "https://videos.pexels.com/video-files/3041907/3041907-uhd_2560_1440_24fps.mp4",
         "summary": "A vast fleet of state-of-the-art heavy machinery available for specialized rental and project support.",
         "introSection": {
             "title": "HEAVY MACHINERY",
@@ -209,6 +214,7 @@
         "slug": "consulting",
         "accentColor": "#4B5563",
         "heroImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
+        "heroVideo": "https://videos.pexels.com/video-files/3129598/3129598-uhd_2560_1440_30fps.mp4",
         "summary": "Engineering expertise tailored to solving complex geotechnical challenges before breaking ground.",
         "introSection": {
             "title": "TECHNICAL CONSULTANCY",
