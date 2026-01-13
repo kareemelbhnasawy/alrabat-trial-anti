@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import type { Project } from "../../types";
 import { useData } from "../../context/DataContext";
+import { motion } from "framer-motion";
 
 interface ProjectCardProps {
   project: Project;
@@ -15,19 +16,36 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   const accentColor = division?.accentColor || "#F05B22";
 
   return (
-    <div className="relative group h-full">
+    <motion.div
+      className="relative group h-full"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        mass: 1,
+      }}
+      whileHover={{
+        y: -8,
+        transition: { type: "spring", stiffness: 300, damping: 20 },
+      }}
+    >
       <div className="absolute inset-0 slant-br translate-x-2.5 translate-y-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 z-0 border border-neutral-300 bg-neutral-200" />
       <Link
         to={`/projects/${project.slug}`}
-        className="relative z-10 block h-full bg-white slant-br shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-300 overflow-hidden flex flex-col"
+        className="relative z-10 block h-full bg-white slant-br shadow-sm transition-all duration-300 overflow-hidden flex flex-col"
       >
         {/* Image Section */}
         <div className="relative h-64 overflow-hidden">
           <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
-          <img
+          <motion.img
             src={project.heroImage}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           />
 
           {/* Division Chip */}
@@ -79,6 +97,6 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           </p>
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 };

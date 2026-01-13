@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { Layout } from "./Layout";
 import { Home } from "./pages/Home";
 import { OurStory } from "./pages/OurStory";
@@ -16,24 +17,28 @@ import { Careers } from "./pages/Careers";
 import { Dashboard } from "./pages/admin/Dashboard";
 
 function App() {
+  const location = useLocation();
+
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about/story" element={<OurStory />} />
-        <Route path="about/team" element={<OurTeam />} />
-        <Route path="divisions" element={<Divisions />} />
-        <Route path="divisions/:slug" element={<DivisionDetail />} />
-        <Route path="clients" element={<Clients />} />
-        <Route path="projects" element={<Projects />} />
-        <Route path="projects/:slug" element={<ProjectDetail />} />
-        <Route path="news" element={<News />} />
-        <Route path="news/:slug" element={<NewsDetail />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="careers" element={<Careers />} />
-      </Route>
-      <Route path="/admin/*" element={<Dashboard />} />
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about/story" element={<OurStory />} />
+          <Route path="about/team" element={<OurTeam />} />
+          <Route path="divisions" element={<Divisions />} />
+          <Route path="divisions/:slug" element={<DivisionDetail />} />
+          <Route path="clients" element={<Clients />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="projects/:slug" element={<ProjectDetail />} />
+          <Route path="news" element={<News />} />
+          <Route path="news/:slug" element={<NewsDetail />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="careers" element={<Careers />} />
+        </Route>
+        <Route path="/admin/*" element={<Dashboard />} />
+      </Routes>
+    </AnimatePresence>
   );
 }
 
