@@ -64,13 +64,11 @@ export const Navbar = () => {
                   className={({ isActive }) =>
                     clsx(
                       "text-sm font-medium tracking-wide transition-colors hover:text-accent flex items-center gap-1",
-                      isActive ||
-                        (link.hasDropdown &&
-                          location.pathname.startsWith("/divisions"))
-                        ? "text-accent"
-                        : isScrolled
-                          ? "text-primary/80"
-                          : "text-white"
+                      isScrolled
+                        ? isActive
+                          ? "text-accent"
+                          : "text-primary/80"
+                        : "text-white"
                     )
                   }
                 >
@@ -89,12 +87,12 @@ export const Navbar = () => {
                 <div
                   className={clsx(
                     "text-sm font-medium tracking-wide transition-colors hover:text-accent flex items-center gap-1 cursor-default",
-                    link.hasDropdown &&
-                      location.pathname.startsWith("/divisions")
-                      ? "text-accent"
-                      : isScrolled
-                        ? "text-primary/80"
-                        : "text-white"
+                    isScrolled
+                      ? link.hasDropdown &&
+                        location.pathname.startsWith("/divisions")
+                        ? "text-accent"
+                        : "text-primary/80"
+                      : "text-white"
                   )}
                 >
                   {link.name}

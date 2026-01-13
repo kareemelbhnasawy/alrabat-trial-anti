@@ -6,6 +6,7 @@ import { ProjectCard } from "../components/cards/ProjectCard";
 import { useData } from "../context/DataContext";
 import type { Division, Project } from "../types";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import { ProjectMap } from "../components/ui/ProjectMap";
 
 export const DivisionDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -19,7 +20,7 @@ export const DivisionDetail = () => {
       const div = divisions.find((d) => d.slug === slug);
       setDivision(div || null);
 
-      const projs = projects.filter((p) => p.divisionSlug === slug);
+      const projs = projects.filter((p) => p.divisionSlugs?.includes(slug));
       setRelatedProjects(projs);
     }
   }, [slug, divisions, projects]);
@@ -90,7 +91,7 @@ export const DivisionDetail = () => {
             {/* Accent Mark */}
             <div
               className="w-16 h-2 mb-6 transform -skew-x-12"
-              style={{ backgroundColor: "#F05B22" }}
+              style={{ backgroundColor: division.accentColor || "#025440" }}
             />
 
             <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-8 uppercase leading-tight">
@@ -113,7 +114,7 @@ export const DivisionDetail = () => {
                       <div
                         className="w-4 h-1 mt-3 mr-4 transform -skew-x-12 flex-shrink-0"
                         style={{
-                          backgroundColor: division.accentColor || "#025440",
+                          backgroundColor: "#F05B22",
                         }}
                       />
                       <div>
@@ -170,6 +171,9 @@ export const DivisionDetail = () => {
           </div>
         </div>
       </Section>
+
+      {/* Division Project Map */}
+      {relatedProjects.length > 0 && <ProjectMap projects={relatedProjects} />}
 
       {/* Related Projects */}
       {relatedProjects.length > 0 && (

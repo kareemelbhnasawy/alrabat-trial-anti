@@ -60,18 +60,27 @@ export const ProjectList = () => {
                 key={project.id}
                 className="hover:bg-neutral-50 transition-colors"
               >
-                <td className="p-4 font-medium text-primary flex items-center">
-                  <span
-                    className="w-2.5 h-2.5 rounded-full mr-3 shrink-0"
-                    style={{
-                      backgroundColor: getDivisionColor(project.divisionSlug),
-                    }}
-                    title={project.divisionSlug}
-                  />
-                  {project.title}
+                <td className="p-4 font-medium text-primary">
+                  <div className="flex items-center">
+                    <div className="flex -space-x-1 mr-3">
+                      {project.divisionSlugs?.map((slug) => (
+                        <div
+                          key={slug}
+                          className="w-2.5 h-2.5 rounded-full ring-1 ring-white"
+                          style={{
+                            backgroundColor: getDivisionColor(slug),
+                          }}
+                          title={slug}
+                        />
+                      ))}
+                    </div>
+                    {project.title}
+                  </div>
                 </td>
                 <td className="p-4 text-neutral-500">{project.category}</td>
-                <td className="p-4 text-neutral-500">{project.divisionSlug}</td>
+                <td className="p-4 text-neutral-500 text-xs">
+                  {project.divisionSlugs?.join(", ")}
+                </td>
                 <td className="p-4 text-neutral-500">{project.location}</td>
                 <td className="p-4 text-right space-x-2">
                   <Link

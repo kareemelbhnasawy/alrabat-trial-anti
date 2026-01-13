@@ -7,11 +7,14 @@ import {
   Settings as SettingsIcon,
   LogOut,
   Home,
+  Users,
 } from "lucide-react";
 import { ProjectList } from "./ProjectList";
 import { ProjectForm } from "./ProjectForm";
 import { NewsList } from "./NewsList";
 import { NewsForm } from "./NewsForm";
+import { ClientList } from "./ClientList";
+import { ClientForm } from "./ClientForm";
 import { Login } from "./Login";
 import { Settings } from "./Settings";
 import { useAuth } from "../../context/AuthContext";
@@ -29,6 +32,7 @@ const AdminLayout = ({
   const navItems = [
     { icon: LayoutDashboard, label: "Overview", path: "/admin" },
     { icon: FolderKanban, label: "Projects", path: "/admin/projects" },
+    { icon: Users, label: "Clients", path: "/admin/clients" },
     { icon: Newspaper, label: "News", path: "/admin/news" },
     { icon: SettingsIcon, label: "Settings", path: "/admin/settings" },
   ];
@@ -159,6 +163,12 @@ export const Dashboard = () => {
                   <Route index element={<NewsList />} />
                   <Route path="new" element={<NewsForm />} />
                   <Route path=":id/edit" element={<NewsForm />} />
+                </Route>
+                <Route path="clients">
+                  <Route index element={<ClientList />} />
+                  <Route path="new" element={<ClientForm />} />
+                  <Route path=":id/edit" element={<ClientForm />} />
+                  <Route path="edit/:id" element={<ClientForm />} />
                 </Route>
                 <Route path="settings" element={<Settings />} />
                 <Route path="*" element={<Navigate to="/admin" />} />

@@ -19,10 +19,7 @@ export const Hero = () => {
           className="w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=80"
         >
-          <source
-            src="https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/videos/construction-professional.mp4"
-            type="video/mp4"
-          />
+          <source src="/hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

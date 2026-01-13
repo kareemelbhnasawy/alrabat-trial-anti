@@ -7,12 +7,116 @@
             "Enabling Works",
             "Deep Foundations"
         ],
-        "exampleLogos": [
-            "Emaar",
-            "Damac",
-            "Nakheel",
-            "Aldar",
-            "Dubai Properties"
+        "clients": [
+            {
+                "name": "Emaar",
+                "isHighlighted": true,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/EMAAR%20LOGO.png"
+            },
+            {
+                "name": "Damac",
+                "isHighlighted": true,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/DAMAC.jpg"
+            },
+            {
+                "name": "Nakheel",
+                "isHighlighted": false
+            },
+            {
+                "name": "Aldar",
+                "isHighlighted": true,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/DAR.jpg"
+            },
+            {
+                "name": "Dubai Properties",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Dubai%20Properties.jpg"
+            },
+            {
+                "name": "Al Tayer",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Al%20Tayer%20Logo.png"
+            },
+            {
+                "name": "Al Waleed Real Estate",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Al%20Waleed%20Real%20Estate.jpg"
+            },
+            {
+                "name": "Alpago Group",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Alpago%20Group%20logo.png"
+            },
+            {
+                "name": "Azizi",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Azizi.png"
+            },
+            {
+                "name": "Binghatti",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Binghatti.png"
+            },
+            {
+                "name": "CORINTHIA",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/CORINTHIA.jpg"
+            },
+            {
+                "name": "DEWA",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/DEWA.png"
+            },
+            {
+                "name": "Dubai Islamic Bank",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Dubai%20Islamic%20Bank%20Logo.webp"
+            },
+            {
+                "name": "Dubai Municipality",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Dubai%20Municipality.png"
+            },
+            {
+                "name": "Ghurair real estate",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Ghurair%20real%20estate.jpg"
+            },
+            {
+                "name": "Goverment of Sharjah",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Goverment%20of%20Sharjah.png"
+            },
+            {
+                "name": "RSG International",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/RSG%20International.webp"
+            },
+            {
+                "name": "RTA",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/RTA.jpg"
+            },
+            {
+                "name": "SRG Properties",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/SRG%20Properties.png"
+            },
+            {
+                "name": "Sobha",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Sobha%20LOGO.png"
+            },
+            {
+                "name": "Thumbs",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/Thumbs.db"
+            },
+            {
+                "name": "Union Coop",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/developers/Union%20Coop.jpg"
+            }
         ]
     },
     {
@@ -23,12 +127,402 @@
             "Shoring Systems",
             "Dewatering"
         ],
-        "exampleLogos": [
-            "Arabtec",
-            "Al Naboodah",
-            "ASGC",
-            "Six Construct",
-            "Acciona"
+        "clients": [
+            {
+                "name": "Arabtec",
+                "isHighlighted": false
+            },
+            {
+                "name": "Al Naboodah",
+                "isHighlighted": true
+            },
+            {
+                "name": "ASGC",
+                "isHighlighted": true
+            },
+            {
+                "name": "Six Construct",
+                "isHighlighted": false
+            },
+            {
+                "name": "Acciona",
+                "isHighlighted": false
+            },
+            {
+                "name": "AL SHAFAR ENGINEERING",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/AL%20SHAFAR%20ENGINEERING.jpg"
+            },
+            {
+                "name": "Accord Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Accord%20Contracting.png"
+            },
+            {
+                "name": "Adnan Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Adnan%20Contracting.jpg"
+            },
+            {
+                "name": "Al Andalos Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Andalos%20Contracting.jpg"
+            },
+            {
+                "name": "Al Kharafi",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Kharafi.jpg"
+            },
+            {
+                "name": "Al Maeraj",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Maeraj.jpeg"
+            },
+            {
+                "name": "Al Malik",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Malik.png"
+            },
+            {
+                "name": "Al Qabdah",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Qabdah.jpeg"
+            },
+            {
+                "name": "Al Rabat Building Foundation",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Rabat%20Building%20Foundation.png"
+            },
+            {
+                "name": "Al Rams Prime",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Rams%20Prime.png"
+            },
+            {
+                "name": "Al Saari",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Saari.png"
+            },
+            {
+                "name": "Al Safa",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Safa.jpg"
+            },
+            {
+                "name": "Al Tamayoz",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Tamayoz.jpg"
+            },
+            {
+                "name": "Al shandagha",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20shandagha.jpg"
+            },
+            {
+                "name": "Alfa Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Alfa%20Contracting.jpeg"
+            },
+            {
+                "name": "BINLADIN CONTRACTING GROUP",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/BINLADIN%20CONTRACTING%20GROUP.png"
+            },
+            {
+                "name": "Becon",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Becon.jpg"
+            },
+            {
+                "name": "Best Dynamic",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Best%20Dynamic.jpg"
+            },
+            {
+                "name": "Bin Dasmal",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Bin%20Dasmal.png"
+            },
+            {
+                "name": "Block on Block",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Block%20on%20Block.png"
+            },
+            {
+                "name": "CJTEC",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/CJTEC.jpg"
+            },
+            {
+                "name": "City creek",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/City%20creek.png"
+            },
+            {
+                "name": "DRYDOCKS WORLD",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/DRYDOCKS%20WORLD.jpeg"
+            },
+            {
+                "name": "Danube Properties",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Danube%20Properties.jpg"
+            },
+            {
+                "name": "Detech",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Detech.png"
+            },
+            {
+                "name": "Domus Group",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Domus%20Group.jpg"
+            },
+            {
+                "name": "ECC",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/ECC.jpg"
+            },
+            {
+                "name": "Edge Plus Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Edge%20Plus%20Contracting.png"
+            },
+            {
+                "name": "FNC",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/FNC.jpg"
+            },
+            {
+                "name": "Future Towers Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Future%20Towers%20Contracting.jpg"
+            },
+            {
+                "name": "GINCO",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/GINCO.png"
+            },
+            {
+                "name": "Golden Wings",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Golden%20Wings.png"
+            },
+            {
+                "name": "Gulf Asia Contracting Co.",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Gulf%20Asia%20Contracting%20Co..png"
+            },
+            {
+                "name": "Gulf Asia",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Gulf%20Asia.png"
+            },
+            {
+                "name": "High Beam Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/High%20Beam%20Contracting.png"
+            },
+            {
+                "name": "High Deep",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/High%20Deep.jpeg"
+            },
+            {
+                "name": "Infinia Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Infinia%20Contracting.png"
+            },
+            {
+                "name": "Jeikor Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Jeikor%20Contracting.png"
+            },
+            {
+                "name": "Luxury",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Luxury.jpg"
+            },
+            {
+                "name": "Madar",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Madar%20Logo.png"
+            },
+            {
+                "name": "Marinas Performance",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Marinas%20Performance.jpeg"
+            },
+            {
+                "name": "Moon Link",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Moon%20Link.png"
+            },
+            {
+                "name": "NAS contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/NAS%20contracting.png"
+            },
+            {
+                "name": "NMDC DREDGING & MARINE",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/NMDC%20DREDGING%20&%20MARINE.jpg"
+            },
+            {
+                "name": "Naresco",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Naresco.jpg"
+            },
+            {
+                "name": "New system engg",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/New%20system%20engg.jpg"
+            },
+            {
+                "name": "ORASCOM CONSTRUCTION",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/ORASCOM%20CONSTRUCTION.png"
+            },
+            {
+                "name": "PLC CONTRACTING (1)",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/PLC%20CONTRACTING%20(1).jpeg"
+            },
+            {
+                "name": "PLC CONTRACTING (2)",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/PLC%20CONTRACTING%20(2).jpg"
+            },
+            {
+                "name": "PLC CONTRACTING (3)",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/PLC%20CONTRACTING%20(3).jpeg"
+            },
+            {
+                "name": "PMK",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/PMK.jpg"
+            },
+            {
+                "name": "Reem General Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Reem%20General%20Contracting.png"
+            },
+            {
+                "name": "SUN ENGINEERING",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/SUN%20ENGINEERING.jpg"
+            },
+            {
+                "name": "Shams Dubai",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Shams%20Dubai.jpg"
+            },
+            {
+                "name": "Skylark",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Skylark.png"
+            },
+            {
+                "name": "Splash Building Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Splash%20Building%20Contracting.png"
+            },
+            {
+                "name": "TIGER",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/TIGER.jpg"
+            },
+            {
+                "name": "Takmel",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Takmel.png"
+            },
+            {
+                "name": "Trilines",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Trilines.jpg"
+            },
+            {
+                "name": "UNEC",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/UNEC.jpg"
+            },
+            {
+                "name": "Venus",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Venus.jpg"
+            },
+            {
+                "name": "Volare Contracting",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Volare%20Contracting.jpg"
+            },
+            {
+                "name": "Wade Adams",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Wade%20Adams.png"
+            },
+            {
+                "name": "Zabeel",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Zabeel.png"
+            },
+            {
+                "name": "al mabna",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/al%20mabna.jpg"
+            },
+            {
+                "name": "arifco",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/arifco.jpg"
+            },
+            {
+                "name": "belresheed",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/belresheed.png"
+            },
+            {
+                "name": "better garden",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/better%20garden.jpg"
+            },
+            {
+                "name": "buhaleeba",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/buhaleeba.jpg"
+            },
+            {
+                "name": "gardinia",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/gardinia.jpg"
+            },
+            {
+                "name": "granada",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/granada.jpg"
+            },
+            {
+                "name": "images",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/images.jpeg"
+            },
+            {
+                "name": "palace",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/palace.jpg"
+            },
+            {
+                "name": "projection",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/projection.jpg"
+            },
+            {
+                "name": "zarooni",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/zarooni.jpg"
+            }
         ]
     },
     {
@@ -39,12 +533,408 @@
             "Load Testing Reports",
             "Geotechnical Surveys"
         ],
-        "exampleLogos": [
-            "Aecom",
-            "WSP",
-            "Atkins",
-            "Khatib & Alami",
-            "Dar Al-Handasah"
+        "clients": [
+            {
+                "name": "Aecom",
+                "isHighlighted": true,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/AECOM.png"
+            },
+            {
+                "name": "WSP",
+                "isHighlighted": true,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/WSP.jpg"
+            },
+            {
+                "name": "Atkins",
+                "isHighlighted": false
+            },
+            {
+                "name": "Khatib & Alami",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Khatib%20&%20Alami.webp"
+            },
+            {
+                "name": "Dar Al-Handasah",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/DAR.jpg"
+            },
+            {
+                "name": "360",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/360.jpg"
+            },
+            {
+                "name": "ADT",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/ADT.jpg"
+            },
+            {
+                "name": "AL Ajmi",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/AL%20Ajmi.jpg"
+            },
+            {
+                "name": "AMEC",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/AMEC.jpg"
+            },
+            {
+                "name": "ART consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/ART%20consultant.webp"
+            },
+            {
+                "name": "ATI",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/ATI.jpg"
+            },
+            {
+                "name": "Adnan Saffarini Engr. Consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Adnan%20Saffarini%20Engr.%20Consultant.jpg"
+            },
+            {
+                "name": "Al Asri",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Al%20Asri.jpeg"
+            },
+            {
+                "name": "Al Hashemi",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Al%20Hashemi.png"
+            },
+            {
+                "name": "Al Majal Engineering Consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Al%20Majal%20Engineering%20Consultant.jpg"
+            },
+            {
+                "name": "Al Reem",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Al%20Reem.jpg"
+            },
+            {
+                "name": "Al SARH",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/contractors/Al%20Sarh.jpg"
+            },
+            {
+                "name": "Al Sandagha",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Al%20Sandagha.jpg"
+            },
+            {
+                "name": "AlShurooq",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/AlShurooq.png"
+            },
+            {
+                "name": "Archdome",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Archdome.webp"
+            },
+            {
+                "name": "Arenco",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Arenco.png"
+            },
+            {
+                "name": "Arif & Bintoak",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Arif%20&%20Bintoak.png"
+            },
+            {
+                "name": "B8 Architectural",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/B8%20Architectural.png"
+            },
+            {
+                "name": "BDA engg. consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/BDA%20engg.%20consultant.png"
+            },
+            {
+                "name": "CVTEC",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/CVTEC.png"
+            },
+            {
+                "name": "Chawla",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Chawla.png"
+            },
+            {
+                "name": "Cubic",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Cubic.jpg"
+            },
+            {
+                "name": "DAR",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/DAR.jpg"
+            },
+            {
+                "name": "Design Center",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Design%20Center.png"
+            },
+            {
+                "name": "Emsquare",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/emsquare.png"
+            },
+            {
+                "name": "Engineering Consortium",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Engineering%20Consortium.jpg"
+            },
+            {
+                "name": "Eskan Engineering Consultancy",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Eskan%20Engineering%20Consultancy.jpg"
+            },
+            {
+                "name": "Estilo Architects",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Estilo%20Architects.jpg"
+            },
+            {
+                "name": "FUTURE ART NEW",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/FUTURE%20ART%20NEW.jpg"
+            },
+            {
+                "name": "Fnp",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Fnp.webp"
+            },
+            {
+                "name": "Future art",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Future%20art.jpg"
+            },
+            {
+                "name": "HighArt",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/HighArt.jpg"
+            },
+            {
+                "name": "Iconic",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Iconic.jpg"
+            },
+            {
+                "name": "KEO",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/KEO.png"
+            },
+            {
+                "name": "Kwec",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Kwec.png"
+            },
+            {
+                "name": "Lacasa",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Lacasa.png"
+            },
+            {
+                "name": "MJU",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/MJU.jpg"
+            },
+            {
+                "name": "Mirage",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Mirage.jpg"
+            },
+            {
+                "name": "Mujassam",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Mujassam.jpg"
+            },
+            {
+                "name": "NEXT engg. consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/NEXT%20engg.%20consultant.png"
+            },
+            {
+                "name": "National engg. bereau",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/National%20engg.%20bereau.jpg"
+            },
+            {
+                "name": "ORIENT CROWN",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/ORIENT%20CROWN.jpg"
+            },
+            {
+                "name": "POE",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/POE.png"
+            },
+            {
+                "name": "Parsons",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Parsons.png"
+            },
+            {
+                "name": "Proline engg. consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Proline%20engg.%20consultant.jpg"
+            },
+            {
+                "name": "Qualiconsult",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Qualiconsult.webp"
+            },
+            {
+                "name": "Renaissance",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Renaissance.png"
+            },
+            {
+                "name": "Renders Engineerin consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Renders%20Engineerin%20consultant.png"
+            },
+            {
+                "name": "Salama",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Salama.png"
+            },
+            {
+                "name": "Shadid Engineering Consultants",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Shadid%20Engineering%20Consultants.jpg"
+            },
+            {
+                "name": "Silver Stone",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Silver%20Stone.jpeg"
+            },
+            {
+                "name": "Socotec",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Socotec.png"
+            },
+            {
+                "name": "Stantec",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Stantec.png"
+            },
+            {
+                "name": "UNICA",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/UNICA.jpg"
+            },
+            {
+                "name": "Urban Habitat",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Urban%20Habitat.png"
+            },
+            {
+                "name": "Xpert engg consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/Xpert%20engg%20consultant.png"
+            },
+            {
+                "name": "ZN era space",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/ZN%20era%20space.jpeg"
+            },
+            {
+                "name": "al anwar",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/al%20anwar.jpg"
+            },
+            {
+                "name": "archline",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/archline.jpg"
+            },
+            {
+                "name": "bel yoahah",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/bel_yoahah.png"
+            },
+            {
+                "name": "conin",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/conin.jpg"
+            },
+            {
+                "name": "erga",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/erga.png"
+            },
+            {
+                "name": "gulf engineering consultant",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/gulf%20engineering%20consultant.jpg"
+            },
+            {
+                "name": "module",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/module.jpg"
+            },
+            {
+                "name": "urban habitat NEW",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/consultants/urban%20habitat%20NEW.jpg"
+            }
+        ]
+    },
+    {
+        "category": "Strategic Partners",
+        "description": "Our valued strategic partners partners.",
+        "typicalNeeds": [],
+        "clients": [
+            {
+                "name": "Adnoc",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/Adnoc.png"
+            },
+            {
+                "name": "CAT",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/CAT.png"
+            },
+            {
+                "name": "EAGLE HILLS",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/EAGLE%20HILLS.png"
+            },
+            {
+                "name": "KALLEEN",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/KALLEEN.jpg"
+            },
+            {
+                "name": "KTC",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/KTC.png"
+            },
+            {
+                "name": "NMDC",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/NMDC.jpeg"
+            },
+            {
+                "name": "ORASCOM",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/ORASCOM.jpg"
+            },
+            {
+                "name": "Sharjah Municipality",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/Sharjah%20Municipality.png"
+            },
+            {
+                "name": "trojan",
+                "isHighlighted": false,
+                "image": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/clients/strategic-partners/trojan.png"
+            }
         ]
     }
 ]

@@ -1,53 +1,95 @@
 [
     {
         "id": "proj-1",
-        "title": "Sky Tower Foundations",
-        "slug": "sky-tower-foundations",
-        "divisionSlug": "foundations",
+        "title": "Al Reem Island Development",
+        "slug": "al-reem-island-development",
         "category": "Major Projects",
-        "location": "Business Bay, Dubai",
+        "divisionSlugs": [
+            "foundations",
+            "marine",
+            "ground-improvement"
+        ],
+        "divisionSlug": "foundations",
+        "location": "Abu Dhabi, UAE",
+        "coordinates": {
+            "lat": 24.4942,
+            "lng": 54.4069
+        },
         "year": "2023",
-        "summary": "Deep piling execution for a 60-storey mixed-use development in challenging soil conditions.",
+        "summary": "A mega-development project requiring extensive soil improvement and deep piling foundations.",
+        "heroImage": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80",
         "scope": [
-            "120 nos. Bored Piles (Dia 1200mm, Depth 45m)",
-            "Secant Pile Wall Shoring (3500 sqm)",
-            "Dewatering & Excavation"
+            "2000 nos. Bored Piles",
+            "Vibro Compaction (500,000 m2)",
+            "Marina Quay Wall Construction"
         ],
         "challenges": [
-            "High groundwater level requiring continuous dewatering.",
-            "Proximity to adjacent operational metro line.",
-            "Strict vibration limits."
+            "High groundwater table.",
+            "Logistics coordination with multiple contractors."
         ],
         "solutions": [
-            "Utilized double-casing method for pile alignment.",
-            "Real-time vibration monitoring sensors installed.",
-            "24/7 dewatering system with automated backups."
+            "Implemented dewatering systems.",
+            "Used 24-hour rotating shifts for continuous piling."
         ],
         "tags": [
-            "High-Rise",
+            "Mixed Use",
             "Piling",
-            "Shoring"
-        ],
-        "heroImage": "https://images.unsplash.com/photo-1689574666551-52eb11c37bcd?auto=format&fit=crop&w=1600&q=80",
-        "gallery": [
-            "https://images.unsplash.com/photo-1652922660696-60c68ec51582?auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+            "Marine"
         ],
         "metrics": {
-            "Concrete Poured": "15,000 m³",
-            "Steel Used": "2,500 Tons",
-            "Man-hours": "50,000+"
-        }
+            "Concrete": "50,000 m3",
+            "Steel": "12,000 tons"
+        },
+        "gallery": [
+            {
+                "url": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80",
+                "divisionSlug": "foundations",
+                "caption": "Deep piling works in progress"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/12.jpg",
+                "divisionSlug": "marine",
+                "caption": "Marine quay wall construction"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/13.jpg",
+                "divisionSlug": "foundations",
+                "caption": "Bored piling rig operation"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/24.jpg",
+                "divisionSlug": "ground-improvement",
+                "caption": "Vibro compaction overview"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/14.jpg",
+                "divisionSlug": "foundations",
+                "caption": "Rebar cage installation"
+            }
+        ],
+        "relatedSlugs": [
+            "marina-mall-extension"
+        ]
     },
     {
         "id": "proj-2",
         "title": "Marina Mall Extension",
         "slug": "marina-mall-extension",
-        "divisionSlug": "foundations",
         "category": "Major Projects",
+        "divisionSlugs": [
+            "foundations",
+            "ground-improvement",
+            "infrastructure"
+        ],
+        "divisionSlug": "foundations",
         "location": "Abu Dhabi, UAE",
+        "coordinates": {
+             "lat": 24.4754,
+             "lng": 54.3214
+        },
         "year": "2022",
         "summary": "Expansion of existing mall foundations utilizing micropiles in confined spaces.",
+        "heroImage": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80",
         "scope": [
             "400 nos. Micropiles",
             "Structural Retrofitting",
@@ -66,95 +108,157 @@
             "Micropiles",
             "Retrofit"
         ],
-        "heroImage": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80",
-        "gallery": [],
         "metrics": {
             "Micropiles": "400 nos.",
             "Zero Incidents": "Safety Award"
-        }
+        },
+        "gallery": [
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/18.jpg",
+                "divisionSlug": "foundations",
+                "caption": "Low headroom piling rig"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/19.jpg",
+                "divisionSlug": "foundations",
+                "caption": "Micropile drilling execution"
+            },
+            {
+                "url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+                "divisionSlug": "infrastructure",
+                "caption": "Site overview during night shift"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/21.jpg",
+                "divisionSlug": "ground-improvement",
+                "caption": "Soil stabilization verification"
+            }
+        ],
+        "relatedSlugs": [
+            "al-reem-island-development"
+        ]
     },
     {
         "id": "proj-3",
-        "title": "Industrial Zone Stabilization",
-        "slug": "industrial-zone-stabilization",
-        "divisionSlug": "ground-improvement",
+        "title": "Etihad Rail Infrastructure",
+        "slug": "etihad-rail-infrastructure",
         "category": "Projects",
-        "location": "Jebel Ali, Dubai",
-        "year": "2024",
-        "summary": "Large-scale soil densification for a logistics warehouse complex.",
+        "divisionSlugs": [
+            "sheet-piling",
+            "infrastructure",
+            "dewatering"
+        ],
+        "divisionSlug": "sheet-piling",
+        "location": "Western Region, UAE",
+        "coordinates": {
+             "lat": 23.9000,
+             "lng": 52.5000
+        },
+        "year": "2021",
+        "summary": "Sheet piling works for rail embankments and bridge abutments protection.",
+        "heroImage": "https://images.unsplash.com/photo-1590644365607-1c5a38fc6103?auto=format&fit=crop&w=1600&q=80",
         "scope": [
-            "Vibro Compaction (50,000 sqm)",
-            "Dynamic Compaction for roadways"
+            "Temporary Sheet Piling (15,000 m2)",
+            "Dewatering for Bridge Foundations"
         ],
         "challenges": [
-            "Loose silty sand layers.",
-            "Tight delivery schedule of 3 months."
+            "Remote desert location.",
+            "Extreme summer temperatures."
         ],
         "solutions": [
-            "Deployed 3 Vibroflots simultaneously.",
-            "Grid-based quality control with CPT testing daily."
+            "Established dedicated labor camps on site.",
+            "Implemented 'mid-day break' compliant schedules."
         ],
         "tags": [
-            "Industrial",
-            "Soil Improvement"
+            "Infrastructure",
+            "Rail",
+            "Sheet Piling"
         ],
-        "heroImage": "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1600&q=80",
-        "gallery": [],
         "metrics": {
-            "Area Treated": "50,000 m²",
-            "Bearing Capacity": "200 kPa"
-        }
+            "Sheet Piles": "15,000 m2",
+            "Man-Hours": "250,000"
+        },
+        "gallery": [
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/15.jpg",
+                "divisionSlug": "sheet-piling",
+                "caption": "Sheet pile installation alignment"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/16.jpg",
+                "divisionSlug": "sheet-piling",
+                "caption": "Vibro hammer in action"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/17.jpg",
+                "divisionSlug": "dewatering",
+                "caption": "Deep well dewatering setup"
+            },
+            {
+                "url": "https://images.unsplash.com/photo-1574359254021-39c278783457?auto=format&fit=crop&w=800&q=80",
+                "divisionSlug": "infrastructure",
+                "caption": "Rail embankment protection"
+            }
+        ],
+        "relatedSlugs": []
     },
     {
         "id": "proj-4",
-        "title": "Expo 2020 Access Roads",
-        "slug": "expo-2020-access-roads",
-        "divisionSlug": "infrastructure",
+        "title": "Dubai Creek Harbour Tower",
+        "slug": "dubai-creek-harbour-tower",
         "category": "Major Projects",
-        "location": "Dubai South",
-        "year": "2020",
-        "summary": "Enabling works and temporary access roads for the Expo 2020 site.",
+        "divisionSlugs": [
+            "foundations",
+            "testing-instrumentation"
+        ],
+        "divisionSlug": "foundations",
+        "location": "Dubai, UAE",
+        "coordinates": {
+             "lat": 25.1955,
+             "lng": 55.3562
+        },
+        "year": "2024",
+        "summary": "Preliminary pile testing for the iconic new super-tall structure.",
+        "heroImage": "https://images.unsplash.com/photo-1558435186-d31d9d6179e6?auto=format&fit=crop&w=1600&q=80",
         "scope": [
-            "10km Temporary Roads",
-            "Site Fencing & Hoarding",
-            "Vegetation Removal"
+            "O-Cell Load Tests",
+            "Barrette Pile Installation",
+            "Sonic Logging"
         ],
-        "challenges": [],
-        "solutions": [],
+        "challenges": [
+            "Unprecedented load requirements.",
+            "Complex geological strata."
+        ],
+        "solutions": [
+            "Used bi-directional static load testing (O-Cell).",
+            "Advanced instrumentation for real-time data."
+        ],
         "tags": [
-            "Infrastructure",
-            "Roads",
-            "Government"
+            "Iconic",
+            "Testing",
+            "Deep Foundations"
         ],
-        "heroImage": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1600&q=80",
-        "gallery": [],
         "metrics": {
-            "Road Length": "10 km",
-            "Completion": "On Time"
-        }
-    },
-    {
-        "id": "proj-5",
-        "title": "Palm Jumeirah Shoreline",
-        "slug": "palm-jumeirah-shoreline",
-        "divisionSlug": "marine",
-        "category": "Projects",
-        "location": "Palm Jumeirah",
-        "year": "2021",
-        "summary": "Rehabilitation of rock revetment and beach reprofiling.",
-        "scope": [
-            "Rock Armour Placement",
-            "Beach Sand Replenishment"
+            "Test Load": "360 MN",
+            "Depth": "120 m"
+        },
+        "gallery": [
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/23.jpg",
+                "divisionSlug": "foundations",
+                "caption": "O-Cell assembly insertion"
+            },
+            {
+                "url": "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/demo-gallery/25.jpg",
+                "divisionSlug": "testing-instrumentation",
+                "caption": "Load test monitoring station"
+            },
+            {
+                "url": "https://images.unsplash.com/photo-1558435186-d31d9d6179e6?auto=format&fit=crop&w=800&q=80",
+                "divisionSlug": "foundations",
+                "caption": "Creek Harbour site view"
+            }
         ],
-        "challenges": [],
-        "solutions": [],
-        "tags": [
-            "Marine",
-            "Coastal",
-            "Residential"
-        ],
-        "heroImage": "https://images.unsplash.com/photo-1662899133299-ab0759512a42?auto=format&fit=crop&w=1600&q=80",
-        "gallery": [],
-        "metrics": {}
+        "relatedSlugs": []
     }
 ]

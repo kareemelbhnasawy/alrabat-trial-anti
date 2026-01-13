@@ -10,8 +10,9 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   const { divisions } = useData();
-  const division = divisions.find((d) => d.slug === project.divisionSlug);
-  const accentColor = division?.accentColor || "#F05B22"; // Default accent if not found
+  const divisionSlug = project.divisionSlugs?.[0];
+  const division = divisions.find((d) => d.slug === divisionSlug);
+  const accentColor = division?.accentColor || "#F05B22";
 
   return (
     <div className="relative group h-full">
@@ -30,13 +31,30 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           />
 
           {/* Division Chip */}
-          <div className="absolute top-4 left-4 z-20">
-            <span
-              className="text-white text-xs font-normal uppercase tracking-wider px-3 py-1.5 rounded-sm shadow-sm"
-              style={{ backgroundColor: accentColor }}
-            >
-              {division?.name || project.category}
-            </span>
+          {/* Division Chips */}
+          <div className="absolute top-4 left-4 z-20 flex flex-col items-start gap-2">
+            {project.divisionSlugs && project.divisionSlugs.length > 0 ? (
+              project.divisionSlugs.map((slug) => {
+                const div = divisions.find((d) => d.slug === slug);
+                if (!div) return null;
+                return (
+                  <span
+                    key={slug}
+                    className="text-white text-xs font-normal uppercase tracking-wider px-3 py-1.5 rounded-sm shadow-sm"
+                    style={{ backgroundColor: div.accentColor || "#F05B22" }}
+                  >
+                    {div.name}
+                  </span>
+                );
+              })
+            ) : (
+              <span
+                className="text-white text-xs font-normal uppercase tracking-wider px-3 py-1.5 rounded-sm shadow-sm"
+                style={{ backgroundColor: "#F05B22" }} // Fallback color
+              >
+                {project.category}
+              </span>
+            )}
           </div>
 
           <div className="absolute top-4 right-4 z-20 bg-white p-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-lg">

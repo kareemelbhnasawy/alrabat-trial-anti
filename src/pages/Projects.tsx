@@ -20,7 +20,8 @@ export const Projects = () => {
       const matchCategory =
         activeCategory === "All" || project.category === activeCategory;
       const matchDivision =
-        activeDivision === "All" || project.divisionSlug === activeDivision;
+        activeDivision === "All" ||
+        project.divisionSlugs?.includes(activeDivision);
       const matchSearch =
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.location.toLowerCase().includes(searchQuery.toLowerCase());

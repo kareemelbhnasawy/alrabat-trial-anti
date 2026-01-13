@@ -1,8 +1,14 @@
+export interface GalleryItem {
+  url: string;
+  divisionSlug?: string;
+  caption?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
   slug: string;
-  divisionSlug: string;
+  divisionSlugs: string[];
   category: "Major Projects" | "Projects";
   location: string;
   year: string;
@@ -12,8 +18,12 @@ export interface Project {
   solutions: string[];
   tags: string[];
   heroImage: string;
-  gallery: string[];
+  gallery: GalleryItem[];
   metrics: Record<string, string>;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
 }
 
 export interface Division {
@@ -46,10 +56,28 @@ export interface NewsArticle {
   readingTime: string;
   excerpt: string;
   heroImage: string;
+  gallery: string[];
   bodyBlocks: {
     type: "paragraph" | "quote" | "image";
     content: string;
     author?: string;
   }[];
   relatedSlugs: string[];
+}
+
+export interface ClientCategory {
+  id: string;
+  name: string;
+  description: string;
+  typical_needs?: string[];
+  clients?: Client[];
+}
+
+export interface Client {
+  id: string;
+  name: string;
+  image?: string;
+  details?: string;
+  is_highlighted: boolean;
+  category_id: string;
 }

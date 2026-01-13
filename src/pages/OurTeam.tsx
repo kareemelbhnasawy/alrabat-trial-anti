@@ -32,6 +32,7 @@ export const OurTeam = () => {
               {
                 name: "Aman Lashin",
                 role: "Co-Founder & Managing Director",
+                email: "aman.lashin@alrabat.com",
                 image:
                   "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=500&q=80",
                 bio: "Driving strategic growth and operational excellence across the region with visionary leadership.",
@@ -39,6 +40,7 @@ export const OurTeam = () => {
               {
                 name: "Mohamed Ahmed Ghalwash",
                 role: "Co-Founder & Chairman",
+                email: "mohamed.ghalwash@alrabat.com",
                 image:
                   "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=500&q=80",
                 bio: "Leading the board with decades of industry expertise and a commitment to sustainable development.",
@@ -46,6 +48,7 @@ export const OurTeam = () => {
               {
                 name: "Ibrahim Ghalwash",
                 role: "Board Member",
+                email: "ibrahim.ghalwash@alrabat.com",
                 image:
                   "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=500&q=80",
                 bio: "Overseeing corporate governance and strategic partnerships to ensure long-term value.",
@@ -53,6 +56,7 @@ export const OurTeam = () => {
               {
                 name: "Hussein Ghalwash",
                 role: "Board Member",
+                email: "hussein.ghalwash@alrabat.com",
                 image:
                   "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=500&q=80",
                 bio: "Guiding financial stewardship and investment strategies for robust organizational health.",
@@ -74,9 +78,15 @@ export const OurTeam = () => {
                 <h3 className="text-xl font-bold text-primary mb-1">
                   {member.name}
                 </h3>
-                <p className="text-xs text-accent font-bold uppercase tracking-wider">
+                <p className="text-xs text-accent font-bold uppercase tracking-wider mb-1">
                   {member.role}
                 </p>
+                <a
+                  href={`mailto:${member.email}`}
+                  className="text-sm text-neutral-500 hover:text-primary transition-colors block lowercase"
+                >
+                  {member.email}
+                </a>
               </div>
             ))}
           </div>
@@ -94,24 +104,28 @@ export const OurTeam = () => {
               {
                 name: "Tarek Hassan",
                 role: "Operations Director",
+                email: "tarek.hassan@alrabat.com",
                 image:
                   "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=500&q=80",
               },
               {
                 name: "Sarah El-Sayed",
                 role: "Technical Manager",
+                email: "sarah.elsayed@alrabat.com",
                 image:
                   "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=500&q=80",
               },
               {
                 name: "Omar Khaled",
                 role: "Finance Director",
+                email: "omar.khaled@alrabat.com",
                 image:
                   "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=500&q=80",
               },
               {
                 name: "Nour Mahmoud",
                 role: "HR Manager",
+                email: "nour.mahmoud@alrabat.com",
                 image:
                   "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=500&q=80",
               },
@@ -127,9 +141,15 @@ export const OurTeam = () => {
                 <h3 className="text-lg font-bold text-primary mb-1">
                   {member.name}
                 </h3>
-                <p className="text-xs text-accent font-bold uppercase tracking-wider">
+                <p className="text-xs text-accent font-bold uppercase tracking-wider mb-1">
                   {member.role}
                 </p>
+                <a
+                  href={`mailto:${member.email}`}
+                  className="text-sm text-neutral-500 hover:text-primary transition-colors block lowercase"
+                >
+                  {member.email}
+                </a>
               </div>
             ))}
           </div>

@@ -20,6 +20,7 @@ export const NewsForm = () => {
     readingTime: "3 min",
     excerpt: "",
     heroImage: "",
+    gallery: [],
     bodyBlocks: [],
   });
 
@@ -178,6 +179,44 @@ export const NewsForm = () => {
               setFormData((prev) => ({ ...prev, heroImage: url }))
             }
           />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-neutral-600">Gallery</label>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+            {formData.gallery?.map((img, i) => (
+              <div key={i} className="relative aspect-video group">
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full h-full object-cover rounded border border-neutral-200"
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      gallery: prev.gallery?.filter((_, idx) => idx !== i),
+                    }))
+                  }
+                  className="absolute top-1 right-1 bg-white/90 text-red-500 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+            <div className="aspect-video flex items-center justify-center bg-neutral-50 border-2 border-dashed border-neutral-200 rounded">
+              <ImageUpload
+                value=""
+                onChange={(url) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    gallery: [...(prev.gallery || []), url],
+                  }))
+                }
+              />
+            </div>
+          </div>
         </div>
 
         <div className="space-y-2">

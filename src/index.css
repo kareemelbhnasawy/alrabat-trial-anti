@@ -190,3 +190,21 @@
     @apply bg-primary-light/50 rounded-full hover:bg-primary;
   }
 }
+
+/* Leaflet Customization */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  @apply bg-neutral-900/90 backdrop-blur-md border border-accent/30 text-white !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: auto !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: white !important;
+  font-size: 24px !important;
+  padding: 8px !important;
+}

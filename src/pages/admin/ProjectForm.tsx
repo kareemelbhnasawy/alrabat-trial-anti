@@ -9,18 +9,19 @@ import { ImageUpload } from "../../components/ui/ImageUpload";
 export const ProjectForm = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { projects, addProject, updateProject } = useData();
+  const { projects, addProject, updateProject, divisions } = useData();
 
   const isEdit = Boolean(id);
 
   const [formData, setFormData] = useState<Partial<Project>>({
     title: "",
     category: "Projects",
-    divisionSlug: "foundations",
+    divisionSlugs: [],
     location: "",
     year: new Date().getFullYear().toString(),
     summary: "",
     heroImage: "",
+    gallery: [],
     scope: [],
     challenges: [],
     solutions: [],
@@ -48,7 +49,7 @@ export const ProjectForm = () => {
         challenges: formData.challenges || [],
         solutions: formData.solutions || [],
         tags: formData.tags || [],
-        gallery: [], // todo
+        gallery: [],
         metrics: formData.metrics || {},
       } as Project);
     }
@@ -108,26 +109,90 @@ export const ProjectForm = () => {
               placeholder="e.g. Dubai, UAE"
             />
           </div>
+          <div className="space-y-2">
+            <label className="text-sm font-bold text-neutral-600">
+              Coordinates (Latitude)
+            </label>
+            <input
+              type="number"
+              step="any"
+              value={formData.coordinates?.lat || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  coordinates: {
+                    lng: prev.coordinates?.lng || 0,
+                    lat: parseFloat(e.target.value),
+                  },
+                }))
+              }
+              className="w-full p-3 border rounded focus:border-accent outline-none"
+              placeholder="e.g. 25.2048"
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-bold text-neutral-600">
+              Coordinates (Longitude)
+            </label>
+            <input
+              type="number"
+              step="any"
+              value={formData.coordinates?.lng || ""}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  coordinates: {
+                    lat: prev.coordinates?.lat || 0,
+                    lng: parseFloat(e.target.value),
+                  },
+                }))
+              }
+              className="w-full p-3 border rounded focus:border-accent outline-none"
+              placeholder="e.g. 55.2708"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-3 gap-6">
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-neutral-600">
-              Division
+          <div className="space-y-2 col-span-1">
+            <label className="text-sm font-bold text-neutral-600 block mb-2">
+              Divisions
             </label>
-            <select
-              name="divisionSlug"
-              value={formData.divisionSlug}
-              onChange={handleChange}
-              className="w-full p-3 border rounded focus:border-accent outline-none"
-            >
-              <option value="foundations">Foundations</option>
-              <option value="ground-improvement">Ground Improvement</option>
-              <option value="infrastructure">Infrastructure</option>
-              <option value="marine">Marine</option>
-              <option value="equipment">Equipment</option>
-              <option value="consulting">Consulting</option>
-            </select>
+            <div className="bg-neutral-50 p-3 rounded border border-neutral-200 h-40 overflow-y-auto space-y-2">
+              {divisions.map((div) => (
+                <label
+                  key={div.slug}
+                  className="flex items-center space-x-2 cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    value={div.slug}
+                    checked={formData.divisionSlugs?.includes(div.slug)}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setFormData((prev) => {
+                        const current = prev.divisionSlugs || [];
+                        if (checked) {
+                          return {
+                            ...prev,
+                            divisionSlugs: [...current, div.slug],
+                          };
+                        } else {
+                          return {
+                            ...prev,
+                            divisionSlugs: current.filter(
+                              (s) => s !== div.slug
+                            ),
+                          };
+                        }
+                      });
+                    }}
+                    className="rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span className="text-sm text-neutral-700">{div.name}</span>
+                </label>
+              ))}
+            </div>
           </div>
           <div className="space-y-2">
             <label className="text-sm font-bold text-neutral-600">
@@ -176,6 +241,101 @@ export const ProjectForm = () => {
               setFormData((prev) => ({ ...prev, heroImage: url }))
             }
           />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-neutral-600">
+            Project Gallery
+          </label>
+          <p className="text-xs text-neutral-400 mb-2">
+            Upload images and assign them to a specific division (optional) for
+            filtering.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            {formData.gallery?.map((item, i) => (
+              <div
+                key={i}
+                className="flex gap-4 p-3 border border-neutral-200 rounded-lg bg-neutral-50 relative group"
+              >
+                <img
+                  src={item.url}
+                  alt=""
+                  className="w-24 h-24 object-cover rounded shrink-0 bg-neutral-200"
+                />
+                <div className="flex-1 space-y-2">
+                  <label className="text-xs font-bold text-neutral-500 uppercase">
+                    Division Tag
+                  </label>
+                  <select
+                    value={item.divisionSlug || ""}
+                    onChange={(e) => {
+                      const newGallery = [...(formData.gallery || [])];
+                      newGallery[i] = {
+                        ...newGallery[i],
+                        divisionSlug: e.target.value,
+                      };
+                      setFormData((prev) => ({ ...prev, gallery: newGallery }));
+                    }}
+                    className="w-full p-2 text-sm border rounded bg-white"
+                  >
+                    <option value="">(None / General)</option>
+                    {divisions.map((div) => (
+                      <option key={div.slug} value={div.slug}>
+                        {div.name}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    type="text"
+                    placeholder="Caption (optional)"
+                    value={item.caption || ""}
+                    onChange={(e) => {
+                      const newGallery = [...(formData.gallery || [])];
+                      newGallery[i] = {
+                        ...newGallery[i],
+                        caption: e.target.value,
+                      };
+                      setFormData((prev) => ({ ...prev, gallery: newGallery }));
+                    }}
+                    className="w-full p-2 text-xs border rounded"
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      gallery: prev.gallery?.filter((_, idx) => idx !== i),
+                    }))
+                  }
+                  className="absolute top-2 right-2 text-red-400 hover:text-red-600 p-1"
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-center p-6 border-2 border-dashed border-neutral-200 rounded-lg bg-white">
+            <div className="text-center">
+              <ImageUpload
+                value=""
+                onChange={(url) =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    gallery: [
+                      ...(prev.gallery || []),
+                      { url, divisionSlug: prev.divisionSlugs?.[0] || "" },
+                    ],
+                  }))
+                }
+              />
+              <span className="text-xs text-neutral-400 block mt-2">
+                Click to upload new photos
+              </span>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-2">

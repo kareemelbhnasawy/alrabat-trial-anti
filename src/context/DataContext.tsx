@@ -8,7 +8,13 @@ import React, {
 import initialProjects from "../data/projects.json";
 import initialNews from "../data/news.json";
 import initialDivisions from "../data/divisions.json";
-import type { Project, NewsArticle, Division } from "../types";
+import type {
+  Project,
+  NewsArticle,
+  Division,
+  Client,
+  ClientCategory,
+} from "../types";
 import { supabase } from "../lib/supabase";
 
 interface DataContextType {
@@ -21,6 +27,8 @@ interface DataContextType {
   addNews: (article: NewsArticle) => void;
   updateNews: (id: string, article: Partial<NewsArticle>) => void;
   deleteNews: (id: string) => void;
+  clientCategories: ClientCategory[];
+  fetchClients: () => void;
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -31,6 +39,9 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [divisions] = useState<Division[]>(
     initialDivisions as unknown as Division[]
+  );
+  const [clientCategories, setClientCategories] = useState<ClientCategory[]>(
+    []
   );
 
   // Fetch initial data
@@ -43,7 +54,22 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         .order("created_at", { ascending: false });
 
       if (projError) console.error("Error fetching projects:", projError);
-      else if (projData) setProjects(projData as unknown as Project[]);
+      else if (projData) {
+        // Adapt data for backward compatibility with DB
+        const adaptedProjects = projData.map((p: any) => ({
+          ...p,
+          divisionSlugs:
+            p.divisionSlugs || (p.divisionSlug ? [p.divisionSlug] : []),
+          gallery: Array.isArray(p.gallery)
+            ? p.gallery.map((item: any) =>
+                typeof item === "string"
+                  ? { url: item, divisionSlug: p.divisionSlugs?.[0] || "" }
+                  : item
+              )
+            : [],
+        }));
+        setProjects(adaptedProjects as Project[]);
+      }
 
       // Fetch News
       const { data: newsData, error: newsError } = await supabase
@@ -53,6 +79,26 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
       if (newsError) console.error("Error fetching news:", newsError);
       else if (newsData) setNews(newsData as unknown as NewsArticle[]);
+
+      // Fetch Clients and Categories
+      const { data: catData, error: catError } = await supabase
+        .from("client_categories")
+        .select(
+          `
+          *,
+          clients (*)
+        `
+        )
+        .order("name", { ascending: true }); // We might want specific order
+
+      if (catError) console.error("Error fetching clients:", catError);
+      else if (catData) {
+        // Sort clients specifically if needed, otherwise rely on DB or frontend sort
+        // Categories need to be sorted: Developers, Consultants, Contractors, Strategic Partners?
+        // Or alphabetical? DB order is alphabetical by name usually if not specified.
+        // Let's enforce the order from the legacy JSON if possible or just map them.
+        setClientCategories(catData as ClientCategory[]);
+      }
     };
 
     fetchData();
@@ -62,7 +108,13 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   // but simplified state update after confirming DB success is safer.
 
   const addProject = async (project: Project) => {
-    const { error } = await supabase.from("projects").insert(project);
+    // Ensure backward compatibility by populating the old column
+    const payload = {
+      ...project,
+      divisionSlug: project.divisionSlugs?.[0] || "",
+    };
+
+    const { error } = await supabase.from("projects").insert(payload);
     if (error) {
       console.error("Error adding project:", error);
       alert("Failed to save project");
@@ -72,9 +124,18 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updateProject = async (id: string, updated: Partial<Project>) => {
+    // Ensure backward compatibility
+    const payload = {
+      ...updated,
+    };
+    if (updated.divisionSlugs) {
+      // @ts-ignore
+      payload.divisionSlug = updated.divisionSlugs[0] || "";
+    }
+
     const { error } = await supabase
       .from("projects")
-      .update(updated)
+      .update(payload)
       .eq("id", id);
     if (error) {
       console.error("Error updating project:", error);
@@ -128,6 +189,16 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const fetchClients = async () => {
+    const { data: catData, error: catError } = await supabase.from(
+      "client_categories"
+    ).select(`
+          *,
+          clients (*)
+        `);
+    if (catData) setClientCategories(catData as ClientCategory[]);
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -139,7 +210,10 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         deleteProject,
         addNews,
         updateNews,
+
         deleteNews,
+        clientCategories,
+        fetchClients,
       }}
     >
       {children}
