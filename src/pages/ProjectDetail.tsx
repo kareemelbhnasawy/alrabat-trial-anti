@@ -11,11 +11,11 @@ import { Lightbox } from "../components/ui/Lightbox";
 export const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   // Use context data instead of direct json import
-  const { projects } = useData();
+  const { projects, divisions } = useData();
 
   const [project, setProject] = useState<Project | null>(null);
   const [related, setRelated] = useState<Project[]>([]);
-  const [galleryFilter, setGalleryFilter] = useState("All");
+  /* Removed galleryFilter state */
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
@@ -42,15 +42,12 @@ export const ProjectDetail = () => {
   if (!project)
     return <div className="pt-40 text-center">Project not found</div>;
 
-  const visibleGallery =
-    project.gallery?.filter(
-      (item) => galleryFilter === "All" || item.divisionSlug === galleryFilter
-    ) || [];
+  /* No filtered gallery logic needed */
 
   return (
     <>
       {/* Hero */}
-      <div className="relative h-[70vh] w-full slant-divider-bottom-lg">
+      <div className="relative h-[70vh] w-full">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30 z-10" />
           <img
@@ -70,6 +67,23 @@ export const ProjectDetail = () => {
             <span className="bg-accent px-3 py-1 text-xs font-bold uppercase tracking-wider rounded">
               {project.category}
             </span>
+            {/* Division Chips */}
+            {project.divisionSlugs?.map((slug) => {
+              const div = divisions.find((d) => d.slug === slug);
+              if (!div) return null;
+              return (
+                <span
+                  key={slug}
+                  className="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded"
+                  style={{
+                    backgroundColor: div.accentColor || "#F05B22",
+                    color: "white",
+                  }}
+                >
+                  {div.name}
+                </span>
+              );
+            })}
             {project.tags.map((tag) => (
               <span
                 key={tag}
@@ -190,39 +204,10 @@ export const ProjectDetail = () => {
               Project Gallery
             </h2>
 
-            {/* Gallery Filters */}
-            <div className="flex flex-wrap gap-2 mb-8">
-              <button
-                onClick={() => setGalleryFilter("All")}
-                className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${galleryFilter === "All" ? "bg-primary text-white" : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"}`}
-              >
-                All Photos
-              </button>
-              {/* Dynamically generate filter buttons based on divisions present in gallery or project divisions */}
-              {Array.from(
-                new Set(
-                  project.gallery
-                    .map((item) => item.divisionSlug)
-                    .filter(Boolean)
-                )
-              ).map((slug) => {
-                // Find division name (requires access to divisions context or lookup)
-                // Since we don't have divisions in ProjectDetail context easily without adding it, we can fallback to slug or category
-                // Better: Use project.divisionSlugs to find names if we match them, or just slug formatting
-                return (
-                  <button
-                    key={slug}
-                    onClick={() => setGalleryFilter(slug!)}
-                    className={`px-4 py-2 rounded-full text-sm font-bold transition-colors capitalize ${galleryFilter === slug ? "bg-primary text-white" : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"}`}
-                  >
-                    {slug?.replace(/-/g, " ")}
-                  </button>
-                );
-              })}
-            </div>
+            {/* Gallery Filters Removed */}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {visibleGallery.map((item, i) => (
+              {project.gallery.map((item, i) => (
                 <div
                   key={i}
                   className="group relative break-inside-avoid cursor-pointer"
@@ -275,7 +260,7 @@ export const ProjectDetail = () => {
       <Lightbox
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}
-        images={visibleGallery}
+        images={project.gallery}
         startIndex={lightboxIndex}
       />
     </>

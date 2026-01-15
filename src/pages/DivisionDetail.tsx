@@ -8,6 +8,24 @@ import type { Division, Project } from "../types";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { ProjectMap } from "../components/ui/ProjectMap";
 
+const getIconPath = (slug: string) => {
+  switch (slug) {
+    case "foundations":
+      return "/logos/icons/Alrabat Foundation PNG.png";
+    case "marine":
+      return "/logos/icons/Alrabat Marine PNG.png";
+    case "ground-improvement":
+      return "/logos/icons/Alrabat Ground Improvement PNG.png";
+    case "infrastructure":
+      return "/logos/icons/Alrabat Infrastructure PNG.png";
+    case "equipment":
+      return "/logos/icons/Alrabat Equipment PNG.png";
+    case "consulting":
+    default:
+      return "/logos/icons/Alrabat SE PNG.png";
+  }
+};
+
 export const DivisionDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const { divisions, projects } = useData();
@@ -44,7 +62,14 @@ export const DivisionDetail = () => {
       {/* Hero */}
       <div className="relative h-[60vh] min-h-[500px] flex items-center slant-divider-bottom-lg">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-primary/60 z-10" />
+          <div
+            className="absolute inset-0 z-10"
+            style={{
+              background: `linear-gradient(to right, ${
+                division.accentColor || "#000"
+              }B3, ${division.accentColor || "#000"}4D)`,
+            }}
+          />
           {division.heroVideo ? (
             <video
               autoPlay
@@ -68,17 +93,28 @@ export const DivisionDetail = () => {
         <div className="container-custom relative z-20 text-white">
           <Link
             to="/divisions"
-            className="text-white/60 hover:text-white mb-4 inline-flex items-center text-sm font-bold uppercase tracking-widest"
+            className="text-white/80 hover:text-white mb-4 inline-flex items-center text-sm font-bold uppercase tracking-widest transition-colors"
           >
             <ArrowRight className="rotate-180 mr-2" size={16} /> All Divisions
           </Link>
+          <div className="flex items-center gap-4 mb-4">
+            <img
+              src={getIconPath(division.slug)}
+              alt={`${division.name} Icon`}
+              className="h-20 w-auto object-contain"
+            />
+          </div>
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
             {division.name}
           </h1>
-          <p className="text-xl md:text-2xl text-neutral-200 max-w-3xl leading-relaxed font-light mb-10">
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed font-light mb-10">
             {division.summary}
           </p>
-          <Button onClick={() => (window.location.href = "/contact")}>
+          <Button
+            onClick={() => (window.location.href = "/contact")}
+            className="bg-white text-primary border-none hover:bg-white/90"
+            style={{ color: division.accentColor }}
+          >
             Discuss {division.name} Scope
           </Button>
         </div>
@@ -94,7 +130,10 @@ export const DivisionDetail = () => {
               style={{ backgroundColor: division.accentColor || "#025440" }}
             />
 
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-8 uppercase leading-tight">
+            <h2
+              className="text-4xl md:text-5xl font-display font-bold mb-8 uppercase leading-tight"
+              style={{ color: division.accentColor }}
+            >
               {division.introSection.title}
             </h2>
 
@@ -103,7 +142,10 @@ export const DivisionDetail = () => {
             </p>
 
             <div className="mb-8">
-              <h3 className="text-lg font-bold text-primary mb-6">
+              <h3
+                className="text-lg font-bold mb-6"
+                style={{ color: division.accentColor }}
+              >
                 Our services include:
               </h3>
               <ul className="space-y-6">
@@ -114,11 +156,14 @@ export const DivisionDetail = () => {
                       <div
                         className="w-4 h-1 mt-3 mr-4 transform -skew-x-12 flex-shrink-0"
                         style={{
-                          backgroundColor: "#F05B22",
+                          backgroundColor: division.accentColor || "#F05B22",
                         }}
                       />
                       <div>
-                        <h4 className="text-lg font-bold text-primary uppercase mb-1">
+                        <h4
+                          className="text-lg font-bold uppercase mb-1"
+                          style={{ color: division.accentColor }}
+                        >
                           {service.title}
                         </h4>
                         <p className="text-neutral-600 text-lg">
@@ -138,15 +183,19 @@ export const DivisionDetail = () => {
       <Section className="bg-neutral-bg">
         <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl font-display font-bold text-primary mb-8">
+            <h2
+              className="text-3xl font-display font-bold mb-8"
+              style={{ color: division.accentColor }}
+            >
               Core Capabilities
             </h2>
             <ul className="space-y-4">
               {division.capabilities.map((cap, idx) => (
                 <li key={idx} className="flex items-start">
                   <CheckCircle2
-                    className="text-accent mr-3 mt-1 flex-shrink-0"
+                    className="mr-3 mt-1 flex-shrink-0"
                     size={20}
+                    style={{ color: division.accentColor }}
                   />
                   <span className="text-lg text-neutral-700">{cap}</span>
                 </li>
@@ -155,16 +204,25 @@ export const DivisionDetail = () => {
           </div>
 
           <div>
-            <h2 className="text-3xl font-display font-bold text-primary mb-8">
+            <h2
+              className="text-3xl font-display font-bold mb-8"
+              style={{ color: division.accentColor }}
+            >
               Key Services
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {division.keyServices.map((service, idx) => (
                 <div
                   key={idx}
-                  className="bg-neutral-50 p-6 slant-br border-l-4 border-primary hover:bg-white hover:shadow-md transition-all"
+                  className="bg-neutral-50 p-6 slant-br border-l-4 hover:bg-white hover:shadow-md transition-all"
+                  style={{ borderColor: division.accentColor }}
                 >
-                  <h3 className="font-bold text-primary mb-2">{service}</h3>
+                  <h3
+                    className="font-bold mb-2"
+                    style={{ color: division.accentColor }}
+                  >
+                    {service}
+                  </h3>
                 </div>
               ))}
             </div>
@@ -179,7 +237,10 @@ export const DivisionDetail = () => {
       {relatedProjects.length > 0 && (
         <Section className="bg-neutral-50" slantedTop>
           <div className="container-custom">
-            <h2 className="text-3xl font-display font-bold text-primary mb-12">
+            <h2
+              className="text-3xl font-display font-bold mb-12"
+              style={{ color: division.accentColor }}
+            >
               Related Projects
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -192,12 +253,15 @@ export const DivisionDetail = () => {
       )}
 
       {/* CTA */}
-      <div className="bg-primary-dark text-white py-32 slant-divider-lg -mt-20 relative z-10">
+      <div
+        className="text-white py-32 slant-divider-lg -mt-20 relative z-10"
+        style={{ backgroundColor: division.accentColor || "#111" }}
+      >
         <div className="container-custom text-center">
           <h2 className="text-4xl font-display font-bold mb-6">
             Ready to start your project?
           </h2>
-          <p className="text-neutral-300 mb-10 max-w-2xl mx-auto">
+          <p className="text-white/80 mb-10 max-w-2xl mx-auto">
             Contact our {division.name} experts today for a technical
             consultation and proposal.
           </p>
@@ -205,6 +269,7 @@ export const DivisionDetail = () => {
             variant="white"
             size="lg"
             onClick={() => (window.location.href = "/contact")}
+            style={{ color: division.accentColor }}
           >
             Get in Touch
           </Button>

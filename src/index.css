@@ -206,5 +206,15 @@
 .leaflet-container a.leaflet-popup-close-button {
   color: white !important;
   font-size: 24px !important;
-  padding: 8px !important;
+  padding: 4px !important;
+  top: 8px !important;
+  right: 8px !important;
+  background: rgba(0, 0, 0, 0.2) !important;
+  border-radius: 50%;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
 }

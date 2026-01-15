@@ -1,48 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ArrowDown } from "lucide-react";
 import { Button } from "../ui/Button";
 import { FadeIn } from "../animations/FadeIn";
 import { TextReveal } from "../animations/TextReveal";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const Hero = () => {
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setOffset(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 500]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden slant-divider-bottom-lg z-10">
+    <div className="relative h-screen w-full overflow-hidden z-10">
       {/* Parallax Background */}
-      <div
-        className="absolute inset-0 z-0 select-none"
-        style={{ transform: `translateY(${offset * 0.5}px)` }}
-      >
+      <motion.div className="absolute inset-0 z-0 select-none" style={{ y }}>
         <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/70 to-transparent z-10" />
         <div className="absolute inset-0 bg-primary/20 z-10 mix-blend-multiply" />
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=80"
-        >
-          <source src="/hero.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+        <iframe
+          src="https://player.vimeo.com/video/1124183061?h=f5c700219a&background=1&autoplay=1&loop=1&byline=0&title=0"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-150"
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          title="Hero Video"
+        />
+      </motion.div>
 
       <div className="container-custom relative z-20 h-full flex flex-col justify-center text-white pt-20">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn direction="up" delay={0.2} duration={1.2}>
             <div className="flex justify-center mb-6">
               <img
-                src="https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/square-logo.png"
+                src="/logos/icons/Alrabat SE PNG.png"
                 alt="Alrabat SE Logo"
                 className="h-32 md:h-40 w-auto object-cover opacity-90"
               />

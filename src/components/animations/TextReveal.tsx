@@ -47,6 +47,7 @@ export const TextReveal = ({
         stiffness: 100,
         duration: duration,
       },
+      willChange: "transform, opacity",
     },
   };
 
