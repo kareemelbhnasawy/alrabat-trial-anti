@@ -34,7 +34,7 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
   const divisionLogoSrc = DIVISION_LOGOS[divisionIndex];
 
   return (
-    <Link to="/" className="flex flex-col items-start gap-0 w-72 -my-4">
+    <Link to="/" className="flex flex-col items-center gap-0 w-72 -my-4">
       <AnimatePresence mode="wait">
         <motion.img
           key={isScrolled ? "green" : "white"}
@@ -53,11 +53,11 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
             key={divisionIndex}
             src={divisionLogoSrc}
             alt="Alrabat Division"
-            initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+            initial={{ opacity: 0, y: 8, filter: "blur(4px)", x: "-50%" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)", x: "-50%" }}
+            exit={{ opacity: 0, y: -8, filter: "blur(4px)", x: "-50%" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="h-full w-auto object-contain absolute left-0"
+            className="h-full w-auto object-contain absolute left-1/2"
           />
         </AnimatePresence>
       </div>
