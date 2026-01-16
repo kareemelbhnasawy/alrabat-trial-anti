@@ -27,7 +27,7 @@ export const Hero = () => {
 
       <div className="container-custom relative z-20 h-full flex flex-col justify-center text-white pt-20">
         <div className="max-w-4xl mx-auto text-center">
-          <FadeIn direction="up" delay={0.2} duration={1.2}>
+          {/* <FadeIn direction="up" delay={0.2} duration={1.2}>
             <div className="flex justify-center mb-6">
               <img
                 src="/logos/icons/Alrabat SE PNG.png"
@@ -35,13 +35,15 @@ export const Hero = () => {
                 className="h-32 md:h-40 w-auto object-cover opacity-90"
               />
             </div>
-          </FadeIn>
+          </FadeIn> */}
 
           <FadeIn direction="up" delay={0.4} duration={1.2}>
-            <h1 className="text-5xl md:text-7xl font-display font-medium tracking-tight leading-tight mb-6">
-              <TextReveal delay={0.4}>THE BOND OF</TextReveal>{" "}
-              <span className="text-accent">
-                <TextReveal delay={0.6}>SUCCESS</TextReveal>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold tracking-tight leading-[0.9] mb-6 flex flex-col items-center text-center">
+              <TextReveal delay={0.4}>THE</TextReveal>
+              <TextReveal delay={0.5}>BOND</TextReveal>
+              <TextReveal delay={0.6}>OF</TextReveal>
+              <span className="text-accent mt-2">
+                <TextReveal delay={0.7}>SUCCESS</TextReveal>
               </span>
             </h1>
           </FadeIn>
