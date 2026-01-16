@@ -112,7 +112,7 @@ export const Marquee = () => {
 const MarqueeItem = ({ item }: { item: any }) => {
   const isClientObj = typeof item !== "string";
   return (
-    <div className="flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-700 opacity-70 hover:opacity-100 cursor-pointer bg-white/5 p-4 rounded-xl hover:bg-white/10">
+    <div className="flex-shrink-0 grayscale hover:grayscale-0 transition-all duration-700 opacity-70 hover:opacity-100 cursor-pointer">
       {isClientObj && item.image ? (
         <img
           src={item.image}

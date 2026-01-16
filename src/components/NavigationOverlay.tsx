@@ -116,7 +116,7 @@ export const NavigationOverlay = ({
              I'll stick to Left White / Right Navy for contrast and legibility, but align items.
           */}
           <motion.div
-            className="w-full md:w-1/2 h-full bg-white relative z-10 flex flex-col p-8 md:p-16 lg:p-24 justify-center" // Left Panel White
+            className="w-full md:w-1/2 h-full bg-white relative z-10 flex flex-col" // Left Panel White
             initial={{ x: "-100%" }}
             animate={{
               x: 0,
@@ -127,51 +127,140 @@ export const NavigationOverlay = ({
               transition: { duration: 0.5, ease: [0.33, 1, 0.68, 1] },
             }}
           >
-            <button
-              onClick={onClose}
-              className="absolute top-8 left-8 p-2 rounded-full hover:bg-neutral-100 transition-colors group"
-            >
-              <X
-                size={32}
-                className="text-primary group-hover:rotate-90 transition-transform duration-300"
-              />
-            </button>
+            {/* Header: Close Button (Fixed at top) */}
+            <div className="flex-none p-8 md:p-12 lg:p-16">
+              <button
+                onClick={onClose}
+                className="p-2 -ml-2 rounded-full hover:bg-neutral-100 transition-colors group"
+              >
+                <X
+                  size={32}
+                  className="text-primary group-hover:rotate-90 transition-transform duration-300"
+                />
+              </button>
+            </div>
 
-            <nav className="flex flex-col space-y-4">
-              {NAV_STRUCTURE.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    transition: { delay: 0.1 + index * 0.05 },
-                  }}
-                >
-                  <div
-                    className="group flex items-center"
-                    onMouseEnter={() => setActiveCategory(item.name)}
-                    // Keep active if hovering sub-menu? Ideally yes.
-                  >
-                    {/* The indicator line or active state */}
-                    <span
-                      className={`h-1 w-0 bg-accent mr-4 transition-all duration-300 ${activeCategory === item.name ? "w-12 md:w-16" : "group-hover:w-8"}`}
-                    />
-
-                    <button
-                      onClick={() => (item.href ? handleNav(item.href) : null)}
-                      className={`text-3xl md:text-5xl lg:text-6xl font-display font-bold transition-colors text-left ${activeCategory === item.name ? "text-primary" : "text-primary/40 hover:text-primary/70"}`}
-                    >
-                      {item.name}
-                    </button>
+            {/* Scrollable Content Area */}
+            <div className="flex-1 overflow-y-auto px-8 pb-8 md:px-16 lg:px-24 flex flex-col justify-start md:justify-center">
+              {/* Mobile Search Input */}
+              <div className="mt-0 mb-8 md:hidden">
+                <div className="relative border-b border-neutral-200 pb-2 flex items-center">
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="bg-transparent border-none outline-none text-primary text-xl w-full placeholder:text-primary/30 font-display font-medium"
+                  />
+                  <Search className="text-primary/50" size={24} />
+                </div>
+                {/* Mobile Search Results */}
+                {searchQuery && (
+                  <div className="mt-4 space-y-4 max-h-60 overflow-y-auto">
+                    {searchResults.length > 0 ? (
+                      searchResults.map((res: any) => (
+                        <div
+                          key={res.id}
+                          onClick={() => handleNav(res.link)}
+                          className="block text-lg text-neutral-600 font-medium font-display"
+                        >
+                          <span className="text-xs text-neutral-400 block mb-1 uppercase tracking-wide">
+                            {res.type}
+                          </span>
+                          {res.title}
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-neutral-400 italic">
+                        No results found.
+                      </p>
+                    )}
                   </div>
-                </motion.div>
-              ))}
-            </nav>
+                )}
+              </div>
 
-            {/* Secondary / Footer Links */}
-            <div className="mt-12 ml-16 md:ml-20 flex gap-6 text-sm font-medium text-neutral-400">
-              {/* <span
+              <nav className="flex flex-col space-y-4">
+                {NAV_STRUCTURE.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                      transition: { delay: 0.1 + index * 0.05 },
+                    }}
+                  >
+                    <div
+                      className="group flex flex-col"
+                      onMouseEnter={() => {
+                        // Desktop: Hover sets active
+                        if (window.innerWidth >= 768) {
+                          setActiveCategory(item.name);
+                        }
+                      }}
+                    >
+                      <div className="flex items-center">
+                        {/* The indicator line or active state */}
+                        <span
+                          className={`hidden md:block h-1 w-0 bg-accent mr-4 transition-all duration-300 ${activeCategory === item.name ? "w-12 md:w-16" : "group-hover:w-8"}`}
+                        />
+
+                        <button
+                          onClick={() => {
+                            const isMobile = window.innerWidth < 768;
+                            if (isMobile && item.subLinks.length > 0) {
+                              setActiveCategory(
+                                activeCategory === item.name ? null : item.name
+                              );
+                            } else if (item.href) {
+                              handleNav(item.href);
+                            }
+                          }}
+                          className={`text-4xl md:text-5xl lg:text-6xl font-display font-bold transition-colors text-left ${activeCategory === item.name ? "text-primary" : "text-primary/40 hover:text-primary/70"}`}
+                        >
+                          {item.name}
+                        </button>
+                      </div>
+
+                      {/* Mobile Sub-Links (Accordion) */}
+                      <AnimatePresence>
+                        {activeCategory === item.name && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="md:hidden overflow-hidden pl-4 mt-2 mb-4 space-y-3 border-l-2 border-accent/20"
+                          >
+                            {/* 'View All' Link for categories with a main page */}
+                            {item.href && (
+                              <div
+                                onClick={() => handleNav(item.href!)}
+                                className="text-2xl font-display font-medium text-neutral-800 active:text-primary py-1 mb-2"
+                              >
+                                View All {item.name}
+                              </div>
+                            )}
+
+                            {item.subLinks.map((subLink, subIndex) => (
+                              <div
+                                key={subIndex}
+                                onClick={() => handleNav(subLink.href)}
+                                className="text-2xl font-display font-medium text-neutral-500 active:text-primary py-1"
+                              >
+                                {subLink.name}
+                              </div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                ))}
+              </nav>
+
+              {/* Secondary / Footer Links */}
+              <div className="mt-12 ml-16 md:ml-20 flex gap-6 text-sm font-medium text-neutral-400">
+                {/* <span
                 className="hover:text-primary cursor-pointer transition-colors"
                 onClick={() => handleNav("/privacy")}
               >
@@ -183,6 +272,7 @@ export const NavigationOverlay = ({
               >
                 Terms
               </span> */}
+              </div>
             </div>
           </motion.div>
 
