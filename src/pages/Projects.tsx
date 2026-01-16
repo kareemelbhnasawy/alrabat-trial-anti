@@ -9,25 +9,20 @@ import { clsx } from "clsx";
 export const Projects = () => {
   const { projects: allProjects, divisions } = useData();
 
-  const [activeCategory, setActiveCategory] = useState<
-    "All" | "Major Projects" | "Projects"
-  >("All");
   const [activeDivision, setActiveDivision] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredProjects = useMemo(() => {
     return allProjects.filter((project) => {
-      const matchCategory =
-        activeCategory === "All" || project.category === activeCategory;
       const matchDivision =
         activeDivision === "All" ||
         project.divisionSlugs?.includes(activeDivision);
       const matchSearch =
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.location.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCategory && matchDivision && matchSearch;
+      return matchDivision && matchSearch;
     });
-  }, [allProjects, activeCategory, activeDivision, searchQuery]);
+  }, [allProjects, activeDivision, searchQuery]);
 
   return (
     <>
@@ -97,7 +92,6 @@ export const Projects = () => {
                 className="mt-4"
                 onClick={() => {
                   setActiveDivision("All");
-                  setActiveCategory("All");
                   setSearchQuery("");
                 }}
               >

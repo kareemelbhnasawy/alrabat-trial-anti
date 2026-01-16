@@ -20,7 +20,7 @@ export const FadeIn = ({
   fullWidth = false,
 }: FadeInProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const getDirectionOffset = () => {
     switch (direction) {

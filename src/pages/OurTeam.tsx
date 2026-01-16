@@ -1,5 +1,14 @@
 import React from "react";
 import { Section } from "../components/ui/Section";
+import { FadeIn } from "../components/animations/FadeIn";
+import {
+  ShieldCheck,
+  Building2,
+  FileCheck,
+  Zap,
+  Award,
+  Landmark,
+} from "lucide-react";
 
 export const OurTeam = () => {
   return (
@@ -151,6 +160,90 @@ export const OurTeam = () => {
                   {member.email}
                 </a>
               </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+      {/* Qualifications Section */}
+      <Section className="bg-white" slantedTop>
+        <div className="container-custom">
+          <FadeIn>
+            <h2 className="text-3xl font-display font-bold text-primary mb-12 border-l-4 border-accent pl-4">
+              Accreditations & Certified Professionals
+            </h2>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                authority: "Dubai Municipality",
+                icon: Building2,
+                stats: [
+                  { text: "Shoring & Piling Foundation Certified", count: 5 },
+                  { text: "Water Supply Lines Certified", count: 2 },
+                  { text: "Soil Improvement Qualified", count: 2 },
+                  { text: "Sewerage & Pipelines Certified", count: 1 },
+                ],
+              },
+              {
+                authority: "Trakhees",
+                icon: FileCheck,
+                stats: [
+                  { text: "Qualified Safety Professionals", count: 5 },
+                  { text: "Qualified Quality Control Professionals", count: 2 },
+                  { text: "Qualified Structural Professionals", count: 2 },
+                ],
+              },
+              {
+                authority: "RTA",
+                icon: ShieldCheck,
+                stats: [
+                  { text: "Approved Safety Professionals", count: 2 },
+                  { text: "Approved Shoring & Piling Professionals", count: 2 },
+                ],
+              },
+              {
+                authority: "Dubai Development Authority",
+                icon: Landmark,
+                stats: [{ text: "Qualified Professionals", count: 5 }],
+              },
+              {
+                authority: "DEWA",
+                icon: Zap,
+                stats: [{ text: "Qualified Professionals", count: 2 }],
+              },
+              {
+                authority: "Nakheel",
+                icon: Award,
+                stats: [{ text: "Nakheel Qualification", count: 1 }],
+              },
+            ].map((item, idx) => (
+              <FadeIn
+                key={idx}
+                delay={idx * 0.1}
+                className="bg-neutral-50 p-8 rounded-2xl border border-neutral-100 hover:shadow-lg transition-all duration-300 group"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-primary">
+                    {item.authority}
+                  </h3>
+                </div>
+                <ul className="space-y-3">
+                  {item.stats.map((s, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="font-bold text-accent min-w-[1.5rem]">
+                        {s.count}
+                      </span>
+                      <span className="text-neutral-600 text-sm leading-relaxed">
+                        {s.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </FadeIn>
             ))}
           </div>
         </div>

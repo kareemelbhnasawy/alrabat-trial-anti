@@ -16,7 +16,7 @@ import type { Project } from "../../types";
 
 // Helper to create icon based on size
 const createCustomIcon = (scale: number = 1) => {
-  const size = 40 * scale;
+  const size = 30 * scale; // Reduced base size from 40 to 30
   const iconSize: [number, number] = [size, size];
   const iconAnchor: [number, number] = [size / 2, size]; // Center bottom anchor
   const popupAnchor: [number, number] = [0, -size];
@@ -35,16 +35,22 @@ const MapEvents = ({ setScale }: { setScale: (scale: number) => void }) => {
   const map = useMapEvents({
     zoomend: () => {
       const zoom = map.getZoom();
-      // Logic: smaller zoom = smaller map = smaller markers?
-      // User request: "indicators to get small when zooming out and bigger when zooming in"
-      // Base zoom 8 -> scale 1.
-      // Zoom < 5 -> scale 0.5
-      // Zoom > 12 -> scale 1.5
+      // Logic adjusted for user request:
+      // Default (Zoom 7-9): Small (Scale 1 -> 30px)
+      // Zoom Out (< 7): Smaller (Scale 0.7 -> 21px)
+      // Zoom In (> 9): Bigger (Scale 1.5 -> 45px)
+      // Zoom In (> 12): Much Bigger (Scale 2 -> 60px)
       let newScale = 1;
-      if (zoom < 6) newScale = 0.6;
-      else if (zoom < 8) newScale = 0.8;
-      else if (zoom > 13) newScale = 1.4;
-      else if (zoom > 10) newScale = 1.2;
+
+      if (zoom < 9) {
+        newScale = 0.7;
+      } else if (zoom >= 15) {
+        newScale = 2.0;
+      } else if (zoom >= 12) {
+        newScale = 1.5;
+      } else {
+        newScale = 1;
+      }
 
       setScale(newScale);
     },
@@ -81,24 +87,28 @@ export const ProjectMap = ({ projects: propProjects }: ProjectMapProps) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // Filter projects based on selected divisions
-  const mapProjects = sourceProjects.filter((p) => {
-    // Check valid coordinates
-    if (
-      !p.coordinates ||
-      typeof p.coordinates.lat !== "number" ||
-      typeof p.coordinates.lng !== "number"
-    ) {
-      return false;
-    }
+  const mapProjects = React.useMemo(() => {
+    return sourceProjects.filter((p) => {
+      // Check valid coordinates
+      if (
+        !p.coordinates ||
+        typeof p.coordinates.lat !== "number" ||
+        typeof p.coordinates.lng !== "number"
+      ) {
+        return false;
+      }
 
-    // Filter by division if any selected
-    if (selectedDivisions.length > 0) {
-      // Show project if it includes ANY of the selected divisions
-      return p.divisionSlugs?.some((slug) => selectedDivisions.includes(slug));
-    }
+      // Filter by division if any selected
+      if (selectedDivisions.length > 0) {
+        // Show project if it includes ANY of the selected divisions
+        return p.divisionSlugs?.some((slug) =>
+          selectedDivisions.includes(slug)
+        );
+      }
 
-    return true; // Show all if no filter
-  });
+      return true; // Show all if no filter
+    });
+  }, [sourceProjects, selectedDivisions]);
 
   const toggleDivision = (slug: string) => {
     setSelectedDivisions((prev) =>
@@ -228,7 +238,7 @@ export const ProjectMap = ({ projects: propProjects }: ProjectMapProps) => {
       </div>
 
       {/* Overlay Title */}
-      <div className="absolute top-8 left-8 z-[1000] bg-white/90 backdrop-blur-md p-6 rounded-lg shadow-lg max-w-sm border-l-4 border-accent hidden md:block pointer-events-none">
+      <div className="absolute top-8 left-20 z-[1000] bg-white/90 backdrop-blur-md p-6 rounded-lg shadow-lg max-w-sm border-l-4 border-accent hidden md:block pointer-events-none">
         <h2 className="text-2xl font-display font-bold text-primary mb-2">
           Project Locations
         </h2>
