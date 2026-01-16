@@ -10,6 +10,8 @@ import {
   Landmark,
 } from "lucide-react";
 
+import { AnimatedCounter } from "../components/animations/AnimatedCounter";
+
 export const OurTeam = () => {
   return (
     <>
@@ -235,7 +237,7 @@ export const OurTeam = () => {
                   {item.stats.map((s, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <span className="font-bold text-accent min-w-[1.5rem]">
-                        {s.count}
+                        <AnimatedCounter to={s.count} duration={1.2} />
                       </span>
                       <span className="text-neutral-600 text-sm leading-relaxed">
                         {s.text}

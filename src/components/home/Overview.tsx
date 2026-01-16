@@ -3,6 +3,7 @@ import { Section } from "../ui/Section";
 import { Button } from "../ui/Button";
 import { FadeIn } from "../animations/FadeIn";
 import { TextReveal } from "../animations/TextReveal";
+import { AnimatedCounter } from "../animations/AnimatedCounter";
 
 export const Overview = () => {
   return (
@@ -46,33 +47,38 @@ export const Overview = () => {
           {/* Abstract shape or secondary image */}
           <FadeIn direction="left" delay={0.2} duration={1.2}>
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-            <div className="relative z-10 grid grid-cols-2 gap-4">
-              <div className="space-y-4 mt-8">
-                <div className="bg-white p-6 shadow-xl slant-br relative overflow-hidden group hover:translate-y-[-5px] transition-transform duration-300">
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-accent" />
-                  <h3 className="text-4xl font-bold text-primary mb-1 mt-2">
-                    15+
+            <div className="relative z-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="space-y-6 mt-8">
+                {/* Years Experience */}
+                <div className="bg-primary p-8 shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 rounded-none border-l-4 border-accent">
+                  <h3 className="text-5xl font-bold text-accent mb-2 flex items-center tracking-tight">
+                    <AnimatedCounter to={15} duration={2} />+
                   </h3>
-                  <p className="text-sm text-neutral-500 font-medium uppercase">
+                  <p className="text-sm text-white/80 font-medium uppercase tracking-widest">
                     Years Experience
                   </p>
                 </div>
-                <div className="bg-primary p-6 shadow-xl slant-tl text-white relative overflow-hidden hover:translate-y-[-5px] transition-transform duration-300">
-                  <div className="absolute top-0 right-0 w-24 h-1.5 bg-accent" />
-                  <h3 className="text-4xl font-bold mb-1 mt-2">6</h3>
-                  <p className="text-sm text-white/70 font-medium uppercase">
+
+                {/* Specialized Divisions */}
+                <div className="bg-primary p-8 shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 rounded-none border-l-4 border-accent">
+                  <h3 className="text-5xl font-bold text-accent mb-2 flex items-center tracking-tight">
+                    <AnimatedCounter to={6} duration={2} />
+                  </h3>
+                  <p className="text-sm text-white/80 font-medium uppercase tracking-widest">
                     Specialized Divisions
                   </p>
                 </div>
               </div>
-              <div className="space-y-4">
-                <div className="bg-neutral-bg p-6"></div> {/* Spacer */}
-                <div className="bg-white p-6 shadow-xl slant-br relative overflow-hidden hover:translate-y-[-5px] transition-transform duration-300">
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-primary" />
-                  <h3 className="text-4xl font-bold text-primary mb-1 mt-2">
-                    5M+
+
+              <div className="space-y-6">
+                <div className="hidden md:block h-16" /> {/* Spacer */}
+                {/* Safe Man-Hours */}
+                <div className="bg-primary p-8 shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 rounded-none border-l-4 border-accent">
+                  <h3 className="text-5xl font-bold text-accent mb-2 flex items-center tracking-tight">
+                    <AnimatedCounter to={5} duration={2} decimals={0} />
+                    M+
                   </h3>
-                  <p className="text-sm text-neutral-500 font-medium uppercase">
+                  <p className="text-sm text-white/80 font-medium uppercase tracking-widest">
                     Safe Man-Hours
                   </p>
                 </div>

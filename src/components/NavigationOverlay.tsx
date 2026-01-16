@@ -216,7 +216,7 @@ export const NavigationOverlay = ({
                               handleNav(item.href);
                             }
                           }}
-                          className={`text-4xl md:text-5xl lg:text-6xl font-display font-bold transition-colors text-left ${activeCategory === item.name ? "text-primary" : "text-primary/40 hover:text-primary/70"}`}
+                          className={`text-2xl md:text-3xl lg:text-4xl font-display font-bold transition-colors text-left ${activeCategory === item.name ? "text-primary" : "text-primary/40 hover:text-primary/70"}`}
                         >
                           {item.name}
                         </button>
@@ -229,13 +229,13 @@ export const NavigationOverlay = ({
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="md:hidden overflow-hidden pl-4 mt-2 mb-4 space-y-3 border-l-2 border-accent/20"
+                            className="md:hidden overflow-hidden pl-4 mt-2 mb-4 space-y-2 border-l-2 border-accent/20"
                           >
                             {/* 'View All' Link for categories with a main page */}
                             {item.href && (
                               <div
                                 onClick={() => handleNav(item.href!)}
-                                className="text-2xl font-display font-medium text-neutral-800 active:text-primary py-1 mb-2"
+                                className="text-lg font-display font-medium text-neutral-800 active:text-primary py-1 mb-1"
                               >
                                 View All {item.name}
                               </div>
@@ -245,7 +245,7 @@ export const NavigationOverlay = ({
                               <div
                                 key={subIndex}
                                 onClick={() => handleNav(subLink.href)}
-                                className="text-2xl font-display font-medium text-neutral-500 active:text-primary py-1"
+                                className="text-lg font-display font-medium text-neutral-500 active:text-primary py-1"
                               >
                                 {subLink.name}
                               </div>
@@ -359,7 +359,7 @@ export const NavigationOverlay = ({
                             />
                           )}
                           <h3
-                            className={`text-3xl md:text-5xl font-display font-light text-white/70 group-hover:text-white transition-colors ${!link.accent && "hover:translate-x-2 transition-transform"}`}
+                            className={`text-xl md:text-2xl font-display font-light text-white/70 group-hover:text-white transition-colors ${!link.accent && "hover:translate-x-2 transition-transform"}`}
                           >
                             {link.name}
                           </h3>
@@ -368,7 +368,7 @@ export const NavigationOverlay = ({
                     </div>
                   ) : (
                     /* Mode 3: Default Empty State (or "Featured") */
-                    <div className="text-white/30 text-4xl md:text-5xl font-display font-medium tracking-tight">
+                    <div className="text-white/30 text-2xl md:text-3xl font-display font-medium tracking-tight">
                       {activeCategory
                         ? `Explore ${activeCategory}`
                         : "Select a category"}

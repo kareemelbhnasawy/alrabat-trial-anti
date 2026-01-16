@@ -10,6 +10,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { AnimatedCounter } from "../components/animations/AnimatedCounter";
 
 export const OurStory = () => {
   return (
@@ -203,22 +204,26 @@ export const OurStory = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               {
-                number: "18+",
+                value: 18,
+                suffix: "+",
                 label: "Years of Excellence",
                 icon: <Award className="w-8 h-8 mb-4 mx-auto text-white" />,
               },
               {
-                number: "500+",
+                value: 500,
+                suffix: "+",
                 label: "Projects Delivered",
                 icon: <Briefcase className="w-8 h-8 mb-4 mx-auto text-white" />,
               },
               {
-                number: "6",
+                value: 6,
+                suffix: "",
                 label: "Specialized Divisions",
                 icon: <Globe className="w-8 h-8 mb-4 mx-auto text-white" />,
               },
               {
-                number: "100%",
+                value: 100,
+                suffix: "%",
                 label: "Safety Record",
                 icon: (
                   <ShieldCheck className="w-8 h-8 mb-4 mx-auto text-white" />
@@ -234,8 +239,9 @@ export const OurStory = () => {
                 className="p-6 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-300"
               >
                 {stat.icon}
-                <div className="text-4xl md:text-5xl font-display font-bold mb-2">
-                  {stat.number}
+                <div className="text-4xl md:text-5xl font-display font-bold mb-2 flex justify-center items-center text-accent">
+                  <AnimatedCounter to={stat.value} duration={2} />
+                  {stat.suffix}
                 </div>
                 <div className="text-white/80 font-medium tracking-wide uppercase text-sm leading-snug">
                   {stat.label}

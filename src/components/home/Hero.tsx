@@ -38,12 +38,10 @@ export const Hero = () => {
           </FadeIn> */}
 
           <FadeIn direction="up" delay={0.4} duration={1.2}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[0.9] mb-6 mt-12 flex flex-col items-center text-center">
-              <TextReveal delay={0.4}>THE</TextReveal>
-              <TextReveal delay={0.5}>BOND</TextReveal>
-              <TextReveal delay={0.6}>OF</TextReveal>
-              <span className="text-accent mt-2">
-                <TextReveal delay={0.7}>SUCCESS</TextReveal>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-6 mt-32 flex items-center justify-center space-x-3 text-center">
+              <TextReveal delay={0.4}>The Bond of</TextReveal>
+              <span className="text-accent">
+                <TextReveal delay={0.5}>Success</TextReveal>
               </span>
             </h1>
           </FadeIn>

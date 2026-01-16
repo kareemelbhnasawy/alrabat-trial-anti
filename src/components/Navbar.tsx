@@ -33,23 +33,21 @@ export const Navbar = () => {
         )}
       >
         <div className="container-custom flex items-center justify-between relative px-6 md:px-12">
-          {/* Left: Hamburger Trigger */}
-          <button
-            onClick={() => setIsOpen(true)}
-            className={clsx(
-              "p-2 -ml-2 rounded-full hover:bg-white/10 transition-colors group",
-              isScrolled || isOpen ? "text-primary" : "text-white"
-            )}
-            aria-label="Open Menu"
-          >
-            <Menu
-              size={32}
-              className="group-hover:scale-105 transition-transform"
-            />
-          </button>
-
-          {/* Center: Logo */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          {/* Left: Hamburger & Logo */}
+          <div className="flex items-center gap-6">
+            <button
+              onClick={() => setIsOpen(true)}
+              className={clsx(
+                "p-2 -ml-2 rounded-full hover:bg-white/10 transition-colors group",
+                isScrolled || isOpen ? "text-primary" : "text-white"
+              )}
+              aria-label="Open Menu"
+            >
+              <Menu
+                size={32}
+                className="group-hover:scale-105 transition-transform"
+              />
+            </button>
             <Logo isScrolled={isScrolled || isOpen} />
           </div>
 
