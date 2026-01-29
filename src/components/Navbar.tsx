@@ -28,43 +28,49 @@ export const Navbar = () => {
         className={clsx(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled || isOpen
-            ? "bg-white/90 backdrop-blur-md shadow-sm py-4"
-            : "bg-transparent py-6"
+            ? "bg-white/95 backdrop-blur-md shadow-sm py-4"
+            : "bg-transparent py-6",
         )}
       >
         <div className="container-custom flex items-center justify-between relative px-6 md:px-12">
-          {/* Left: Hamburger & Logo */}
-          <div className="flex items-center gap-6">
+          {/* Left: Logo */}
+          <div className="flex items-center">
+            <Logo isScrolled={isScrolled || isOpen} />
+          </div>
+
+          {/* Right: Search & Hamburger */}
+          <div className="flex items-center gap-4">
             <button
               onClick={() => setIsOpen(true)}
               className={clsx(
-                "p-2 -ml-2 rounded-full hover:bg-white/10 transition-colors group",
-                isScrolled || isOpen ? "text-primary" : "text-white"
+                "p-2 rounded-full hover:bg-white/10 transition-colors group",
+                isScrolled || isOpen ? "text-primary" : "text-white",
+              )}
+              aria-label="Search"
+            >
+              <Search
+                size={24}
+                className="group-hover:scale-105 transition-transform"
+              />
+            </button>
+
+            <button
+              onClick={() => setIsOpen(true)}
+              className={clsx(
+                "p-2 -mr-2 rounded-full hover:bg-white/10 transition-colors group",
+                isScrolled || isOpen
+                  ? "text-primary dark:text-primary"
+                  : "text-white",
               )}
               aria-label="Open Menu"
             >
+              {/* 3 lines / Menu Icon */}
               <Menu
                 size={32}
                 className="group-hover:scale-105 transition-transform"
               />
             </button>
-            <Logo isScrolled={isScrolled || isOpen} />
           </div>
-
-          {/* Right: Search Trigger */}
-          <button
-            onClick={() => setIsOpen(true)} // Opens same overlay for now, as search is inside
-            className={clsx(
-              "p-2 -mr-2 rounded-full hover:bg-white/10 transition-colors group",
-              isScrolled || isOpen ? "text-primary" : "text-white"
-            )}
-            aria-label="Search"
-          >
-            <Search
-              size={28}
-              className="group-hover:scale-105 transition-transform"
-            />
-          </button>
         </div>
       </nav>
 
