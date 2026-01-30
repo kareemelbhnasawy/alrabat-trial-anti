@@ -28,24 +28,22 @@ export const Marquee = () => {
     // We'll rely on the source data order or specific category IDs if known.
     // For now, let's filter out "Al Safa" as requested.
 
-    return clients
-      .filter((c) => !c.name.toLowerCase().includes("al safa"))
-      .sort((a, b) => {
-        // rudimentary sort: prioritize Developers category if identifiable
-        // Assuming categories might be named 'Developers', 'Consultants'.
-        // Without Category ID mapping here, we'll retain source order but move filtered items.
-        return 0;
-      });
+    const filtered = clients.filter(
+      (c) => !c.name.toLowerCase().includes("al safa")
+    );
+    const highlighted = filtered.filter((c) => c.is_highlighted);
+    return highlighted.length > 0 ? highlighted : filtered;
   }, [clientCategories]);
 
-  const displayItems = allClients.length > 0 ? allClients : FALLBACK_LOGOS;
+  const displayItems =
+    allClients.length > 0 ? allClients.slice(0, 14) : FALLBACK_LOGOS;
 
   // Duplicate more times for slower/longer continuous scroll
   const marqueItems = [...displayItems, ...displayItems, ...displayItems];
 
   return (
     <motion.div
-      className="bg-white py-20 overflow-hidden relative z-10"
+      className="bg-white py-20 overflow-hidden relative z-10 border-y border-neutral-100"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -59,8 +57,8 @@ export const Marquee = () => {
       </div>
 
       <div className="relative w-full flex overflow-hidden">
-        {/* Slower animation speed is handled in tailwind config 'animate-marquee' or filtered here via inline style if needed */}
-        <div className="flex animate-marquee whitespace-nowrap items-center select-none hover:[animation-play-state:paused]">
+        {/* Slower animation speed is handled in tailwind config 'animate-marquee' */}
+        <div className="flex animate-marquee whitespace-nowrap items-center select-none">
           <div className="flex space-x-16 md:space-x-24 px-8 md:px-12 items-center">
             {marqueItems.map((item, idx) => (
               <MarqueeItem key={`${idx}`} item={item} />
@@ -75,7 +73,7 @@ export const Marquee = () => {
 const MarqueeItem = ({ item }: { item: any }) => {
   const isClientObj = typeof item !== "string";
   return (
-    <div className="flex-shrink-0 transition-all duration-300 hover:scale-110 cursor-pointer">
+    <div className="flex-shrink-0">
       {isClientObj && item.image ? (
         <img
           src={item.image}

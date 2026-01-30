@@ -118,7 +118,7 @@
 
 @layer utilities {
   .animate-marquee {
-    animation: marquee 160s linear infinite;
+    animation: marquee 60s linear infinite;
   }
 }
 
@@ -189,6 +189,38 @@
   .slant-accent-stripe {
     @apply absolute bg-accent w-full z-20 top-0 left-0;
     height: 100px;
+    pointer-events: none;
+  }
+
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(240, 91, 34, 0.35),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  .section-divider-dark::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
     pointer-events: none;
   }
 

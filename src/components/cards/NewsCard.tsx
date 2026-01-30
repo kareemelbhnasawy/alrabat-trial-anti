@@ -38,6 +38,17 @@ export const NewsCard = ({
             alt={news.title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent z-10 pointer-events-none" />
+
+          {/* Title always visible on image */}
+          <div className="absolute bottom-0 left-0 right-0 z-20 p-6 transition-opacity duration-300 group-hover:opacity-0">
+            <div className="text-xs font-bold uppercase tracking-widest text-accent mb-2">
+              {news.category || "Update"}
+            </div>
+            <h3 className="text-xl font-display font-bold text-white leading-tight line-clamp-2">
+              {news.title || news.name}
+            </h3>
+          </div>
 
           {/* Sliding Slant Overlay - Covers ~66% */}
           <div

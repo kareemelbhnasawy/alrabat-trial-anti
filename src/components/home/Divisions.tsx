@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { Section } from "../ui/Section";
 import { useData } from "../../context/DataContext";
 import { FadeIn } from "../animations/FadeIn";
@@ -18,7 +17,7 @@ const getIconPath = (slug: string) => {
       return "/logos/icons/Alrabat Infrastructure PNG.png";
     case "equipment":
       return "/logos/icons/Alrabat Equipment PNG.png";
-    case "consulting":
+    case "specialized-engineering":
     default:
       return "/logos/icons/Alrabat SE PNG.png";
   }
@@ -26,13 +25,6 @@ const getIconPath = (slug: string) => {
 
 export const Divisions = () => {
   const { divisions } = useData();
-
-  // Filter out/Rename if necessary based on feedback
-  // Feedback: "change consulting, Specialized Engineering"
-  const divisionsList = divisions.map((d) => ({
-    ...d,
-    name: d.slug === "consulting" ? "Specialized Engineering" : d.name,
-  }));
 
   return (
     <Section className="py-20 bg-neutral-bg">
@@ -42,16 +34,16 @@ export const Divisions = () => {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
               Divisions.
             </h2>
-            <div className="h-1 w-20 bg-accent mx-auto" />
+            <div className="h-1 w-20 bg-primary mx-auto" />
           </FadeIn>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-          {divisionsList.map((item, index) => (
+          {divisions.map((item) => (
             <Link
               key={item.id}
               to={`/divisions/${item.slug}`}
-              className="group relative h-[400px] lg:h-[600px] overflow-hidden rounded-2xl bg-white shadow-xl isolate"
+              className="group relative h-[300px] lg:h-[600px] overflow-hidden rounded-2xl bg-white shadow-xl isolate"
             >
               {/* Background Image - Absolute fill */}
               <div className="absolute inset-0 z-0">
@@ -88,7 +80,7 @@ export const Divisions = () => {
                       <p className="text-white/80 text-sm line-clamp-3 mb-4 font-light">
                         {item.summary}
                       </p>
-                      <div className="flex items-center text-accent font-bold text-sm uppercase tracking-widest gap-2">
+                      <div className="flex items-center text-white font-bold text-sm uppercase tracking-widest gap-2">
                         Explore Division <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
@@ -97,10 +89,7 @@ export const Divisions = () => {
               </div>
 
               {/* Accent Line Bottom */}
-              <div
-                className="absolute bottom-0 left-0 w-full h-1 z-20 transition-all duration-300 group-hover:h-2"
-                style={{ backgroundColor: item.accentColor || "#F05B22" }}
-              />
+              <div className="absolute bottom-0 left-0 w-full h-1 z-20 transition-all duration-300 group-hover:h-2 bg-primary" />
             </Link>
           ))}
         </div>

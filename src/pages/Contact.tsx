@@ -30,7 +30,7 @@ export const Contact = () => {
                 <p>
                   411, DBCS Building,
                   <br />
-                  Al Gharoud, Dubai, U.A.E
+                  Al Garhoud, Dubai, U.A.E
                 </p>
               </div>
             </div>
@@ -45,7 +45,7 @@ export const Contact = () => {
               <Mail className="mr-6 mt-1 text-accent" size={24} />
               <div>
                 <h3 className="text-white font-bold mb-1">Email</h3>
-                <p>info@rabatpfc.com</p>
+                <p>info@alrabatse.com</p>
               </div>
             </div>
           </div>

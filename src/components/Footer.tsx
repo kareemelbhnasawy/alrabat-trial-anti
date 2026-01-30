@@ -17,6 +17,11 @@ export const Footer = () => {
                         <br className="mb-2" />
                         Providing fully tailored integrated ground solutions with highest quality standards since 2007.
                     </p>
+                    <div className="text-xs text-neutral-300 space-y-1">
+                        <p>+971 4 267 6054 / +971 4 337 8073</p>
+                        <p>info@alrabatse.com</p>
+                        <p>401, Red Crescent Building, Al Garhoud, Dubai, U.A.E</p>
+                    </div>
                     <div className="flex space-x-4">
                         <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent transition-colors"><Linkedin size={18} /></a>
                         <a href="#" className="p-2 bg-white/5 rounded-full hover:bg-accent transition-colors"><Instagram size={18} /></a>
@@ -33,7 +38,7 @@ export const Footer = () => {
                         <li><Link to="/divisions/infrastructure" className="hover:text-white transition-colors">Infrastructure</Link></li>
                         <li><Link to="/divisions/marine" className="hover:text-white transition-colors">Marine</Link></li>
                         <li><Link to="/divisions/equipment" className="hover:text-white transition-colors">Equipment</Link></li>
-                        <li><Link to="/divisions/consulting" className="hover:text-white transition-colors">Consulting</Link></li>
+                        <li><Link to="/divisions/specialized-engineering" className="hover:text-white transition-colors">Specialized Engineering</Link></li>
                     </ul>
                 </div>
 

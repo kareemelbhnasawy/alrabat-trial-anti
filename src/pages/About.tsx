@@ -12,7 +12,7 @@ export const About = () => {
                     <span className="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Our Company</span>
                     <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">About Alrabat SE</h1>
                     <p className="text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-                        Established in 2007 in Dubai, UAE, as a subsidiary of the Rabat Business Group, we are dedicated to delivering fully tailored integrated ground solutions.
+                        Established in 2007 in Dubai, UAE, as a subsidiary of Alrabat Business Group (founded in Egypt in 1980), we deliver fully tailored integrated ground solutions across the region.
                     </p>
                 </div>
             </div>
@@ -32,7 +32,7 @@ export const About = () => {
                         </div>
                         <h3 className="text-xl font-bold font-display text-primary mb-4">Our Vision</h3>
                         <p className="text-neutral-600 leading-relaxed">
-                            To be the leader in ground solutions, integrating cutting-edge technologies to deliver tailored excellence with a legacy of trust.
+                            To be a trusted, forward-thinking construction group that delivers lasting value through integrity, collaboration, and innovation.
                         </p>
                     </motion.div>
                     <motion.div 
@@ -47,7 +47,7 @@ export const About = () => {
                         </div>
                         <h3 className="text-xl font-bold font-display text-primary mb-4">Our Mission</h3>
                         <p className="text-neutral-600 leading-relaxed">
-                            Providing fully tailored integrated ground solutions of the highest quality to achieve exceptional customer satisfaction.
+                            To deliver high-quality solutions through ethical practice, strong partnerships, and continuous improvement—empowering our people and adapting to changing needs.
                         </p>
                     </motion.div>
                     <motion.div 
@@ -62,7 +62,7 @@ export const About = () => {
                         </div>
                         <h3 className="text-xl font-bold font-display text-primary mb-4">Our Values</h3>
                         <p className="text-neutral-600 leading-relaxed">
-                            Safety, quality, and innovative solutions are the core bonds that drive our success and relationships.
+                            Authenticity, creativity, bond, and investment in minds guide how we work, lead, and grow.
                         </p>
                     </motion.div>
                 </div>

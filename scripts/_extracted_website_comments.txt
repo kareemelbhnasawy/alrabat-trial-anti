@@ -1,0 +1,191 @@
+
+Logo and perspective of Binghatti shouldn’t be part of the video + the statistics of cranes and machines
+Transition between home page sections (here between video and logos section)
+After Video we need a  Welcome/About section
+After the Welcome/About section show the statistics, then after statistics, divisions brief section, then finally clients section
+
+
+The movement of the logos are quite fast
+Make all logos without any background color, to be only the logo. And to make logos with it’s original colors no need to make it fade out and  hover to show color. (if some logos won’t appear with green background, we can change this section background to white)
+Transitions between sections
+
+
+
+
+
+
+
+
+
+
+
+Need to have a title for Divisons section “Divisions.”
+The Divisions section can be put together, and when hovering on a section it shows it’s details like the screenshot from ecc website (this is only  suggestion)
+
+
+
+
+
+
+
+
+Logo blank space between division name and logo to be exactly like brand guidlines (spacing
+
+Make the 3 lines icon on the top right corner next to the search button,  and place the logos on the top left corner
+
+
+
+Circled shape of photo to match brand guidelines design for all divisions photos in home page
+photo to be changed to GI representing photo
+Aside to the above mentioned techniques, other techniques to be added, if more than 4 add +1 or +2…
+Add transitions between sections
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Color highlight of the photo in the divisions section to be united and abide by branding guidlines all over the website, don’t used division colors for text or highlights.
+Same for text, it’s unprofessional to have text with different colors in each section (Unit all text in the website (Max 2 colors, one in dark background and one in light background)
+Add transitions between sections inside all pages 
+
+
+
+
+
+
+
+
+
+
+
+
+Put logos of accreditation/entities
+
+
+
+
+
+
+
+
+
+
+
+
+
+Photo to be changed to an infrastructure photo
+
+
+
+
+
+
+
+
+
+
+
+
+
+The photo her is representing logistics more than marine, need to be changed
+
+Also, Equipment photo 
+
+
+
+
+
+
+
+
+
+
+
+change consulting, Specialized Engineering 
+And it should have orange accent color
+
+
+
+
+
+
+
+
+
+
+
+
+-+
+
+
+ 1. Logo page is so blank, needs some transitions and maybe we can change this light blue/ whitish background
+2. Logos to not have any background and to be in original color without fading out
+3. Developers to be up before consultants 
+
+
+Replace consulting with Specialized Engineering 
+
+
+
+
+
+
+
+Alternative paragraph covering full scope
+
+photo to be replaced, better to be from the video
+
+
+
+
+Key services to be checked
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Each news to have a title on the main photo, and when hovering it shows little details of the news as shown
+
+
+
+
+
+
+
+
+
+
+
+In home page, don’t make the logos pop up or give clients to have the hovering option
+Also keep the most important clients only no need to mention al safa and the similar clients. 
+
+Things still to be seen
+Footer
+Contact us Page
+Phone view

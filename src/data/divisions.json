@@ -1,253 +1,334 @@
 [
-    {
-        "id": "div-1",
-        "name": "Foundations",
-        "slug": "foundations",
-        "accentColor": "#961E1E",
-        "heroImage": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80",
-        "heroVideo": "/hero.mp4",
-        "summary": "Deep foundation solutions ensuring structural integrity for high-rise and complex infrastructure.",
-        "introSection": {
-            "title": "SPECIALIZED FOUNDATIONS",
-            "description": "Deep foundation engineering is the bedrock of modern infrastructure. We provide comprehensive solutions to ensure structural stability in the most challenging soil conditions.",
-            "services": [
-                {
-                    "title": "BORED PILING",
-                    "description": "Installation of large-diameter piles for high-rise buildings and heavy bridges."
-                },
-                {
-                    "title": "SHORING SYSTEMS",
-                    "description": "Secant and contiguous pile walls to support deep excavations safely."
-                },
-                {
-                    "title": "GROUND ANCHORS",
-                    "description": "Temporary and permanent anchoring systems for retaining structures."
-                }
-            ]
+  {
+    "id": "div-1",
+    "name": "Specialized Engineering",
+    "slug": "specialized-engineering",
+    "accentColor": "#F05B22",
+    "heroImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
+    "heroVideo": "/hero.mp4",
+    "summary": "Integrated engineering and project support services covering approvals, design, procurement, planning, cost control, and commercial management across the full project lifecycle.",
+    "introSection": {
+      "title": "SPECIALIZED ENGINEERING",
+      "description": "Alrabat SE provides multidisciplinary engineering and project support services from early planning and approvals through execution, cost control, and commercial management. We work closely with clients, consultants, and authorities to ensure compliant, efficient, and well-coordinated delivery.",
+      "services": [
+        {
+          "title": "AUTHORITIES NOCs",
+          "description": "Management and coordination of authority approvals and No Objection Certificates with local entities."
         },
-        "capabilities": [
-            "Bored Piling (up to 2500mm diameter)",
-            "CFA Piling (Continuous Flight Auger)",
-            "Micropiles & Minipiles",
-            "Shoring Systems (Secant/Contiguous/Soldier Piles)",
-            "Sheet Piling works"
-        ],
-        "keyServices": [
-            "Design & Execution",
-            "Static Load Testing",
-            "Integrity Testing"
-        ],
-        "relatedProjectSlugs": [
-            "sky-tower-foundations",
-            "marina-mall-extension"
-        ]
+        {
+          "title": "DESIGN & CONSULTATIONS",
+          "description": "Foundation design and engineering consultancy tailored to site conditions, structural requirements, and project objectives."
+        },
+        {
+          "title": "PROCUREMENT SERVICES",
+          "description": "Support for materials, equipment, and specialist procurement aligned with schedules and quality requirements."
+        },
+        {
+          "title": "COST ANALYSIS",
+          "description": "Detailed budgeting, cost control, and value optimization across all project stages."
+        },
+        {
+          "title": "PLANNING SERVICES",
+          "description": "Project planning, scheduling, and progress monitoring to align design, procurement, and construction."
+        },
+        {
+          "title": "COMMERCIAL SERVICES",
+          "description": "Commercial support including contract administration, variations, and payment certification."
+        }
+      ]
     },
-    {
-        "id": "div-2",
-        "name": "Ground Improvement",
-        "slug": "ground-improvement",
-        "accentColor": "#996200",
-        "heroImage": "https://images.unsplash.com/photo-1758634057888-7a4f9e50322a?auto=format&fit=crop&w=1600&q=80",
-        "heroVideo": "/hero.mp4",
-        "summary": "Advanced soil stabilization techniques to enhance load-bearing capacity and mitigate settlement.",
-        "introSection": {
-            "title": "GROUND ENGINEERING",
-            "description": "We transform problematic soils into solid foundations through advanced ground improvement techniques, optimizing project costs and timelines.",
-            "services": [
-                {
-                    "title": "VIBRO COMPACTION",
-                    "description": "Densification of granular soils to increase bearing capacity and reduce settlement."
-                },
-                {
-                    "title": "DYNAMIC COMPACTION",
-                    "description": "High-energy impact densification for large-scale land reclamation projects."
-                },
-                {
-                    "title": "STONE COLUMNS",
-                    "description": "Vertical inclusions to reinforce soft cohesive soils and accelerate consolidation."
-                }
-            ]
+    "capabilities": [
+      "Authority approvals & NOCs coordination",
+      "Foundation design & engineering consultancy",
+      "Procurement support for specialist packages",
+      "Cost analysis, budgeting & cost control",
+      "Project planning, scheduling & progress reporting",
+      "Commercial management & contract administration"
+    ],
+    "keyServices": [
+      "Project Support Services",
+      "Design & Consultations",
+      "Cost & Commercial Management",
+      "Planning & Scheduling"
+    ],
+    "relatedProjectSlugs": []
+  },
+  {
+    "id": "div-2",
+    "name": "Foundations",
+    "slug": "foundations",
+    "accentColor": "#F05B22",
+    "heroImage": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1600&q=80",
+    "heroVideo": "/hero.mp4",
+    "summary": "Comprehensive foundation and ground support solutions from site preparation to deep foundations and slope stabilization.",
+    "introSection": {
+      "title": "FOUNDATION & GROUND SUPPORT",
+      "description": "Alrabat Foundation delivers end-to-end foundation systems tailored to project and ground conditions. Our solutions support residential, commercial, industrial, and infrastructure developments with safe, efficient, and technically robust execution.",
+      "services": [
+        {
+          "title": "ENABLING & SITE PREPARATION",
+          "description": "Site preparation, fencing and hoarding, temporary facilities, vegetation removal, leveling, excavation, earthworks, and temporary access roads."
         },
-        "capabilities": [
-            "Vibro Compaction / Vibro Replacment",
-            "Dynamic Compaction",
-            "Rapid Impact Compaction (RIC)",
-            "Stone Columns",
-            "Grouting & Soil Mixing"
-        ],
-        "keyServices": [
-            "Soil Analysis & Design",
-            "Liquefaction Mitigation",
-            "Ground Densification"
-        ],
-        "relatedProjectSlugs": [
-            "industrial-zone-stabilization"
-        ]
+        {
+          "title": "SHORING & EXCAVATION SUPPORT",
+          "description": "Temporary and permanent shoring systems designed to suit site constraints and excavation depths."
+        },
+        {
+          "title": "PILING & DEEP FOUNDATIONS",
+          "description": "Driven piles, bored piles, micropiles, and CFA/CCFA piles to deliver load-bearing capacity and stability."
+        },
+        {
+          "title": "SOIL REINFORCEMENT & SLOPE STABILIZATION",
+          "description": "Soil nailing, anchors, rock bolting, tiebacks, and stabilization measures for long-term ground stability."
+        }
+      ]
     },
-    {
-        "id": "div-3",
-        "name": "Infrastructure",
-        "slug": "infrastructure",
-        "accentColor": "#703000",
-        "heroImage": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80",
-        "heroVideo": "/hero.mp4",
-        "summary": "Comprehensive civil works including roads, utilities, and enabling works for mega-developments.",
-        "introSection": {
-            "title": "SPECIALIZED ENGINEERING",
-            "description": "Enabling works refer to the comprehensive preparation of a construction site, addressing all preparatory needs efficiently and effectively.",
-            "services": [
-                {
-                    "title": "SITE PREPARATION",
-                    "description": "Site Fence, Hoarding, Signboard, Port cabins, removal of vegetation and site leveling."
-                },
-                {
-                    "title": "EXCAVATION AND EARTHWORKS",
-                    "description": "Digging and moving soil to create foundations and level the site."
-                },
-                {
-                    "title": "TEMPORARY ACCESS ROADS",
-                    "description": "Constructing roads for machinery and material transport."
-                }
-            ]
+    "capabilities": [
+      "Sheet piling, soldier piles & lagging",
+      "Secant & contiguous pile walls",
+      "Micro shoring piles & trench sheet shoring",
+      "Bracing systems (steel, concrete, anchoring)",
+      "Driven piles, bored piles, CFA/CCFA",
+      "Micropiles & underpinning works",
+      "Soil nailing, anchors & rock bolting",
+      "Retaining walls, erosion control & drainage"
+    ],
+    "keyServices": [
+      "Enabling Works",
+      "Shoring Systems",
+      "Piling & Deep Foundations",
+      "Soil Reinforcement"
+    ],
+    "relatedProjectSlugs": []
+  },
+  {
+    "id": "div-3",
+    "name": "Ground Improvement",
+    "slug": "ground-improvement",
+    "accentColor": "#F05B22",
+    "heroImage": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80",
+    "heroVideo": "/hero.mp4",
+    "summary": "Specialized ground improvement solutions that enhance soil performance and provide efficient alternatives to deep foundations.",
+    "introSection": {
+      "title": "GROUND IMPROVEMENT SERVICES",
+      "description": "Alrabat Ground Improvement delivers solutions to enhance soil strength, stability, and long-term performance across a wide range of developments.",
+      "services": [
+        {
+          "title": "VIBRO COMPACTION",
+          "description": "Densifies loose granular soils and reclaimed land to improve stiffness and reduce settlement."
         },
-        "capabilities": [
-            "Site Preparation & Earthworks",
-            "Roads & Pavements",
-            "Drainage & Sewage Networks",
-            "Utility Corridors",
-            "Excavation & Backfilling"
-        ],
-        "keyServices": [
-            "Enabling Works Packages",
-            "Traffic Diversion",
-            "Dewatering"
-        ],
-        "relatedProjectSlugs": [
-            "expo-2020-access-roads"
-        ]
+        {
+          "title": "RIGID INCLUSIONS (CMC)",
+          "description": "Transfers loads to competent strata while controlling total and differential settlement in soft soils."
+        },
+        {
+          "title": "VIBRO REPLACEMENT (STONE COLUMNS)",
+          "description": "Improves bearing capacity and controls settlement in weak soils while reducing liquefaction risk."
+        },
+        {
+          "title": "DYNAMIC COMPACTION",
+          "description": "High-energy surface impacts to improve deep loose fills and reclaimed ground."
+        },
+        {
+          "title": "DYNAMIC REPLACEMENT",
+          "description": "Forms load-bearing columns in very soft or heterogeneous soils where compaction is ineffective."
+        },
+        {
+          "title": "RAPID IMPACT COMPACTION (RIC)",
+          "description": "Improves near-surface soils for industrial slabs and restricted-height sites."
+        },
+        {
+          "title": "GROUTING SOLUTIONS",
+          "description": "Stabilizes soil, fills voids, and reduces permeability beneath structures."
+        }
+      ]
     },
-    {
-        "id": "div-4",
-        "name": "Marine",
-        "slug": "marine",
-        "accentColor": "#005C9B",
-        "heroImage": "https://images.unsplash.com/photo-1691732615771-1d6cada73c20?auto=format&fit=crop&w=1600&q=80",
-        "heroVideo": "/hero.mp4",
-        "summary": "Specialized marine construction services for ports, jetties, and coastal protection.",
-        "introSection": {
-            "title": "MARINE CONSTRUCTION",
-            "description": "We deliver intricate marine structures and coastal protection solutions, working in challenging offshore and nearshore environments.",
-            "services": [
-                {
-                    "title": "QUAY WALLS & JETTIES",
-                    "description": "Construction of durable berthing structures for ports and harbors."
-                },
-                {
-                    "title": "DREDGING works",
-                    "description": "Deepening of waterways and land reclamation for coastal development."
-                },
-                {
-                    "title": "COASTAL PROTECTION",
-                    "description": "Breakwaters and rock revetments to protect shorelines from erosion."
-                }
-            ]
+    "capabilities": [
+      "Vibro compaction & vibro replacement",
+      "Rigid inclusions (CMC)",
+      "Dynamic compaction & dynamic replacement",
+      "Rapid impact compaction (RIC)",
+      "Grouting solutions & soil stabilization",
+      "Settlement control & liquefaction mitigation"
+    ],
+    "keyServices": [
+      "Ground Improvement Design",
+      "Quality Control & Testing",
+      "Performance Verification"
+    ],
+    "relatedProjectSlugs": []
+  },
+  {
+    "id": "div-4",
+    "name": "Infrastructure",
+    "slug": "infrastructure",
+    "accentColor": "#F05B22",
+    "heroImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+    "heroVideo": "/hero.mp4",
+    "summary": "End-to-end infrastructure delivery including roads, utilities, drainage, and trenchless works for diverse developments.",
+    "introSection": {
+      "title": "INFRASTRUCTURE WORKS",
+      "description": "Alrabat Infrastructure delivers comprehensive civil works in compliance with approved designs and authority requirements, supported by strong project controls and HSE standards.",
+      "services": [
+        {
+          "title": "ROADS & PAVEMENTS",
+          "description": "Construction of access roads, pavements, and associated earthworks."
         },
-        "capabilities": [
-            "Quay Walls & Jetties",
-            "Dredging & Reclamation",
-            "Breakwaters & Revetments",
-            "Marine Piling (Offshore/Nearshore)",
-            "Underwater Concreting"
-        ],
-        "keyServices": [
-            "Coastal Protection",
-            "Marina Construction",
-            "Sheet Pile Cofferdams"
-        ],
-        "relatedProjectSlugs": [
-            "palm-jumeirah-shoreline"
-        ]
+        {
+          "title": "STORMWATER DRAINAGE",
+          "description": "Stormwater networks, outfalls, and drainage infrastructure."
+        },
+        {
+          "title": "SEWERAGE SYSTEMS",
+          "description": "Gravity and pressure sewer systems with testing and commissioning."
+        },
+        {
+          "title": "WATER SUPPLY NETWORKS",
+          "description": "Potable water pipelines, chambers, and network integration."
+        },
+        {
+          "title": "IRRIGATION NETWORKS",
+          "description": "Irrigation pipelines, valves, and distribution infrastructure."
+        },
+        {
+          "title": "UTILITY CORRIDORS",
+          "description": "Coordinated corridors for multiple utility services."
+        },
+        {
+          "title": "EARTHWORKS",
+          "description": "Site grading, excavation, backfilling, and compaction."
+        },
+        {
+          "title": "PIPE JACKING",
+          "description": "Trenchless installation of pipelines beneath roads and infrastructure with minimal surface disruption."
+        },
+        {
+          "title": "MICRO-TUNNELING",
+          "description": "High-precision, remotely guided pipeline installation in sensitive or congested areas."
+        }
+      ]
     },
-    {
-        "id": "div-5",
-        "name": "Equipment",
-        "slug": "equipment",
-        "accentColor": "#137C1A",
-        "heroImage": "https://images.unsplash.com/photo-1759390304567-c322de52f8bc?auto=format&fit=crop&w=1600&q=80",
-        "heroVideo": "/hero.mp4",
-        "summary": "A vast fleet of state-of-the-art heavy machinery available for specialized rental and project support.",
-        "introSection": {
-            "title": "HEAVY MACHINERY",
-            "description": "Our fleet supports complex construction needs with reliable, high-performance equipment and expert operators.",
-            "services": [
-                {
-                    "title": "PILING RIGS",
-                    "description": "Advanced Bauer and Liebherr rigs for deep foundation execution."
-                },
-                {
-                    "title": "LIFTING SOLUTIONS",
-                    "description": "Mobile and crawler cranes for heavy lifting operations."
-                },
-                {
-                    "title": "EARTHMOVING",
-                    "description": "Excavators, loaders, and dozers for efficient site preparation."
-                }
-            ]
+    "capabilities": [
+      "Roads and pavements",
+      "Stormwater, sewerage & water networks",
+      "Irrigation & utility corridors",
+      "Associated earthworks",
+      "NDRC trenchless technologies",
+      "Pipe jacking & micro-tunneling"
+    ],
+    "keyServices": [
+      "Infrastructure Execution",
+      "Trenchless Works",
+      "Utility Networks",
+      "Earthworks & Backfilling"
+    ],
+    "relatedProjectSlugs": []
+  },
+  {
+    "id": "div-5",
+    "name": "Marine",
+    "slug": "marine",
+    "accentColor": "#F05B22",
+    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+    "heroVideo": "/hero.mp4",
+    "summary": "Design, construction, and maintenance of marine and coastal infrastructure for ports, marinas, and shoreline protection.",
+    "introSection": {
+      "title": "MARINE & COASTAL WORKS",
+      "description": "Alrabat Marine & Coastal Works delivers reliable solutions for ports, marinas, coastal protection, and dredging, supported by specialized marine equipment and strict HSE standards.",
+      "services": [
+        {
+          "title": "QUAY WALLS & BREAKWATERS",
+          "description": "Shoreline protection, safe berthing, and reduced wave action."
         },
-        "capabilities": [
-            "Piling Rigs (Bauer, Liebherr)",
-            "Cranes (Crawler & Mobile)",
-            "Vibro Hammers",
-            "Excavators & Wheel Loaders",
-            "Generators & Compressors"
-        ],
-        "keyServices": [
-            "Equipment Rental",
-            "Maintenance Services",
-            "Operator Supply"
-        ],
-        "relatedProjectSlugs": []
+        {
+          "title": "MARINA CONSTRUCTION",
+          "description": "Berthing, access, and waterfront infrastructure for marine facilities."
+        },
+        {
+          "title": "DREDGING WORKS",
+          "description": "Capital and maintenance dredging to deepen and maintain navigation channels."
+        },
+        {
+          "title": "BEACH & COASTAL PROTECTION",
+          "description": "Shoreline stabilization, erosion control, and enhanced public access."
+        },
+        {
+          "title": "COASTAL WORKS",
+          "description": "Revetments, groynes, stormwater outlets, and retaining structures."
+        },
+        {
+          "title": "PORT SERVICES & REPAIR",
+          "description": "Maintenance, repair, and concrete restoration of marine structures."
+        },
+        {
+          "title": "CONCRETE REPAIR",
+          "description": "Restores structural integrity and mitigates corrosion in marine environments."
+        }
+      ]
     },
-    {
-        "id": "div-6",
-        "name": "Consulting",
-        "slug": "consulting",
-        "accentColor": "#4B5563",
-        "heroImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
-        "heroVideo": "/hero.mp4",
-        "summary": "Engineering expertise tailored to solving complex geotechnical challenges before breaking ground.",
-        "introSection": {
-            "title": "TECHNICAL CONSULTANCY",
-            "description": "Expert engineering advice to optimize designs, mitigate risks, and enhance project value from the ground up.",
-            "services": [
-                {
-                    "title": "GEOTECHNICAL DESIGN",
-                    "description": "Optimized foundation designs based on rigorous soil analysis."
-                },
-                {
-                    "title": "VALUE ENGINEERING",
-                    "description": "Cost-saving technical solutions without compromising performance."
-                },
-                {
-                    "title": "FEASIBILITY STUDIES",
-                    "description": "Technical and economic assessment of project viability."
-                }
-            ]
+    "capabilities": [
+      "Quay wall & breakwater construction",
+      "Marina construction & development",
+      "Dredging works (capital & maintenance)",
+      "Coastal works & shoreline protection",
+      "Port repair, maintenance & services",
+      "Concrete repair for marine structures"
+    ],
+    "keyServices": [
+      "Marine Construction",
+      "Dredging",
+      "Coastal Protection",
+      "Port Maintenance"
+    ],
+    "relatedProjectSlugs": []
+  },
+  {
+    "id": "div-6",
+    "name": "Equipment",
+    "slug": "equipment",
+    "accentColor": "#F05B22",
+    "heroImage": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
+    "heroVideo": "/hero.mp4",
+    "summary": "Specialized maintenance, repair, and technical support services for piling rigs and construction machinery.",
+    "introSection": {
+      "title": "EQUIPMENT & MAINTENANCE",
+      "description": "Alrabat Equipment provides preventive and corrective maintenance for piling rigs, drilling equipment, and associated machinery to ensure safe and reliable operations across all sites.",
+      "services": [
+        {
+          "title": "PREVENTIVE & CORRECTIVE MAINTENANCE",
+          "description": "Routine maintenance programs to maximize uptime and reduce failures."
         },
-        "capabilities": [
-            "Geotechnical Design & Analysis",
-            "Value Engineering Solutions",
-            "Feasibility Studies",
-            "Project Management Consultancy",
-            "Site Investigation Oversight"
-        ],
-        "keyServices": [
-            "Design Review",
-            "Cost Optimization",
-            "Technical Advisory"
-        ],
-        "relatedProjectSlugs": [
-            "iconic-tower-design"
-        ]
-    }
+        {
+          "title": "HYDRAULIC, ELECTRICAL & MECHANICAL REPAIRS",
+          "description": "Diagnostics, repair, and overhauling of key equipment systems."
+        },
+        {
+          "title": "MACHINING & LATHE SERVICES",
+          "description": "Fabrication, modification, and repair of mechanical parts."
+        },
+        {
+          "title": "DRILLING TOOLS SERVICES",
+          "description": "Manufacturing, repair, and hardfacing of drilling tools."
+        },
+        {
+          "title": "INSPECTION & QUALITY CONTROL",
+          "description": "Testing and inspection of components before return to operation."
+        }
+      ]
+    },
+    "capabilities": [
+      "Maintenance, repair & overhaul (MRO)",
+      "Hydraulic, electrical & mechanical diagnostics",
+      "Machining, fabrication & component repair",
+      "Drilling tools manufacturing & hardfacing",
+      "Inspection, testing & QA/QC"
+    ],
+    "keyServices": [
+      "Maintenance Services",
+      "Repairs & Overhauls",
+      "Machining & Tools",
+      "Quality Control"
+    ],
+    "relatedProjectSlugs": []
+  }
 ]

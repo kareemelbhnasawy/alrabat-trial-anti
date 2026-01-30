@@ -16,7 +16,7 @@ export const Section = ({ children, className, id, dark = false, slantedTop = fa
             id={id}
             className={clsx(
                 "py-24 relative overflow-hidden",
-                dark ? "bg-primary text-white" : "bg-neutral-bg text-neutral-dark",
+                dark ? "bg-primary text-white section-divider-dark" : "bg-neutral-bg text-neutral-dark section-divider",
                 slantedTop && "slant-divider-lg -mt-20 pt-32",
                 className
             )}

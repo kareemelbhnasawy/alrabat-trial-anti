@@ -33,7 +33,7 @@ export default {
         display: ['"JEKO"', "sans-serif"], // JEKO extrabold for headlines and strong visual impact
       },
       animation: {
-        marquee: "marquee 60s linear infinite", // Slower as requested
+        marquee: "marquee 15s linear infinite",
         "fade-in-up": "fadeInUp 0.5s ease-out forwards",
       },
       keyframes: {

@@ -17,8 +17,8 @@ export const Home = () => {
       <RecentProjects />
       <ProjectMap />
       <LatestNews />
-      <Marquee />{" "}
-      {/* Clients moved to bottom/footer area per usual or as requested order */}
+      <Marquee />
+      {/* Clients section placed last per requested order */}
     </>
   );
 };

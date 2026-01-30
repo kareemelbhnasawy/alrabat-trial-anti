@@ -20,7 +20,7 @@ const getIconPath = (slug: string) => {
       return "/logos/icons/Alrabat Infrastructure PNG.png";
     case "equipment":
       return "/logos/icons/Alrabat Equipment PNG.png";
-    case "consulting":
+    case "specialized-engineering":
     default:
       return "/logos/icons/Alrabat SE PNG.png";
   }
@@ -29,6 +29,7 @@ const getIconPath = (slug: string) => {
 export const DivisionDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const { divisions, projects } = useData();
+  const accent = "#013D2F"; // Primary Brand Color
 
   const [division, setDivision] = useState<Division | null>(null);
   const [relatedProjects, setRelatedProjects] = useState<Project[]>([]);
@@ -65,9 +66,7 @@ export const DivisionDetail = () => {
           <div
             className="absolute inset-0 z-10"
             style={{
-              background: `linear-gradient(to right, ${
-                division.accentColor || "#000"
-              }B3, ${division.accentColor || "#000"}4D)`,
+              background: `linear-gradient(to right, ${accent}B3, ${accent}4D)`,
             }}
           />
           {division.heroVideo ? (
@@ -113,7 +112,7 @@ export const DivisionDetail = () => {
           <Button
             onClick={() => (window.location.href = "/contact")}
             className="bg-white text-primary border-none hover:bg-white/90"
-            style={{ color: division.accentColor }}
+            style={{ color: accent }}
           >
             Discuss {division.name} Scope
           </Button>
@@ -127,12 +126,12 @@ export const DivisionDetail = () => {
             {/* Accent Mark */}
             <div
               className="w-16 h-2 mb-6 transform -skew-x-12"
-              style={{ backgroundColor: division.accentColor || "#025440" }}
+              style={{ backgroundColor: accent }}
             />
 
             <h2
               className="text-4xl md:text-5xl font-display font-bold mb-8 uppercase leading-tight"
-              style={{ color: division.accentColor }}
+              style={{ color: accent }}
             >
               {division.introSection.title}
             </h2>
@@ -142,10 +141,7 @@ export const DivisionDetail = () => {
             </p>
 
             <div className="mb-8">
-              <h3
-                className="text-lg font-bold mb-6"
-                style={{ color: division.accentColor }}
-              >
+              <h3 className="text-lg font-bold mb-6" style={{ color: accent }}>
                 Our services include:
               </h3>
               <ul className="space-y-6">
@@ -155,14 +151,12 @@ export const DivisionDetail = () => {
                       {/* Custom Bullet */}
                       <div
                         className="w-4 h-1 mt-3 mr-4 transform -skew-x-12 flex-shrink-0"
-                        style={{
-                          backgroundColor: division.accentColor || "#F05B22",
-                        }}
+                        style={{ backgroundColor: accent }}
                       />
                       <div>
                         <h4
                           className="text-lg font-bold uppercase mb-1"
-                          style={{ color: division.accentColor }}
+                          style={{ color: accent }}
                         >
                           {service.title}
                         </h4>
@@ -185,7 +179,7 @@ export const DivisionDetail = () => {
           <div>
             <h2
               className="text-3xl font-display font-bold mb-8"
-              style={{ color: division.accentColor }}
+              style={{ color: accent }}
             >
               Core Capabilities
             </h2>
@@ -195,7 +189,7 @@ export const DivisionDetail = () => {
                   <CheckCircle2
                     className="mr-3 mt-1 flex-shrink-0"
                     size={20}
-                    style={{ color: division.accentColor }}
+                    style={{ color: accent }}
                   />
                   <span className="text-lg text-neutral-700">{cap}</span>
                 </li>
@@ -206,7 +200,7 @@ export const DivisionDetail = () => {
           <div>
             <h2
               className="text-3xl font-display font-bold mb-8"
-              style={{ color: division.accentColor }}
+              style={{ color: accent }}
             >
               Key Services
             </h2>
@@ -215,12 +209,9 @@ export const DivisionDetail = () => {
                 <div
                   key={idx}
                   className="bg-neutral-50 p-6 slant-br border-l-4 hover:bg-white hover:shadow-md transition-all"
-                  style={{ borderColor: division.accentColor }}
+                  style={{ borderColor: accent }}
                 >
-                  <h3
-                    className="font-bold mb-2"
-                    style={{ color: division.accentColor }}
-                  >
+                  <h3 className="font-bold mb-2" style={{ color: accent }}>
                     {service}
                   </h3>
                 </div>
@@ -239,7 +230,7 @@ export const DivisionDetail = () => {
           <div className="container-custom">
             <h2
               className="text-3xl font-display font-bold mb-12"
-              style={{ color: division.accentColor }}
+              style={{ color: accent }}
             >
               Related Projects
             </h2>
@@ -255,7 +246,7 @@ export const DivisionDetail = () => {
       {/* CTA */}
       <div
         className="text-white py-32 slant-divider-lg -mt-20 relative z-10"
-        style={{ backgroundColor: division.accentColor || "#111" }}
+        style={{ backgroundColor: accent }}
       >
         <div className="container-custom text-center">
           <h2 className="text-4xl font-display font-bold mb-6">
@@ -269,7 +260,7 @@ export const DivisionDetail = () => {
             variant="white"
             size="lg"
             onClick={() => (window.location.href = "/contact")}
-            style={{ color: division.accentColor }}
+            style={{ color: accent }}
           >
             Get in Touch
           </Button>

@@ -25,7 +25,7 @@ export const OurStory = () => {
             About Alrabat SE
           </h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            Established in 2007 in Dubai, UAE, as a subsidiary of the Rabat
+            Established in 2007 in Dubai, UAE, as a subsidiary of Alrabat
             Business Group, we are dedicated to delivering fully tailored
             integrated ground solutions.
           </p>
@@ -49,9 +49,9 @@ export const OurStory = () => {
               Our Vision
             </h3>
             <p className="text-neutral-600 leading-relaxed">
-              To be the leader in ground solutions, integrating cutting-edge
-              technologies to deliver tailored excellence with a legacy of
-              trust.
+              To be a trusted, forward-thinking construction group that
+              delivers lasting value through integrity, collaboration, and
+              innovation.
             </p>
           </motion.div>
           <motion.div
@@ -68,8 +68,9 @@ export const OurStory = () => {
               Our Mission
             </h3>
             <p className="text-neutral-600 leading-relaxed">
-              Providing fully tailored integrated ground solutions of the
-              highest quality to achieve exceptional customer satisfaction.
+              To deliver high-quality solutions through ethical practice,
+              strong partnerships, and continuous improvement—empowering our
+              people and adapting to evolving needs.
             </p>
           </motion.div>
           <motion.div
@@ -86,8 +87,8 @@ export const OurStory = () => {
               Our Values
             </h3>
             <p className="text-neutral-600 leading-relaxed">
-              Safety, quality, and innovative solutions are the core bonds that
-              drive our success and relationships.
+              Authenticity, creativity, bond, and investment in minds guide how
+              we work, lead, and grow.
             </p>
           </motion.div>
         </div>
@@ -184,7 +185,7 @@ export const OurStory = () => {
       </Section>
 
       {/* Impact Stats */}
-      <Section className="bg-primary text-white" slantedTop>
+      <Section dark slantedTop>
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

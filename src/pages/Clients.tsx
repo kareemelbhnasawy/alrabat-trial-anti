@@ -21,8 +21,12 @@ export const Clients = () => {
         </div>
       </div>
 
-      <Section>
-        <div className="container-custom space-y-32">
+      <Section className="bg-neutral-50" slantedTop>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-24 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+        </div>
+        <div className="container-custom space-y-24">
           {/* Highlighted Clients Section */}
           <div>
             <h2 className="text-3xl font-display font-bold text-primary mb-12 text-center">
@@ -32,26 +36,22 @@ export const Clients = () => {
               {clientCategories
                 .flatMap((cat) => cat.clients || [])
                 .filter((c) => c.is_highlighted)
+                .filter((c) => !c.name.toLowerCase().includes("al safa"))
                 .map((client, i) => (
                   <div
                     key={i}
-                    className="w-full h-32 flex items-center justify-center group relative"
+                    className="w-full h-32 flex items-center justify-center relative"
                   >
                     {(client as any).image ? (
                       <div className="relative w-full h-full flex items-center justify-center">
                         <img
                           src={(client as any).image}
                           alt={client.name}
-                          className="h-20 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 transform hover:scale-110"
+                          className="h-20 w-auto object-contain"
                         />
-                        {client.details && (
-                          <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity rounded-b-lg text-center z-10 pointer-events-none">
-                            {client.details}
-                          </div>
-                        )}
                       </div>
                     ) : (
-                      <span className="text-neutral-400 font-bold text-lg text-center group-hover:text-primary transition-colors">
+                      <span className="text-neutral-400 font-bold text-lg text-center">
                         {client.name}
                       </span>
                     )}
@@ -83,27 +83,24 @@ export const Clients = () => {
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center">
-                {(category.clients || []).map((client, i) => (
+                {(category.clients || [])
+                  .filter((client) => !client.name.toLowerCase().includes("al safa"))
+                  .map((client, i) => (
                   <div
                     key={i}
-                    className="w-full h-24 flex items-center justify-center group relative"
+                    className="w-full h-24 flex items-center justify-center relative"
                   >
                     {(client as any).image ? (
                       <div className="relative w-full h-full flex items-center justify-center">
                         <img
                           src={(client as any).image}
                           alt={client.name}
-                          className="h-16 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-50 hover:opacity-100 transform hover:scale-110"
+                          className="h-16 w-auto object-contain"
                         />
-                        {client.details && (
-                          <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity rounded-b-lg text-center z-10 pointer-events-none">
-                            {client.details}
-                          </div>
-                        )}
                       </div>
                     ) : (
                       <span
-                        className={`font-bold text-sm text-center transition-colors ${client.is_highlighted ? "text-primary" : "text-neutral-300 group-hover:text-neutral-500"}`}
+                        className={`font-bold text-sm text-center ${client.is_highlighted ? "text-primary" : "text-neutral-300"}`}
                       >
                         {client.name}
                       </span>

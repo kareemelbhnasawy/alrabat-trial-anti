@@ -43,6 +43,30 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [clientCategories, setClientCategories] = useState<ClientCategory[]>(
     []
   );
+  const clientCategoryOrder = [
+    "Developers",
+    "Developer",
+    "Consultants",
+    "Contractors",
+    "Strategic Partners",
+    "Partners",
+    "Government",
+  ];
+
+  const sortClientCategories = (categories: ClientCategory[]) => {
+    const getPriority = (name: string) => {
+      const idx = clientCategoryOrder.findIndex((label) =>
+        name.toLowerCase().includes(label.toLowerCase())
+      );
+      return idx === -1 ? 999 : idx;
+    };
+    return [...categories].sort((a, b) => {
+      const aPriority = getPriority(a.name);
+      const bPriority = getPriority(b.name);
+      if (aPriority !== bPriority) return aPriority - bPriority;
+      return a.name.localeCompare(b.name);
+    });
+  };
 
   // Fetch initial data
   useEffect(() => {
@@ -93,11 +117,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
       if (catError) console.error("Error fetching clients:", catError);
       else if (catData) {
-        // Sort clients specifically if needed, otherwise rely on DB or frontend sort
-        // Categories need to be sorted: Developers, Consultants, Contractors, Strategic Partners?
-        // Or alphabetical? DB order is alphabetical by name usually if not specified.
-        // Let's enforce the order from the legacy JSON if possible or just map them.
-        setClientCategories(catData as ClientCategory[]);
+        setClientCategories(sortClientCategories(catData as ClientCategory[]));
       }
     };
 
@@ -196,7 +216,9 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
           *,
           clients (*)
         `);
-    if (catData) setClientCategories(catData as ClientCategory[]);
+    if (catData) {
+      setClientCategories(sortClientCategories(catData as ClientCategory[]));
+    }
   };
 
   return (

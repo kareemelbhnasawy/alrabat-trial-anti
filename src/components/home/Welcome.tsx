@@ -20,11 +20,13 @@ export const Welcome = () => {
             </h2>
             <div className="h-1 w-24 bg-accent mx-auto mb-10" />
 
-            <p className="text-xl text-neutral-600 mb-8 leading-relaxed font-light">
-              Alrabat Specialized Engineering is a leader in piling, shoring,
-              and ground improvement solutions. Subsidiary of the Rabat Business
-              Group (est. 1980), we signify unity and integration, delivering
-              the highest standards of safety and quality across the region.
+            <p className="text-base md:text-xl text-neutral-600 mb-8 leading-relaxed font-light">
+              Alrabat Specialized Engineering, a subsidiary of the Rabat
+              Business Group (est. 1980), delivers fully integrated ground
+              solutions across specialized engineering, foundations, ground
+              improvement, infrastructure, marine, and equipment services. We
+              unite expertise, people, and technology to deliver safe, efficient
+              outcomes across the full project lifecycle.
             </p>
 
             <div className="flex justify-center space-x-6">
