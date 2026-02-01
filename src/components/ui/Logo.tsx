@@ -34,7 +34,10 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
   const divisionLogoSrc = DIVISION_LOGOS[divisionIndex];
 
   return (
-    <Link to="/" className="flex flex-col items-center gap-0 w-72 -my-4">
+    <Link
+      to="/"
+      className="flex flex-col items-center gap-0 w-72 md:w-96 -my-4"
+    >
       <AnimatePresence mode="wait">
         <motion.img
           key={isScrolled ? "green" : "white"}
@@ -44,10 +47,10 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="h-20 w-auto object-contain"
+          className="h-20 md:h-28 w-auto object-contain"
         />
       </AnimatePresence>
-      <div className="relative h-20 w-full -mt-12">
+      <div className="relative h-20 md:h-28 w-full -mt-16 md:-mt-20">
         <AnimatePresence mode="popLayout">
           <motion.img
             key={divisionIndex}

@@ -81,3 +81,30 @@ export interface Client {
   is_highlighted: boolean;
   category_id: string;
 }
+
+export interface QualificationStat {
+  id: string;
+  qualification_id: string;
+  description: string;
+  count: number;
+  display_order: number;
+}
+
+export interface Qualification {
+  id: string;
+  authority: string;
+  logo_url: string | null;
+  fallback_icon_name: string;
+  stats?: QualificationStat[];
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  email: string | null;
+  bio: string | null;
+  image_url: string | null;
+  category: "executive" | "division_head" | "other";
+  display_order: number;
+}

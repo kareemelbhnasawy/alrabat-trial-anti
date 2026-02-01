@@ -1,18 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Section } from "../components/ui/Section";
 import { FadeIn } from "../components/animations/FadeIn";
-import {
-  ShieldCheck,
-  Building2,
-  FileCheck,
-  Zap,
-  Award,
-  Landmark,
-} from "lucide-react";
+import { DynamicIcon } from "../components/ui/DynamicIcon";
+import { supabase } from "../lib/supabase";
+import type { Qualification, TeamMember } from "../types";
 
 import { AnimatedCounter } from "../components/animations/AnimatedCounter";
 
 export const OurTeam = () => {
+  const [qualifications, setQualifications] = useState<Qualification[]>([]);
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+
+        // Fetch Qualifications
+        const { data: qualData, error: qualError } = await supabase
+          .from("qualifications")
+          .select("*, stats:qualification_stats(*)")
+          .order("id");
+
+        if (qualError) throw qualError;
+
+        if (qualData) {
+          const sortedQuals = qualData.map((q: any) => ({
+            ...q,
+            stats: q.stats?.sort(
+              (a: any, b: any) => a.display_order - b.display_order,
+            ),
+          }));
+          setQualifications(sortedQuals);
+        }
+
+        // Fetch Team Members
+        const { data: teamData, error: teamError } = await supabase
+          .from("team_members")
+          .select("*")
+          .order("display_order", { ascending: true });
+
+        if (teamError) throw teamError;
+        setTeamMembers(teamData || []);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       {/* Hero */}
@@ -38,134 +78,60 @@ export const OurTeam = () => {
           <h2 className="text-3xl font-display font-bold text-primary mb-12 border-l-4 border-accent pl-4">
             Executive Leadership
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Aman Lashin",
-                role: "Co-Founder & Managing Director",
-                email: "aman.lashin@alrabat.com",
-                image:
-                  "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=500&q=80",
-                bio: "Driving strategic growth and operational excellence across the region with visionary leadership.",
-              },
-              {
-                name: "Mohamed Ahmed Ghalwash",
-                role: "Co-Founder & Chairman",
-                email: "mohamed.ghalwash@alrabat.com",
-                image:
-                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=500&q=80",
-                bio: "Leading the board with decades of industry expertise and a commitment to sustainable development.",
-              },
-              {
-                name: "Ibrahim Ghalwash",
-                role: "Board Member",
-                email: "ibrahim.ghalwash@alrabat.com",
-                image:
-                  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=500&q=80",
-                bio: "Overseeing corporate governance and strategic partnerships to ensure long-term value.",
-              },
-              {
-                name: "Hussein Ghalwash",
-                role: "Board Member",
-                email: "hussein.ghalwash@alrabat.com",
-                image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=500&q=80",
-                bio: "Guiding financial stewardship and investment strategies for robust organizational health.",
-              },
-            ].map((member, idx) => (
-              <div key={idx} className="group cursor-pointer">
-                <div className="h-80 bg-neutral-100 mb-6 overflow-hidden slant-br grayscale group-hover:grayscale-0 transition-all duration-500 relative">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-primary/80 flex items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-center leading-relaxed text-sm">
-                      {member.bio}
-                    </p>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-primary mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-xs text-accent font-bold uppercase tracking-wider mb-1">
-                  {member.role}
-                </p>
-                <a
-                  href={`mailto:${member.email}`}
-                  className="text-sm text-neutral-500 hover:text-primary transition-colors block lowercase"
-                >
-                  {member.email}
-                </a>
-              </div>
-            ))}
-          </div>
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[1, 2, 3, 4].map((i) => (
+                <div
+                  key={i}
+                  className="h-96 bg-neutral-50 rounded-2xl animate-pulse"
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamMembers
+                .filter((m) => m.category === "executive")
+                .map((member, idx) => (
+                  <FadeIn
+                    key={member.id}
+                    delay={idx * 0.1}
+                    className="group relative overflow-hidden rounded-2xl"
+                  >
+                    <div className="aspect-[4/5] overflow-hidden">
+                      <img
+                        src={member.image_url || "https://placehold.co/400x500"}
+                        alt={member.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <p className="text-white text-sm leading-relaxed translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                          {member.bio}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-4">
+                      <h3 className="text-xl font-bold text-primary">
+                        {member.name}
+                      </h3>
+                      <div className="text-accent text-xs font-bold uppercase tracking-wider mb-1">
+                        {member.role}
+                      </div>
+                      {member.email && (
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="text-neutral-500 text-sm hover:text-accent transition-colors"
+                        >
+                          {member.email}
+                        </a>
+                      )}
+                    </div>
+                  </FadeIn>
+                ))}
+            </div>
+          )}
         </div>
       </Section>
 
-      {/* Rest of Team */}
-      <Section className="bg-neutral-50" slantedTop>
-        <div className="container-custom">
-          <h2 className="text-3xl font-display font-bold text-primary mb-12 border-l-4 border-accent pl-4">
-            Management Team
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Tarek Hassan",
-                role: "Operations Director",
-                email: "tarek.hassan@alrabat.com",
-                image:
-                  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=500&q=80",
-              },
-              {
-                name: "Sarah El-Sayed",
-                role: "Technical Manager",
-                email: "sarah.elsayed@alrabat.com",
-                image:
-                  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=500&q=80",
-              },
-              {
-                name: "Omar Khaled",
-                role: "Finance Director",
-                email: "omar.khaled@alrabat.com",
-                image:
-                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=500&q=80",
-              },
-              {
-                name: "Nour Mahmoud",
-                role: "HR Manager",
-                email: "nour.mahmoud@alrabat.com",
-                image:
-                  "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=500&q=80",
-              },
-            ].map((member, idx) => (
-              <div key={idx} className="group cursor-pointer">
-                <div className="h-72 bg-white mb-6 overflow-hidden slant-br grayscale group-hover:grayscale-0 transition-all duration-500 relative shadow-sm">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-primary mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-xs text-accent font-bold uppercase tracking-wider mb-1">
-                  {member.role}
-                </p>
-                <a
-                  href={`mailto:${member.email}`}
-                  className="text-sm text-neutral-500 hover:text-primary transition-colors block lowercase"
-                >
-                  {member.email}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
       {/* Qualifications Section */}
       <Section className="bg-white" slantedTop>
         <div className="container-custom">
@@ -175,79 +141,51 @@ export const OurTeam = () => {
             </h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                authority: "Dubai Municipality",
-                icon: Building2,
-                stats: [
-                  { text: "Shoring & Piling Foundation Certified", count: 5 },
-                  { text: "Water Supply Lines Certified", count: 2 },
-                  { text: "Soil Improvement Qualified", count: 2 },
-                  { text: "Sewerage & Pipelines Certified", count: 1 },
-                ],
-              },
-              {
-                authority: "Trakhees",
-                icon: FileCheck,
-                stats: [
-                  { text: "Qualified Safety Professionals", count: 5 },
-                  { text: "Qualified Quality Control Professionals", count: 2 },
-                  { text: "Qualified Structural Professionals", count: 2 },
-                ],
-              },
-              {
-                authority: "RTA",
-                icon: ShieldCheck,
-                stats: [
-                  { text: "Approved Safety Professionals", count: 2 },
-                  { text: "Approved Shoring & Piling Professionals", count: 2 },
-                ],
-              },
-              {
-                authority: "Dubai Development Authority",
-                icon: Landmark,
-                stats: [{ text: "Qualified Professionals", count: 5 }],
-              },
-              {
-                authority: "DEWA",
-                icon: Zap,
-                stats: [{ text: "Qualified Professionals", count: 2 }],
-              },
-              {
-                authority: "Nakheel",
-                icon: Award,
-                stats: [{ text: "Nakheel Qualification", count: 1 }],
-              },
-            ].map((item, idx) => (
-              <FadeIn
-                key={idx}
-                delay={idx * 0.1}
-                className="bg-neutral-50 p-8 rounded-2xl border border-neutral-100 hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                    <item.icon className="w-6 h-6" />
+          {loading ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="h-64 bg-neutral-50 rounded-2xl animate-pulse"
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {qualifications.map((item, idx) => (
+                <FadeIn
+                  key={item.id}
+                  delay={idx * 0.1}
+                  className="bg-neutral-50 p-8 rounded-2xl border border-neutral-100 hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300 overflow-hidden p-2">
+                      <DynamicIcon
+                        iconName={item.fallback_icon_name}
+                        logoUrl={item.logo_url}
+                        className="w-6 h-6"
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold text-primary">
+                      {item.authority}
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-bold text-primary">
-                    {item.authority}
-                  </h3>
-                </div>
-                <ul className="space-y-3">
-                  {item.stats.map((s, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="font-bold text-accent min-w-[1.5rem]">
-                        <AnimatedCounter to={s.count} duration={1.2} />
-                      </span>
-                      <span className="text-neutral-600 text-sm leading-relaxed">
-                        {s.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </FadeIn>
-            ))}
-          </div>
+                  <ul className="space-y-3">
+                    {item.stats?.map((s, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="font-bold text-accent min-w-[1.5rem]">
+                          <AnimatedCounter to={s.count} duration={1.2} />
+                        </span>
+                        <span className="text-neutral-600 text-sm leading-relaxed">
+                          {s.description}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </FadeIn>
+              ))}
+            </div>
+          )}
         </div>
       </Section>
     </>

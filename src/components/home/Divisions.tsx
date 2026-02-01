@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Section } from "../ui/Section";
 import { useData } from "../../context/DataContext";
 import { FadeIn } from "../animations/FadeIn";
+import { cn } from "../../lib/utils";
 
 const getIconPath = (slug: string) => {
   switch (slug) {
@@ -23,73 +24,180 @@ const getIconPath = (slug: string) => {
   }
 };
 
+const getDivisionColor = (slug: string) => {
+  switch (slug) {
+    case "foundations":
+      return "bg-[#961E1E]";
+    case "marine":
+      return "bg-[#005C9B]";
+    case "ground-improvement":
+      return "bg-[#996200]";
+    case "infrastructure":
+      return "bg-[#703000]";
+    case "equipment":
+      return "bg-[#137C1A]";
+    case "specialized-engineering":
+    default:
+      return "bg-[#4B5563]";
+  }
+};
+
 export const Divisions = () => {
   const { divisions } = useData();
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  // Default to the first one active on mount if desired, or null
+  // const [activeId, setActiveId] = useState<string | null>(divisions[0]?.id || null);
 
   return (
     <Section className="py-20 bg-neutral-bg">
       <div className="container-custom">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <FadeIn direction="up">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-4">
-              Divisions.
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-6">
+              Our Divisions
             </h2>
-            <div className="h-1 w-20 bg-primary mx-auto" />
+            <div className="h-1.5 w-24 bg-primary mx-auto rounded-full" />
+            <p className="mt-6 text-lg text-neutral-light max-w-2xl mx-auto">
+              Delivering excellence through specialized expertise across every
+              discipline.
+            </p>
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        {/* Desktop: Horizontal Accordion | Mobile: Vertical Stack (Cards) */}
+        <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px] transition-all duration-300">
           {divisions.map((item) => (
             <Link
               key={item.id}
               to={`/divisions/${item.slug}`}
-              className="group relative h-[300px] lg:h-[600px] overflow-hidden rounded-2xl bg-white shadow-xl isolate"
+              onMouseEnter={() => setActiveId(item.id)}
+              onMouseLeave={() => setActiveId(null)}
+              className={cn(
+                "relative overflow-hidden rounded-2xl transition-all duration-500 ease-in-out cursor-pointer group shadow-xl",
+                // Mobile Styles
+                "h-[300px] w-full shrink-0",
+                // Desktop Styles
+                "lg:h-full lg:w-auto",
+                // If active, it grows. If no active, everyone is 1. If active exists, inactive are 1, active is 3.5.
+                // Or: inactive 0.5, active 3.
+                activeId === item.id ? "lg:flex-[3.5]" : "lg:flex-[1]",
+                !activeId && "lg:flex-[1]",
+              )}
             >
-              {/* Background Image - Absolute fill */}
+              {/* Background Image */}
               <div className="absolute inset-0 z-0">
                 <img
                   src={item.heroImage}
                   alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                  className={cn(
+                    "w-full h-full object-cover transition-transform duration-700",
+                    activeId === item.id || !activeId
+                      ? "grayscale-0"
+                      : "grayscale",
+                    "group-hover:scale-110",
+                  )}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+
+                {/* Overlay Gradient */}
+                <div
+                  className={cn(
+                    "absolute inset-0 transition-colors duration-500",
+                    // Active: Dark gradient at bottom for text readability
+                    // Inactive: Darker overall overlay
+                    activeId === item.id
+                      ? "bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                      : "bg-primary-dark/60 lg:group-hover:bg-primary-dark/40",
+                  )}
+                />
               </div>
 
               {/* Content Container */}
-              <div className="absolute inset-0 z-10 flex flex-col justify-end p-8">
-                {/* Logo/Icon Top Left (Absolute in card context) */}
-                <div className="absolute top-6 left-6 flex items-center gap-4 opacity-100 transition-all duration-300">
-                  <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center p-3 shadow-lg border border-white/20">
-                    <img
-                      src={getIconPath(item.slug)}
-                      alt={item.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
-
-                {/* Text Content */}
-                <div className="transform transition-transform duration-300 translate-y-4 group-hover:translate-y-0">
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 leading-tight">
-                    {item.name}
-                  </h3>
-
-                  {/* Summary - Hidden by default, shown on hover */}
-                  <div className="h-0 overflow-hidden opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                    <div className="pt-4 pb-2">
-                      <p className="text-white/80 text-sm line-clamp-3 mb-4 font-light">
-                        {item.summary}
-                      </p>
-                      <div className="flex items-center text-white font-bold text-sm uppercase tracking-widest gap-2">
-                        Explore Division <ArrowRight className="w-4 h-4" />
-                      </div>
+              <div className="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+                {/* Collapsed State (Desktop) - Vertical Text */}
+                <div
+                  className={cn(
+                    "hidden lg:flex absolute inset-0 items-center justify-center transition-opacity duration-300 pointer-events-none p-4",
+                    activeId === item.id
+                      ? "opacity-0"
+                      : "opacity-100 delay-200",
+                  )}
+                >
+                  {/* Centered Icon when collapsed */}
+                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-6">
+                    <h3 className="text-2xl font-display font-bold text-white uppercase tracking-widest [writing-mode:vertical-rl] rotate-180 transform whitespace-nowrap">
+                      {item.name}
+                    </h3>
+                    <div className="w-16 h-16 bg-white rounded-full p-3 shadow-xl flex items-center justify-center transition-transform duration-300 hover:scale-110">
+                      <img
+                        src={getIconPath(item.slug)}
+                        alt=""
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Accent Line Bottom */}
-              <div className="absolute bottom-0 left-0 w-full h-1 z-20 transition-all duration-300 group-hover:h-2 bg-primary" />
+                {/* Expanded State (Desktop) & Default Mobile View */}
+                <div
+                  className={cn(
+                    "transition-all duration-500 transform flex flex-col justify-end h-full",
+                    // Desktop specific transitions:
+                    "lg:transition-opacity lg:duration-500",
+                    activeId === item.id
+                      ? "lg:opacity-100 lg:translate-y-0"
+                      : "lg:opacity-0 lg:translate-y-4", // Slightly offset when invisible
+                  )}
+                >
+                  {/* Icon Card (Top Left of Content Area) */}
+                  <div
+                    className={cn(
+                      "w-16 h-16 bg-white backdrop-blur-md rounded-full p-3 shadow-lg mb-4 border border-white/10 hidden lg:block",
+                      // Only fade in on desktop active state
+                    )}
+                  >
+                    <img
+                      src={getIconPath(item.slug)}
+                      alt=""
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  {/* Title & Divider */}
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-2 leading-tight">
+                    {item.name}
+                  </h3>
+                  <div className="w-12 h-1 bg-accent mb-4 rounded-full" />
+
+                  {/* Summary Text - desktop shows on hover/active, mobile clamps */}
+                  <div
+                    className={cn(
+                      "overflow-hidden transition-all duration-500 text-white/90 text-sm md:text-base font-light mb-6 max-w-lg",
+                    )}
+                  >
+                    <p className="line-clamp-3 leading-relaxed">
+                      {item.summary}
+                    </p>
+                  </div>
+
+                  {/* Call to Action */}
+                  <div className="flex items-center gap-3 text-white font-bold text-sm uppercase tracking-widest group/btn w-fit">
+                    <span className="border-b-2 border-accent pb-1 group-hover/btn:border-white transition-colors">
+                      View Projects
+                    </span>
+                    <ArrowRight className="w-5 h-5 text-accent group-hover/btn:text-white transition-colors transform group-hover/btn:translate-x-1" />
+                  </div>
+                </div>
+
+                {/* Mobile Float Icon (Bottom Right or similar) to ensure brand presence if needed */}
+                <div className="lg:hidden absolute top-4 right-4 w-12 h-12 bg-white backdrop-blur-sm rounded-full p-3 border border-white/20 shadow-lg">
+                  <img
+                    src={getIconPath(item.slug)}
+                    alt=""
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
             </Link>
           ))}
         </div>

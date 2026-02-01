@@ -8,6 +8,7 @@ import {
   LogOut,
   Home,
   Users,
+  Award,
 } from "lucide-react";
 import { ProjectList } from "./ProjectList";
 import { ProjectForm } from "./ProjectForm";
@@ -17,8 +18,11 @@ import { ClientList } from "./ClientList";
 import { ClientForm } from "./ClientForm";
 import { Login } from "./Login";
 import { Settings } from "./Settings";
+import { QualificationAdminList } from "./QualificationAdminList";
+import { QualificationAdminForm } from "./QualificationAdminForm";
+import { TeamList } from "./TeamList";
+import { TeamForm } from "./TeamForm";
 import { useAuth } from "../../context/AuthContext";
-
 import { useData } from "../../context/DataContext";
 
 const AdminLayout = ({
@@ -32,8 +36,10 @@ const AdminLayout = ({
   const navItems = [
     { icon: LayoutDashboard, label: "Overview", path: "/admin" },
     { icon: FolderKanban, label: "Projects", path: "/admin/projects" },
+    { icon: Users, label: "Team", path: "/admin/team" },
     { icon: Users, label: "Clients", path: "/admin/clients" },
     { icon: Newspaper, label: "News", path: "/admin/news" },
+    { icon: Award, label: "Qualifications", path: "/admin/qualifications" },
     { icon: SettingsIcon, label: "Settings", path: "/admin/settings" },
   ];
 
@@ -164,11 +170,21 @@ export const Dashboard = () => {
                   <Route path="new" element={<NewsForm />} />
                   <Route path=":id/edit" element={<NewsForm />} />
                 </Route>
+                <Route path="team">
+                  <Route index element={<TeamList />} />
+                  <Route path="new" element={<TeamForm />} />
+                  <Route path=":id/edit" element={<TeamForm />} />
+                </Route>
                 <Route path="clients">
                   <Route index element={<ClientList />} />
                   <Route path="new" element={<ClientForm />} />
                   <Route path=":id/edit" element={<ClientForm />} />
                   <Route path="edit/:id" element={<ClientForm />} />
+                </Route>
+                <Route path="qualifications">
+                  <Route index element={<QualificationAdminList />} />
+                  <Route path="new" element={<QualificationAdminForm />} />
+                  <Route path=":id/edit" element={<QualificationAdminForm />} />
                 </Route>
                 <Route path="settings" element={<Settings />} />
                 <Route path="*" element={<Navigate to="/admin" />} />
