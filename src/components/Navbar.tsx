@@ -32,7 +32,7 @@ export const Navbar = () => {
             : "bg-transparent py-4 md:py-6",
         )}
       >
-        <div className="container-custom flex items-center justify-between relative px-6 md:px-12">
+        <div className="container-custom flex items-center justify-between relative px-4 md:px-12">
           {/* Left: Logo */}
           <div className="flex items-center">
             <Logo isScrolled={isScrolled || isOpen} />

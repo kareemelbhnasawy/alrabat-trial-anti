@@ -65,7 +65,7 @@ const RecenterAutomatically = ({ projects }: { projects: any[] }) => {
   useEffect(() => {
     if (projects.length > 0) {
       const bounds = L.latLngBounds(
-        projects.map((p) => [p.coordinates.lat, p.coordinates.lng])
+        projects.map((p) => [p.coordinates.lat, p.coordinates.lng]),
       );
       map.fitBounds(bounds, { padding: [50, 50] });
     }
@@ -86,6 +86,9 @@ export const ProjectMap = ({ projects: propProjects }: ProjectMapProps) => {
   const [selectedDivisions, setSelectedDivisions] = useState<string[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
+  // Memoize icon creation
+  const icon = React.useMemo(() => createCustomIcon(scale), [scale]);
+
   // Filter projects based on selected divisions
   const mapProjects = React.useMemo(() => {
     return sourceProjects.filter((p) => {
@@ -102,7 +105,7 @@ export const ProjectMap = ({ projects: propProjects }: ProjectMapProps) => {
       if (selectedDivisions.length > 0) {
         // Show project if it includes ANY of the selected divisions
         return p.divisionSlugs?.some((slug) =>
-          selectedDivisions.includes(slug)
+          selectedDivisions.includes(slug),
         );
       }
 
@@ -112,7 +115,7 @@ export const ProjectMap = ({ projects: propProjects }: ProjectMapProps) => {
 
   const toggleDivision = (slug: string) => {
     setSelectedDivisions((prev) =>
-      prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]
+      prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
     );
   };
 
@@ -143,7 +146,7 @@ export const ProjectMap = ({ projects: propProjects }: ProjectMapProps) => {
           <Marker
             key={project.id}
             position={[project.coordinates!.lat, project.coordinates!.lng]}
-            icon={createCustomIcon(scale)}
+            icon={icon}
             eventHandlers={{
               mouseover: (e) => e.target.openPopup(),
               click: (e) => e.target.openPopup(),

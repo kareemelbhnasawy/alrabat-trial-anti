@@ -30,27 +30,37 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
     return () => clearInterval(interval);
   }, []);
 
-  const wordLogoSrc = isScrolled ? WORD_LOGOS.green : WORD_LOGOS.white;
   const divisionLogoSrc = DIVISION_LOGOS[divisionIndex];
 
   return (
     <Link
       to="/"
-      className="flex flex-col items-center gap-0 w-72 md:w-96 -my-4"
+      className="flex flex-col items-center gap-0 -my-4 relative z-50 group"
     >
-      <AnimatePresence mode="wait">
+      <div className="relative h-20 md:h-28 w-auto flex items-center justify-center">
+        {/* White Logo - Visible when NOT scrolled */}
         <motion.img
-          key={isScrolled ? "green" : "white"}
-          src={wordLogoSrc}
+          src={WORD_LOGOS.white}
+          alt="Alrabat"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: isScrolled ? 0 : 1 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 h-full w-auto object-contain"
+        />
+        {/* Green Logo - Visible when scrolled */}
+        {/* We keep this one relative to define the container's width */}
+        <motion.img
+          src={WORD_LOGOS.green}
           alt="Alrabat"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="h-20 md:h-28 w-auto object-contain"
+          animate={{ opacity: isScrolled ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="relative h-full w-auto object-contain"
+          style={{ opacity: isScrolled ? 1 : 0 }} // Ensure initial state match
         />
-      </AnimatePresence>
-      <div className="relative h-20 md:h-28 w-full -mt-16 md:-mt-20">
+      </div>
+
+      <div className="relative h-20 md:h-28 w-full -mt-14 md:-mt-20 pointer-events-none">
         <AnimatePresence mode="popLayout">
           <motion.img
             key={divisionIndex}

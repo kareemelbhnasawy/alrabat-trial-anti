@@ -51,7 +51,7 @@ export const Careers = () => {
         </div>
 
         {/* Form Side */}
-        <div className="p-12 lg:p-20 bg-white">
+        <div className="p-12 lg:p-20 pb-32 lg:pb-40 bg-white">
           <div className="mb-10 pb-6 border-b border-neutral-100">
             <h2 className="text-2xl font-bold text-primary">Apply Now</h2>
             <p className="text-neutral-500 mt-2">

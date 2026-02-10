@@ -49,9 +49,8 @@ export const OurStory = () => {
               Our Vision
             </h3>
             <p className="text-neutral-600 leading-relaxed">
-              To be a trusted, forward-thinking construction group that
-              delivers lasting value through integrity, collaboration, and
-              innovation.
+              To be a trusted, forward-thinking construction group that delivers
+              lasting value through integrity, collaboration, and innovation.
             </p>
           </motion.div>
           <motion.div
@@ -68,9 +67,9 @@ export const OurStory = () => {
               Our Mission
             </h3>
             <p className="text-neutral-600 leading-relaxed">
-              To deliver high-quality solutions through ethical practice,
-              strong partnerships, and continuous improvement—empowering our
-              people and adapting to evolving needs.
+              To deliver high-quality solutions through ethical practice, strong
+              partnerships, and continuous improvement—empowering our people and
+              adapting to evolving needs.
             </p>
           </motion.div>
           <motion.div
@@ -112,7 +111,7 @@ export const OurStory = () => {
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               style={{ height: "calc(100% - 24px)" }}
             />
 
@@ -139,7 +138,7 @@ export const OurStory = () => {
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.3 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   className="relative"
                 >
                   {/* Animated Dot */}
@@ -149,8 +148,8 @@ export const OurStory = () => {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{
-                      duration: 0.4,
-                      delay: 0.5 + index * 0.3,
+                      duration: 0.3,
+                      delay: 0.3,
                       type: "spring",
                       stiffness: 300,
                       damping: 15,
@@ -164,7 +163,7 @@ export const OurStory = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{
                       duration: 0.8,
-                      delay: 0.6 + index * 0.3,
+                      delay: 0.4,
                       ease: "easeOut",
                     }}
                   />

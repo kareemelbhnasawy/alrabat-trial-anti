@@ -10,6 +10,27 @@ export const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, 500]);
 
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoRef.current?.play().catch(() => {});
+        } else {
+          videoRef.current?.pause();
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="relative h-screen w-full overflow-hidden z-10">
       {/* Parallax Background */}
@@ -17,6 +38,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/70 to-transparent z-10" />
         <div className="absolute inset-0 bg-primary/20 z-10 mix-blend-multiply" />
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
@@ -42,9 +64,13 @@ export const Hero = () => {
 
           <FadeIn direction="up" delay={0.4} duration={1.2}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-tight mb-4 md:mb-6 mt-20 md:mt-32 flex flex-wrap justify-center gap-2 md:gap-3 text-center">
-              <TextReveal delay={0.4}>The Bond of</TextReveal>
+              <TextReveal delay={0.4} className="justify-center">
+                The Bond of
+              </TextReveal>
               <span className="text-accent">
-                <TextReveal delay={0.5}>Success</TextReveal>
+                <TextReveal delay={0.5} className="justify-center">
+                  Success
+                </TextReveal>
               </span>
             </h1>
           </FadeIn>

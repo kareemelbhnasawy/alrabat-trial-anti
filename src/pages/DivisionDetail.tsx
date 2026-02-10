@@ -7,6 +7,7 @@ import { useData } from "../context/DataContext";
 import type { Division, Project } from "../types";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { ProjectMap } from "../components/ui/ProjectMap";
+import { FadeIn, StaggerContainer } from "../components/animations/FadeIn";
 
 const getIconPath = (slug: string) => {
   switch (slug) {
@@ -61,7 +62,7 @@ export const DivisionDetail = () => {
   return (
     <>
       {/* Hero */}
-      <div className="relative h-[60vh] min-h-[500px] flex items-center slant-divider-bottom-lg">
+      <div className="relative pt-32 pb-20 md:py-0 md:h-[60vh] md:min-h-[500px] flex items-center slant-divider-bottom-lg">
         <div className="absolute inset-0 z-0">
           <div
             className="absolute inset-0 z-10"
@@ -89,33 +90,47 @@ export const DivisionDetail = () => {
             />
           )}
         </div>
-        <div className="container-custom relative z-20 text-white">
-          <Link
-            to="/divisions"
-            className="text-white/80 hover:text-white mb-4 inline-flex items-center text-sm font-bold uppercase tracking-widest transition-colors"
-          >
-            <ArrowRight className="rotate-180 mr-2" size={16} /> All Divisions
-          </Link>
-          <div className="flex items-center gap-4 mb-4">
-            <img
-              src={getIconPath(division.slug)}
-              alt={`${division.name} Icon`}
-              className="h-20 w-auto object-contain"
-            />
-          </div>
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
-            {division.name}
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed font-light mb-10">
-            {division.summary}
-          </p>
-          <Button
-            onClick={() => (window.location.href = "/contact")}
-            className="bg-white text-primary border-none hover:bg-white/90"
-            style={{ color: accent }}
-          >
-            Discuss {division.name} Scope
-          </Button>
+        <div className="container-custom relative z-20 text-white mt-0 md:mt-0">
+          <FadeIn delay={0.1}>
+            <Link
+              to="/divisions"
+              className="text-white/80 hover:text-white mb-6 inline-flex items-center text-lg font-bold uppercase tracking-widest transition-colors"
+            >
+              <ArrowRight className="rotate-180 mr-2" size={16} /> All Divisions
+            </Link>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <div className="flex items-center gap-4 mb-6">
+              <img
+                src={getIconPath(division.slug)}
+                alt={`${division.name} Icon`}
+                className="h-16 md:h-20 w-auto object-contain"
+              />
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.3}>
+            <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
+              {division.name}
+            </h1>
+          </FadeIn>
+
+          <FadeIn delay={0.4}>
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed font-light mb-10">
+              {division.summary}
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.5}>
+            <Button
+              onClick={() => (window.location.href = "/contact")}
+              className="bg-white text-primary border-none hover:bg-white/90"
+              style={{ color: accent }}
+            >
+              Discuss {division.name} Scope
+            </Button>
+          </FadeIn>
         </div>
       </div>
 
@@ -124,48 +139,61 @@ export const DivisionDetail = () => {
         <div className="container-custom py-24">
           <div className="max-w-4xl mx-auto">
             {/* Accent Mark */}
-            <div
-              className="w-16 h-2 mb-6 transform -skew-x-12"
-              style={{ backgroundColor: accent }}
-            />
+            <FadeIn>
+              <div
+                className="w-16 h-2 mb-6 transform -skew-x-12"
+                style={{ backgroundColor: accent }}
+              />
+            </FadeIn>
 
-            <h2
-              className="text-4xl md:text-5xl font-display font-bold mb-8 uppercase leading-tight"
-              style={{ color: accent }}
-            >
-              {division.introSection.title}
-            </h2>
+            <FadeIn delay={0.1}>
+              <h2
+                className="text-4xl md:text-5xl font-display font-bold mb-8 uppercase leading-tight"
+                style={{ color: accent }}
+              >
+                {division.introSection.title}
+              </h2>
+            </FadeIn>
 
-            <p className="text-xl text-neutral-600 leading-relaxed mb-12">
-              {division.introSection.description}
-            </p>
+            <FadeIn delay={0.2}>
+              <p className="text-xl text-neutral-600 leading-relaxed mb-12">
+                {division.introSection.description}
+              </p>
+            </FadeIn>
 
             <div className="mb-8">
-              <h3 className="text-lg font-bold mb-6" style={{ color: accent }}>
-                Our services include:
-              </h3>
+              <FadeIn delay={0.3}>
+                <h3
+                  className="text-lg font-bold mb-6"
+                  style={{ color: accent }}
+                >
+                  Our services include:
+                </h3>
+              </FadeIn>
               <ul className="space-y-6">
                 {division.introSection.services.map((service, idx) => (
-                  <li key={idx}>
-                    <div className="flex items-start">
-                      {/* Custom Bullet */}
-                      <div
-                        className="w-4 h-1 mt-3 mr-4 transform -skew-x-12 flex-shrink-0"
-                        style={{ backgroundColor: accent }}
-                      />
-                      <div>
-                        <h4
-                          className="text-lg font-bold uppercase mb-1"
-                          style={{ color: accent }}
-                        >
-                          {service.title}
-                        </h4>
-                        <p className="text-neutral-600 text-lg">
-                          {service.description}
-                        </p>
+                  <FadeIn key={idx} delay={0.4 + idx * 0.1}>
+                    <li>
+                      <div className="flex items-start">
+                        {/* Custom Bullet */}
+                        <div
+                          className="w-4 h-1 mt-3 mr-4 transform -skew-x-12 flex-shrink-0"
+                          style={{ backgroundColor: accent }}
+                        />
+                        <div>
+                          <h4
+                            className="text-lg font-bold uppercase mb-1"
+                            style={{ color: accent }}
+                          >
+                            {service.title}
+                          </h4>
+                          <p className="text-neutral-600 text-lg">
+                            {service.description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </li>
+                    </li>
+                  </FadeIn>
                 ))}
               </ul>
             </div>
@@ -177,44 +205,51 @@ export const DivisionDetail = () => {
       <Section className="bg-neutral-bg">
         <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2
-              className="text-3xl font-display font-bold mb-8"
-              style={{ color: accent }}
-            >
-              Core Capabilities
-            </h2>
+            <FadeIn>
+              <h2
+                className="text-3xl font-display font-bold mb-8"
+                style={{ color: accent }}
+              >
+                Core Capabilities
+              </h2>
+            </FadeIn>
             <ul className="space-y-4">
               {division.capabilities.map((cap, idx) => (
-                <li key={idx} className="flex items-start">
-                  <CheckCircle2
-                    className="mr-3 mt-1 flex-shrink-0"
-                    size={20}
-                    style={{ color: accent }}
-                  />
-                  <span className="text-lg text-neutral-700">{cap}</span>
-                </li>
+                <FadeIn key={idx} delay={idx * 0.05}>
+                  <li className="flex items-start">
+                    <CheckCircle2
+                      className="mr-3 mt-1 flex-shrink-0"
+                      size={20}
+                      style={{ color: accent }}
+                    />
+                    <span className="text-lg text-neutral-700">{cap}</span>
+                  </li>
+                </FadeIn>
               ))}
             </ul>
           </div>
 
           <div>
-            <h2
-              className="text-3xl font-display font-bold mb-8"
-              style={{ color: accent }}
-            >
-              Key Services
-            </h2>
+            <FadeIn delay={0.2}>
+              <h2
+                className="text-3xl font-display font-bold mb-8"
+                style={{ color: accent }}
+              >
+                Key Services
+              </h2>
+            </FadeIn>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {division.keyServices.map((service, idx) => (
-                <div
-                  key={idx}
-                  className="bg-neutral-50 p-6 slant-br border-l-4 hover:bg-white hover:shadow-md transition-all"
-                  style={{ borderColor: accent }}
-                >
-                  <h3 className="font-bold mb-2" style={{ color: accent }}>
-                    {service}
-                  </h3>
-                </div>
+                <FadeIn key={idx} delay={0.3 + idx * 0.05}>
+                  <div
+                    className="bg-neutral-50 p-6 slant-br border-l-4 hover:bg-white hover:shadow-md transition-all"
+                    style={{ borderColor: accent }}
+                  >
+                    <h3 className="font-bold mb-2" style={{ color: accent }}>
+                      {service}
+                    </h3>
+                  </div>
+                </FadeIn>
               ))}
             </div>
           </div>
@@ -228,15 +263,19 @@ export const DivisionDetail = () => {
       {relatedProjects.length > 0 && (
         <Section className="bg-neutral-50" slantedTop>
           <div className="container-custom">
-            <h2
-              className="text-3xl font-display font-bold mb-12"
-              style={{ color: accent }}
-            >
-              Related Projects
-            </h2>
+            <FadeIn>
+              <h2
+                className="text-3xl font-display font-bold mb-12"
+                style={{ color: accent }}
+              >
+                Related Projects
+              </h2>
+            </FadeIn>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {relatedProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {relatedProjects.map((project, idx) => (
+                <FadeIn key={project.id} delay={idx * 0.1}>
+                  <ProjectCard project={project} />
+                </FadeIn>
               ))}
             </div>
           </div>
@@ -249,21 +288,27 @@ export const DivisionDetail = () => {
         style={{ backgroundColor: accent }}
       >
         <div className="container-custom text-center">
-          <h2 className="text-4xl font-display font-bold mb-6">
-            Ready to start your project?
-          </h2>
-          <p className="text-white/80 mb-10 max-w-2xl mx-auto">
-            Contact our {division.name} experts today for a technical
-            consultation and proposal.
-          </p>
-          <Button
-            variant="white"
-            size="lg"
-            onClick={() => (window.location.href = "/contact")}
-            style={{ color: accent }}
-          >
-            Get in Touch
-          </Button>
+          <FadeIn>
+            <h2 className="text-4xl font-display font-bold mb-6">
+              Ready to start your project?
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="text-white/80 mb-10 max-w-2xl mx-auto">
+              Contact our {division.name} experts today for a technical
+              consultation and proposal.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <Button
+              variant="white"
+              size="lg"
+              onClick={() => (window.location.href = "/contact")}
+              style={{ color: accent }}
+            >
+              Get in Touch
+            </Button>
+          </FadeIn>
         </div>
       </div>
     </>

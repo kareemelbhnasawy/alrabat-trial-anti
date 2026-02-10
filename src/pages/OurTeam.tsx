@@ -94,7 +94,7 @@ export const OurTeam = () => {
                 .map((member, idx) => (
                   <FadeIn
                     key={member.id}
-                    delay={idx * 0.1}
+                    delay={(idx % 3) * 0.1}
                     className="group relative overflow-hidden rounded-2xl"
                   >
                     <div className="aspect-[4/5] overflow-hidden">

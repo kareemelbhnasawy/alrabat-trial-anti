@@ -14,9 +14,13 @@ export const Welcome = () => {
               Who We Are
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary mb-8 leading-tight">
-              <TextReveal delay={0.2}>Building the foundation</TextReveal>{" "}
+              <TextReveal delay={0.2} className="justify-center">
+                Building the foundation
+              </TextReveal>{" "}
               <br className="hidden md:block" />{" "}
-              <TextReveal delay={0.4}>of the future since 2007.</TextReveal>
+              <TextReveal delay={0.4} className="justify-center">
+                of the future since 2007.
+              </TextReveal>
             </h2>
             <div className="h-1 w-24 bg-accent mx-auto mb-10" />
 

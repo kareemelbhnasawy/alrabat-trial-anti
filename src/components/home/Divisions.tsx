@@ -45,9 +45,21 @@ const getDivisionColor = (slug: string) => {
 export const Divisions = () => {
   const { divisions } = useData();
   const [activeId, setActiveId] = useState<string | null>(null);
+  const timeoutRef = React.useRef<any>(null);
 
-  // Default to the first one active on mount if desired, or null
-  // const [activeId, setActiveId] = useState<string | null>(divisions[0]?.id || null);
+  const handleMouseEnter = (id: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setActiveId(id);
+    }, 50); // Small delay to debounce rapid movement
+  };
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setActiveId(null);
+    }, 50);
+  };
 
   return (
     <Section className="py-20 bg-neutral-bg">
@@ -66,13 +78,13 @@ export const Divisions = () => {
         </div>
 
         {/* Desktop: Horizontal Accordion | Mobile: Vertical Stack (Cards) */}
-        <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px] transition-all duration-300">
+        <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px] transition-all duration-300 will-change-[flex]">
           {divisions.map((item) => (
             <Link
               key={item.id}
               to={`/divisions/${item.slug}`}
-              onMouseEnter={() => setActiveId(item.id)}
-              onMouseLeave={() => setActiveId(null)}
+              onMouseEnter={() => handleMouseEnter(item.id)}
+              onMouseLeave={handleMouseLeave}
               className={cn(
                 "relative overflow-hidden rounded-2xl transition-all duration-500 ease-in-out cursor-pointer group shadow-xl",
                 // Mobile Styles
@@ -90,6 +102,7 @@ export const Divisions = () => {
                 <img
                   src={item.heroImage}
                   alt={item.name}
+                  loading="lazy"
                   className={cn(
                     "w-full h-full object-cover transition-transform duration-700",
                     activeId === item.id || !activeId
@@ -132,6 +145,7 @@ export const Divisions = () => {
                       <img
                         src={getIconPath(item.slug)}
                         alt=""
+                        loading="lazy"
                         className="w-full h-full object-contain"
                       />
                     </div>
@@ -159,6 +173,7 @@ export const Divisions = () => {
                     <img
                       src={getIconPath(item.slug)}
                       alt=""
+                      loading="lazy"
                       className="w-full h-full object-contain"
                     />
                   </div>
@@ -194,6 +209,7 @@ export const Divisions = () => {
                   <img
                     src={getIconPath(item.slug)}
                     alt=""
+                    loading="lazy"
                     className="w-full h-full object-contain"
                   />
                 </div>
