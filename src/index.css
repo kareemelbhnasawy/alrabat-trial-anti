@@ -192,6 +192,12 @@
     pointer-events: none;
   }
 
+  .slant-primary-stripe {
+    @apply absolute bg-primary w-full z-20 top-0 left-0;
+    height: 150px;
+    pointer-events: none;
+  }
+
   .section-divider::before {
     content: "";
     position: absolute;
@@ -203,6 +209,22 @@
       90deg,
       transparent,
       rgba(240, 91, 34, 0.35),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  .section-divider-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(1, 61, 47, 0.8),
       transparent
     );
     pointer-events: none;

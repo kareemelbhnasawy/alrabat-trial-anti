@@ -46,19 +46,58 @@ export const Divisions = () => {
   const { divisions } = useData();
   const [activeId, setActiveId] = useState<string | null>(null);
   const timeoutRef = React.useRef<any>(null);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = (id: string) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      setActiveId(id);
-    }, 50); // Small delay to debounce rapid movement
+    // Only for desktop hover logic (if needed to separate from mobile click)
+    if (window.innerWidth >= 1024) {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        setActiveId(id);
+      }, 50);
+    }
   };
 
   const handleMouseLeave = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      setActiveId(null);
-    }, 50);
+    if (window.innerWidth >= 1024) {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        setActiveId(null);
+      }, 50);
+    }
+  };
+
+  const handleMobileClick = (e: React.MouseEvent, id: string) => {
+    // Check if mobile/tablet (using width check or just rely on state)
+    // If not active, prevent nav and set active
+    if (activeId !== id && window.innerWidth < 1024) {
+      e.preventDefault();
+      setActiveId(id);
+
+      // Immediate scroll start (smooth)
+      setTimeout(() => {
+        const element = document.getElementById(`division-${id}`);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+      }, 0);
+
+      // Correction scroll after expansion finishes (300ms)
+      setTimeout(() => {
+        const element = document.getElementById(`division-${id}`);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+      }, 310);
+    }
   };
 
   return (
@@ -77,22 +116,33 @@ export const Divisions = () => {
           </FadeIn>
         </div>
 
-        {/* Desktop: Horizontal Accordion | Mobile: Vertical Stack (Cards) */}
-        <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px] transition-all duration-300 will-change-[flex]">
+        {/* Desktop: Horizontal Accordion | Mobile: Horizontal Scroll (Vertical Bars) */}
+        <div
+          ref={scrollContainerRef}
+          className={cn(
+            // Mobile: Horizontal Scroll (Removed snap-x)
+            "flex flex-row gap-2 overflow-x-auto pb-4 px-4 -mx-4 md:mx-0 md:px-0 no-scrollbar custom-scrollbar",
+            // Desktop: Accordion
+            "lg:flex-row lg:gap-4 lg:h-[600px] lg:overflow-visible l:pb-0",
+            "transition-all duration-300 will-change-[flex]",
+          )}
+        >
           {divisions.map((item) => (
             <Link
               key={item.id}
+              id={`division-${item.id}`}
               to={`/divisions/${item.slug}`}
+              onClick={(e) => handleMobileClick(e, item.id)}
               onMouseEnter={() => handleMouseEnter(item.id)}
               onMouseLeave={handleMouseLeave}
               className={cn(
-                "relative overflow-hidden rounded-2xl transition-all duration-500 ease-in-out cursor-pointer group shadow-xl",
-                // Mobile Styles
-                "h-[300px] w-full shrink-0",
-                // Desktop Styles
+                "relative overflow-hidden rounded-2xl transition-all duration-300 ease-in-out cursor-pointer group shadow-xl",
+                // Mobile Styles: Dynamic Width (Removed snap-center)
+                "h-[450px] shrink-0 transition-all duration-300",
+                activeId === item.id ? "w-[85vw] md:w-[400px]" : "w-[110px]",
+                // Desktop Styles: Flexible width
                 "lg:h-full lg:w-auto",
-                // If active, it grows. If no active, everyone is 1. If active exists, inactive are 1, active is 3.5.
-                // Or: inactive 0.5, active 3.
+                // Desktop Active Logic
                 activeId === item.id ? "lg:flex-[3.5]" : "lg:flex-[1]",
                 !activeId && "lg:flex-[1]",
               )}
@@ -116,32 +166,36 @@ export const Divisions = () => {
                 <div
                   className={cn(
                     "absolute inset-0 transition-colors duration-500",
-                    // Active: Dark gradient at bottom for text readability
-                    // Inactive: Darker overall overlay
+                    // Mobile: Always dark bottom
+                    "bg-gradient-to-t from-black/90 via-black/40 to-transparent",
+                    // Desktop Active Override
                     activeId === item.id
-                      ? "bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                      : "bg-primary-dark/60 lg:group-hover:bg-primary-dark/40",
+                      ? "lg:bg-gradient-to-t lg:from-black/80 lg:via-black/20 lg:to-transparent"
+                      : "lg:bg-primary-dark/60 lg:group-hover:bg-primary-dark/40",
                   )}
                 />
               </div>
 
               {/* Content Container */}
               <div className="absolute inset-0 z-10 p-6 flex flex-col justify-end">
-                {/* Collapsed State (Desktop) - Vertical Text */}
+                {/* Vertical Text State (Visible when NOT active on mobile, or collapsed on desktop) */}
                 <div
                   className={cn(
-                    "hidden lg:flex absolute inset-0 items-center justify-center transition-opacity duration-300 pointer-events-none p-4",
+                    "absolute inset-0 flex items-center justify-center transition-opacity duration-300 pointer-events-none p-4",
+                    // Mobile: Hidden when active
+                    activeId === item.id ? "opacity-0" : "opacity-100",
+                    // Desktop: Hidden when active
+                    "lg:flex",
                     activeId === item.id
-                      ? "opacity-0"
-                      : "opacity-100 delay-200",
+                      ? "lg:opacity-0"
+                      : "lg:opacity-100 lg:delay-200",
                   )}
                 >
-                  {/* Centered Icon when collapsed */}
                   <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-6">
-                    <h3 className="text-2xl font-display font-bold text-white uppercase tracking-widest [writing-mode:vertical-rl] rotate-180 transform whitespace-nowrap">
+                    <h3 className="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-widest [writing-mode:vertical-rl] rotate-180 transform whitespace-nowrap">
                       {item.name}
                     </h3>
-                    <div className="w-16 h-16 bg-white rounded-full p-3 shadow-xl flex items-center justify-center transition-transform duration-300 hover:scale-110">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full p-2.5 md:p-3 shadow-xl flex items-center justify-center transition-transform duration-300 hover:scale-110">
                       <img
                         src={getIconPath(item.slug)}
                         alt=""
@@ -152,42 +206,35 @@ export const Divisions = () => {
                   </div>
                 </div>
 
-                {/* Expanded State (Desktop) & Default Mobile View */}
+                {/* Expanded State (Desktop AND Mobile Active) */}
                 <div
                   className={cn(
-                    "transition-all duration-500 transform flex flex-col justify-end h-full",
-                    // Desktop specific transitions:
+                    "transition-all duration-500 transform flex-col justify-end h-full",
+                    // Mobile: Visible ONLY when active
+                    activeId === item.id
+                      ? "flex opacity-100 translate-y-0"
+                      : "hidden opacity-0 translate-y-4",
+                    // Desktop: Always flex, but opacity controlled
+                    "lg:flex",
                     "lg:transition-opacity lg:duration-500",
                     activeId === item.id
                       ? "lg:opacity-100 lg:translate-y-0"
                       : "lg:opacity-0 lg:translate-y-4", // Slightly offset when invisible
                   )}
                 >
-                  {/* Icon Card (Top Left of Content Area) */}
-                  <div
-                    className={cn(
-                      "w-16 h-16 bg-white backdrop-blur-md rounded-full p-3 shadow-lg mb-4 border border-white/10 hidden lg:block",
-                      // Only fade in on desktop active state
-                    )}
-                  >
-                    <img
-                      src={getIconPath(item.slug)}
-                      alt=""
-                      loading="lazy"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
+                  {/* Icon removed as per request */}
 
                   {/* Title & Divider */}
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-2 leading-tight">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-3 leading-tight">
                     {item.name}
                   </h3>
-                  <div className="w-12 h-1 bg-accent mb-4 rounded-full" />
+                  <div className="w-12 h-1 bg-accent mb-6 rounded-full" />
 
-                  {/* Summary Text - desktop shows on hover/active, mobile clamps */}
+                  {/* Summary Text */}
                   <div
                     className={cn(
                       "overflow-hidden transition-all duration-500 text-white/90 text-sm md:text-base font-light mb-6 max-w-lg",
+                      // Mobile: Ensure visible text
                     )}
                   >
                     <p className="line-clamp-3 leading-relaxed">
@@ -202,16 +249,6 @@ export const Divisions = () => {
                     </span>
                     <ArrowRight className="w-5 h-5 text-accent group-hover/btn:text-white transition-colors transform group-hover/btn:translate-x-1" />
                   </div>
-                </div>
-
-                {/* Mobile Float Icon (Bottom Right or similar) to ensure brand presence if needed */}
-                <div className="lg:hidden absolute top-4 right-4 w-12 h-12 bg-white backdrop-blur-sm rounded-full p-3 border border-white/20 shadow-lg">
-                  <img
-                    src={getIconPath(item.slug)}
-                    alt=""
-                    loading="lazy"
-                    className="w-full h-full object-contain"
-                  />
                 </div>
               </div>
             </Link>

@@ -43,7 +43,7 @@ export const NavigationOverlay = ({
           accent: d.accentColor,
         })),
       },
-      { name: "Clients", href: "/clients", subLinks: [] },
+      // { name: "Clients", href: "/clients", subLinks: [] },
       { name: "Projects", href: "/projects", subLinks: [] },
       { name: "News", href: "/news", subLinks: [] },
       {
@@ -55,7 +55,7 @@ export const NavigationOverlay = ({
         ],
       },
     ],
-    [divisions]
+    [divisions],
   );
 
   // Search Logic
@@ -69,7 +69,7 @@ export const NavigationOverlay = ({
       .filter(
         (n) =>
           n.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          n.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+          n.excerpt.toLowerCase().includes(searchQuery.toLowerCase()),
       )
       .map((n) => ({ ...n, type: "News", link: `/news/${n.slug}` }));
     return [...pResults, ...nResults].slice(0, 6); // Limit to 6
@@ -210,7 +210,7 @@ export const NavigationOverlay = ({
                             const isMobile = window.innerWidth < 768;
                             if (isMobile && item.subLinks.length > 0) {
                               setActiveCategory(
-                                activeCategory === item.name ? null : item.name
+                                activeCategory === item.name ? null : item.name,
                               );
                             } else if (item.href) {
                               handleNav(item.href);
@@ -241,15 +241,28 @@ export const NavigationOverlay = ({
                               </div>
                             )}
 
-                            {item.subLinks.map((subLink, subIndex) => (
-                              <div
-                                key={subIndex}
-                                onClick={() => handleNav(subLink.href)}
-                                className="text-lg font-display font-medium text-neutral-500 active:text-primary py-1"
-                              >
-                                {subLink.name}
-                              </div>
-                            ))}
+                            {item.subLinks.map((subLink, subIndex) => {
+                              const accent = (subLink as any).accent;
+                              return (
+                                <div
+                                  key={subIndex}
+                                  onClick={() => handleNav(subLink.href)}
+                                  className="flex items-center text-lg font-display font-medium text-neutral-500 active:text-primary py-1 group/link"
+                                >
+                                  {accent && (
+                                    <div
+                                      className="w-4 h-4 mr-3 -skew-x-[45deg]"
+                                      style={{ backgroundColor: accent }}
+                                    />
+                                  )}
+                                  <span
+                                    className={accent ? "text-neutral-600" : ""}
+                                  >
+                                    {subLink.name}
+                                  </span>
+                                </div>
+                              );
+                            })}
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -351,10 +364,10 @@ export const NavigationOverlay = ({
                           onClick={() => handleNav(link.href)}
                           className="group cursor-pointer flex items-center"
                         >
-                          {/* Optional color dot for divisions */}
+                          {/* Optional color shape for divisions */}
                           {link.accent && (
                             <span
-                              className="w-2 h-2 rounded-full mr-4 transition-transform group-hover:scale-150"
+                              className="w-5 h-6 mr-4 -skew-x-[45deg] transition-transform group-hover:scale-110"
                               style={{ backgroundColor: link.accent }}
                             />
                           )}

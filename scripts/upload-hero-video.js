@@ -1,59 +1,82 @@
 import { createClient } from "@supabase/supabase-js";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Load env variables manually as before
+const envPath = path.resolve(process.cwd(), ".env");
+let supabaseUrl = "";
+let supabaseKey = ""; // Assuming service role key is needed for storage if RLS is strict, or anon key if public.
+// Ideally use anon key if bucket is public.
 
-// Read .env file manually
-const envPath = path.resolve(__dirname, "../.env");
-const envContent = fs.readFileSync(envPath, "utf-8");
-const envConfig = {};
-envContent.split("\n").forEach((line) => {
-  const [key, value] = line.split("=");
-  if (key && value) {
-    envConfig[key.trim()] = value.trim();
+if (fs.existsSync(envPath)) {
+  const envConfig = fs.readFileSync(envPath, "utf-8");
+  for (const line of envConfig.split("\n")) {
+    if (line.startsWith("VITE_SUPABASE_URL=")) {
+      supabaseUrl = line.split("=")[1].trim();
+    }
+    if (line.startsWith("VITE_SUPABASE_ANON_KEY=")) {
+      supabaseKey = line.split("=")[1].trim();
+    }
   }
-});
+}
 
-const supabaseUrl = envConfig.VITE_SUPABASE_URL;
-const supabaseKey = envConfig.VITE_SUPABASE_ANON_KEY;
+if (!supabaseUrl || !supabaseKey) {
+  console.log("Missing Supabase credentials.");
+  process.exit(1);
+}
+
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const videoName = "20686633-uhd_3840_2160_30fps.mp4";
-const videoPath = path.resolve(__dirname, `../assets/hero-image/${videoName}`);
-
-async function uploadHeroVideo() {
-  console.log("Reading video from:", videoPath);
-
-  if (!fs.existsSync(videoPath)) {
-    console.error("Video file not found!");
-    return;
+async function uploadVideo() {
+  const filePath = path.resolve(process.cwd(), "public/new-hero.mp4");
+  if (!fs.existsSync(filePath)) {
+    console.error("File public/new-hero.mp4 not found!");
+    process.exit(1);
   }
 
-  const fileBuffer = fs.readFileSync(videoPath);
-  const targetPath = "media/videos/hero-main.mp4";
+  const fileBuffer = fs.readFileSync(filePath);
+  const fileName = "hero-v2.mp4"; // Use a new name to avoid caching issues if overwriting
+  const bucketName = "videos"; // Assuming a bucket named 'videos' exists. If not, try 'public' or 'assets'.
 
-  console.log(`Uploading to ${targetPath}...`);
+  // Trying to upload to 'videos' bucket first
+  console.log(`Uploading ${fileName} to bucket '${bucketName}'...`);
   const { data, error } = await supabase.storage
-    .from("media")
-    .upload(targetPath, fileBuffer, {
+    .from(bucketName)
+    .upload(fileName, fileBuffer, {
       contentType: "video/mp4",
       upsert: true,
     });
 
   if (error) {
-    console.error("Error uploading video:", error.message);
-    return;
+    console.error("Upload error:", error);
+    // Try 'public' bucket as fallback
+    console.log("Trying 'public' bucket...");
+    const { data: data2, error: error2 } = await supabase.storage
+      .from("public")
+      .upload(fileName, fileBuffer, {
+        contentType: "video/mp4",
+        upsert: true,
+      });
+
+    if (error2) {
+      console.error("Upload error (public):", error2);
+      return;
+    }
+
+    const { data: publicUrlData } = supabase.storage
+      .from("public")
+      .getPublicUrl(fileName);
+
+    console.log("Upload successful!");
+    console.log("Public URL:", publicUrlData.publicUrl);
+  } else {
+    const { data: publicUrlData } = supabase.storage
+      .from(bucketName)
+      .getPublicUrl(fileName);
+
+    console.log("Upload successful!");
+    console.log("Public URL:", publicUrlData.publicUrl);
   }
-
-  const { data: publicData } = supabase.storage
-    .from("media")
-    .getPublicUrl(targetPath);
-
-  console.log(`✅ Uploaded successfully!`);
-  console.log(`URL: ${publicData.publicUrl}`);
 }
 
-uploadHeroVideo();
+uploadVideo();

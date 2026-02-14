@@ -12,13 +12,13 @@ import { Logo } from "./ui/Logo";
 export const Footer = () => {
   return (
     <footer className="bg-primary text-white pt-32 pb-10 slant-divider-lg -mt-20 relative z-20">
-      <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative">
         {/* Brand */}
-        <div className="space-y-6">
-          <div className="mb-6">
+        <div className="space-y-6 md:space-y-6 relative">
+          <div className="absolute top-0 right-0 md:static">
             <Logo />
           </div>
-          <p className="text-neutral-300 text-sm leading-relaxed max-w-xs">
+          <p className="text-neutral-300 text-sm leading-relaxed max-w-xs pt-16 md:pt-0">
             "THE BOND OF SUCCESS"
             <br className="mb-2" />
             Providing fully tailored integrated ground solutions with highest

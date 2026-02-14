@@ -133,7 +133,7 @@ export const OurTeam = () => {
       </Section>
 
       {/* Qualifications Section */}
-      <Section className="bg-white" slantedTop>
+      <Section className="bg-white mt-32 md:mt-60" slantedTop primaryAccent>
         <div className="container-custom">
           <FadeIn>
             <h2 className="text-3xl font-display font-bold text-primary mb-12 border-l-4 border-accent pl-4">

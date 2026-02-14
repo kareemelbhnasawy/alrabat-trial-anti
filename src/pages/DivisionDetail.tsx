@@ -271,9 +271,13 @@ export const DivisionDetail = () => {
                 Related Projects
               </h2>
             </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex flex-row overflow-x-auto snap-x snap-mandatory pb-4 gap-4 px-4 -mx-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:pb-0 md:px-0 md:mx-0 no-scrollbar">
               {relatedProjects.map((project, idx) => (
-                <FadeIn key={project.id} delay={idx * 0.1}>
+                <FadeIn
+                  key={project.id}
+                  delay={idx * 0.1}
+                  className="min-w-[85vw] md:min-w-0 snap-center"
+                >
                   <ProjectCard project={project} />
                 </FadeIn>
               ))}

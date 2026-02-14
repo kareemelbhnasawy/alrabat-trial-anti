@@ -32,9 +32,15 @@ export const RecentProjects = () => {
         </FadeIn>
       </div>
 
-      <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="flex flex-row overflow-x-auto snap-x snap-mandatory pb-4 gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:pb-0 container-custom no-scrollbar">
         {recent.map((project, index) => (
-          <FadeIn key={project.id} delay={index * 0.1} duration={0.8} fullWidth>
+          <FadeIn
+            key={project.id}
+            delay={index * 0.1}
+            duration={0.8}
+            fullWidth
+            className="min-w-[75vw] md:min-w-0 snap-center"
+          >
             <ProjectCard project={project} />
           </FadeIn>
         ))}
