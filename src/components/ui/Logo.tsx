@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface LogoProps {
@@ -21,14 +21,44 @@ const DIVISION_LOGOS = [
 ];
 
 export const Logo = ({ isScrolled = false }: LogoProps) => {
+  const location = useLocation();
   const [divisionIndex, setDivisionIndex] = useState(0);
 
+  // Map slugs to logo indices based on DIVISION_LOGOS order:
+  // 0: Foundation
+  // 1: Ground Improvement
+  // 2: Infrastructure
+  // 3: Marine
+  // 4: Equipment
+  // 5: SE (Specialized Engineering)
+  const slugToIndex: Record<string, number> = {
+    foundations: 0,
+    "ground-improvement": 1,
+    infrastructure: 2,
+    marine: 3,
+    equipment: 4,
+    "specialized-engineering": 5,
+  };
+
   useEffect(() => {
+    // Check if we are on a division detail page
+    const pathParts = location.pathname.split("/");
+    const isDivisionDetail =
+      pathParts[1] === "divisions" && pathParts[2] && pathParts[2] !== "";
+
+    if (isDivisionDetail) {
+      const slug = pathParts[2];
+      if (slugToIndex[slug] !== undefined) {
+        setDivisionIndex(slugToIndex[slug]);
+        return; // Pause animation
+      }
+    }
+
     const interval = setInterval(() => {
       setDivisionIndex((prev) => (prev + 1) % DIVISION_LOGOS.length);
-    }, 3000);
+    }, 4500);
     return () => clearInterval(interval);
-  }, []);
+  }, [location.pathname]);
 
   const divisionLogoSrc = DIVISION_LOGOS[divisionIndex];
 
@@ -69,7 +99,7 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
             initial={{ opacity: 0, y: 8, filter: "blur(4px)", x: "-50%" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)", x: "-50%" }}
             exit={{ opacity: 0, y: -8, filter: "blur(4px)", x: "-50%" }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
             className="h-full w-auto object-contain absolute left-1/2"
           />
         </AnimatePresence>

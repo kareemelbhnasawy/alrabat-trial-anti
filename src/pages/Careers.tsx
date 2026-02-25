@@ -1,7 +1,33 @@
-import React, { useState } from "react";
-import { Section } from "../components/ui/Section";
+import React from "react";
 import { Button } from "../components/ui/Button";
-import { Mail, Phone, MapPin, Briefcase } from "lucide-react";
+import { Mail } from "lucide-react";
+
+const CORE_VALUES = [
+  {
+    title: "Authenticity",
+    icon: "/core-values/authenticity.png",
+    description:
+      "We remain grounded in what is real, reliable, and true. Our actions, decisions, and commitments are consistent across all projects and relationships, fostering trust and long-term credibility.",
+  },
+  {
+    title: "Creativity",
+    icon: "/core-values/creativity.png",
+    description:
+      "We look beyond limitations and embrace new perspectives. Through thoughtful innovation and adaptive thinking, we transform challenges into opportunities for sustainable progress.",
+  },
+  {
+    title: "Bond",
+    icon: "/core-values/bond.png",
+    description:
+      "We believe that progress is achieved together. Strong, respectful relationships connect our teams, partners, and clients, ensuring alignment, collaboration, and shared success at every stage.",
+  },
+  {
+    title: "Investment in Minds",
+    icon: "/core-values/investment-in-minds.png",
+    description:
+      "We believe that investing in people is the most meaningful investment. By nurturing talent, values, and potential, we create success with lasting purpose and impact both professionally and personally.",
+  },
+];
 
 export const Careers = () => {
   return (
@@ -25,12 +51,27 @@ export const Careers = () => {
             </p>
 
             <div className="mt-8">
-              <h3 className="text-white font-bold mb-4">Values We Look For</h3>
-              <ul className="space-y-2 list-disc list-inside text-neutral-300">
-                <li>Commitment to Safety and Quality</li>
-                <li>Technical Excellence and Innovation</li>
-                <li>Integrity and Teamwork</li>
-              </ul>
+              <h3 className="text-white font-bold mb-6">AL RABAT CORE VALUES</h3>
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                {CORE_VALUES.map((value) => (
+                  <div
+                    key={value.title}
+                    className="rounded-lg border border-white/10 bg-white/[0.03] p-5"
+                  >
+                    <div className="flex items-center mb-3">
+                      <img
+                        src={value.icon}
+                        alt={`${value.title} icon`}
+                        className="w-9 h-9 object-contain mr-3"
+                      />
+                      <h4 className="text-white font-bold text-xl">{value.title}</h4>
+                    </div>
+                    <p className="text-neutral-300 leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

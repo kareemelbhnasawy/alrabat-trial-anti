@@ -28,10 +28,11 @@ export const Home = () => {
           </div>
         }
       >
-        <ProjectMap />
+     
       </Suspense>
       <LatestNews />
       <Marquee />
+         <ProjectMap />
       {/* Clients section placed last per requested order */}
     </>
   );

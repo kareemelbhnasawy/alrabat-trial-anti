@@ -7,30 +7,24 @@ import { useData } from "../context/DataContext";
 import type { Division, Project } from "../types";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { ProjectMap } from "../components/ui/ProjectMap";
-import { FadeIn, StaggerContainer } from "../components/animations/FadeIn";
+import { FadeIn } from "../components/animations/FadeIn";
 
-const getIconPath = (slug: string) => {
-  switch (slug) {
-    case "foundations":
-      return "/logos/icons/Alrabat Foundation PNG.png";
-    case "marine":
-      return "/logos/icons/Alrabat Marine PNG.png";
-    case "ground-improvement":
-      return "/logos/icons/Alrabat Ground Improvement PNG.png";
-    case "infrastructure":
-      return "/logos/icons/Alrabat Infrastructure PNG.png";
-    case "equipment":
-      return "/logos/icons/Alrabat Equipment PNG.png";
-    case "specialized-engineering":
-    default:
-      return "/logos/icons/Alrabat SE PNG.png";
-  }
-};
+const SlashMark = ({
+  className,
+  color,
+}: {
+  className: string;
+  color: string;
+}) => (
+  <span
+    className={`inline-block -skew-x-[38deg] ${className}`}
+    style={{ backgroundColor: color }}
+  />
+);
 
 export const DivisionDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const { divisions, projects } = useData();
-  const accent = "#013D2F"; // Primary Brand Color
 
   const [division, setDivision] = useState<Division | null>(null);
   const [relatedProjects, setRelatedProjects] = useState<Project[]>([]);
@@ -58,6 +52,8 @@ export const DivisionDetail = () => {
       </div>
     );
   }
+  const heroAccent = "#013D2F";
+  const accent = division.accentColor || "#013D2F";
 
   return (
     <>
@@ -67,7 +63,7 @@ export const DivisionDetail = () => {
           <div
             className="absolute inset-0 z-10"
             style={{
-              background: `linear-gradient(to right, ${accent}B3, ${accent}4D)`,
+              background: `linear-gradient(to right, ${heroAccent}B3, ${heroAccent}4D)`,
             }}
           />
           {division.heroVideo ? (
@@ -100,16 +96,6 @@ export const DivisionDetail = () => {
             </Link>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
-            <div className="flex items-center gap-4 mb-6">
-              <img
-                src={getIconPath(division.slug)}
-                alt={`${division.name} Icon`}
-                className="h-16 md:h-20 w-auto object-contain"
-              />
-            </div>
-          </FadeIn>
-
           <FadeIn delay={0.3}>
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
               {division.name}
@@ -126,7 +112,7 @@ export const DivisionDetail = () => {
             <Button
               onClick={() => (window.location.href = "/contact")}
               className="bg-white text-primary border-none hover:bg-white/90"
-              style={{ color: accent }}
+              style={{ color: heroAccent }}
             >
               Discuss {division.name} Scope
             </Button>
@@ -137,18 +123,14 @@ export const DivisionDetail = () => {
       {/* Intro Section */}
       {division.introSection && (
         <div className="container-custom py-24">
-          <div className="max-w-4xl mx-auto">
-            {/* Accent Mark */}
+          <div className="max-w-5xl mx-auto">
             <FadeIn>
-              <div
-                className="w-16 h-2 mb-6 transform -skew-x-12"
-                style={{ backgroundColor: accent }}
-              />
+              <SlashMark className="w-14 h-2.5 md:w-20 md:h-3 mb-6" color={accent} />
             </FadeIn>
 
             <FadeIn delay={0.1}>
               <h2
-                className="text-4xl md:text-5xl font-display font-bold mb-8 uppercase leading-tight"
+                className="text-4xl md:text-6xl font-display font-bold mb-8 uppercase leading-[0.95]"
                 style={{ color: accent }}
               >
                 {division.introSection.title}
@@ -174,20 +156,19 @@ export const DivisionDetail = () => {
                 {division.introSection.services.map((service, idx) => (
                   <FadeIn key={idx} delay={0.4 + idx * 0.1}>
                     <li>
-                      <div className="flex items-start">
-                        {/* Custom Bullet */}
-                        <div
-                          className="w-4 h-1 mt-3 mr-4 transform -skew-x-12 flex-shrink-0"
-                          style={{ backgroundColor: accent }}
+                      <div className="flex items-start gap-4 md:gap-5">
+                        <SlashMark
+                          className="w-6 h-2 mt-2.5 md:mt-3 md:w-8 md:h-2.5 flex-shrink-0"
+                          color={accent}
                         />
                         <div>
                           <h4
-                            className="text-lg font-bold uppercase mb-1"
+                            className="text-xl md:text-2xl font-display font-bold uppercase mb-1"
                             style={{ color: accent }}
                           >
                             {service.title}
                           </h4>
-                          <p className="text-neutral-600 text-lg">
+                          <p className="text-neutral-700 text-lg md:text-2xl leading-relaxed">
                             {service.description}
                           </p>
                         </div>
