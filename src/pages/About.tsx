@@ -1,7 +1,48 @@
 import React from "react";
 import { Section } from "../components/ui/Section";
-import { Target, Eye, Heart, User } from "lucide-react";
 import { motion } from "framer-motion";
+
+const STRATEGY_CONTENT = {
+  vision: {
+    title: "Our Vision",
+    icon: "/company-profile/icons/vision.png",
+    description:
+      "To be a trusted and forward-thinking construction group that shapes the future of the industry by delivering lasting value through integrity, collaboration, and innovation - building authentic partnerships, investing in people, and transforming challenges into sustainable progress with a positive impact on society, guided by the principle that we should consistently learn from experience not repeat the same mistake twice.",
+  },
+  mission: {
+    title: "Our Mission",
+    icon: "/company-profile/icons/mission.png",
+    description:
+      "To deliver high-quality construction solutions through ethical practice, strong partnerships, and creative problem-solving—by empowering our people, standardizing excellence, and continuously improving the way we plan, execute, and collaborate. We commit to agility and continuous adaptability across our operations, business strategies, and societal responsibilities, enabling us to respond effectively to changing environments and evolving needs. We further undertake projects of any scale and take all necessary steps to contribute positively to society, creating sustainable growth and lasting value for our clients, partners, and communities.",
+  },
+};
+
+const CORE_VALUES = [
+  {
+    title: "AUTHENTICITY",
+    icon: "/company-profile/icons/authenticity.png",
+    description:
+      "We remain grounded in what is real, reliable, and true. Our actions, decisions, and commitments are consistent across all projects and relationships, fostering trust and long-term credibility.",
+  },
+  {
+    title: "CREATIVITY",
+    icon: "/company-profile/icons/creativity.png",
+    description:
+      "We look beyond limitations and embrace new perspectives. Through thoughtful innovation and adaptive thinking, we transform challenges into opportunities for sustainable progress.",
+  },
+  {
+    title: "BOND",
+    icon: "/company-profile/icons/bond.png",
+    description:
+      "We believe that progress is achieved together. Strong, respectful relationships connect our teams, partners, and clients, ensuring alignment, collaboration, and shared success at every stage.",
+  },
+  {
+    title: "INVESTMENT IN MINDS",
+    icon: "/company-profile/icons/investment-in-minds.png",
+    description:
+      "We believe that investing in people is the most meaningful investment. By nurturing talent, values, and potential, we create success with lasting purpose and impact—both professionally and personally.",
+  },
+];
 
 export const About = () => {
   return (
@@ -25,61 +66,68 @@ export const About = () => {
 
       {/* Vision/Mission/Values */}
       <Section>
-        <div className="container-custom grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="container-custom space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {[STRATEGY_CONTENT.vision, STRATEGY_CONTENT.mission].map(
+              (strategy, idx) => (
+                <motion.div
+                  key={strategy.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="bg-white p-8 shadow-sm border border-neutral-100 slant-br text-center"
+                >
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <img
+                      src={strategy.icon}
+                      alt={`${strategy.title} icon`}
+                      className="w-8 h-8 object-contain"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold font-display text-primary mb-4">
+                    {strategy.title}
+                  </h3>
+                  <p className="text-neutral-600 leading-relaxed">
+                    {strategy.description}
+                  </p>
+                </motion.div>
+              ),
+            )}
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white p-8 shadow-sm border border-neutral-100 slant-br text-center"
+            className="bg-white p-8 shadow-sm border border-neutral-100 slant-br"
           >
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary">
-              <Eye size={32} />
-            </div>
-            <h3 className="text-xl font-bold font-display text-primary mb-4">
-              Our Vision
+            <h3 className="text-xl md:text-2xl font-bold font-display text-primary mb-6 text-center">
+              OUR CORE VALUES
             </h3>
-            <p className="text-neutral-600 leading-relaxed">
-              To be a trusted, forward-thinking construction group that delivers
-              lasting value through integrity, collaboration, and innovation.
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white p-8 shadow-sm border border-neutral-100 slant-br text-center"
-          >
-            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 text-accent">
-              <Target size={32} />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {CORE_VALUES.map((value) => (
+                <div
+                  key={value.title}
+                  className="rounded-lg border border-neutral-200 bg-neutral-50 p-5"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <img
+                      src={value.icon}
+                      alt={`${value.title} icon`}
+                      className="w-7 h-7 object-contain"
+                    />
+                    <h4 className="text-lg font-bold text-primary">
+                      {value.title}
+                    </h4>
+                  </div>
+                  <p className="text-neutral-600 leading-relaxed text-sm">
+                    {value.description}
+                  </p>
+                </div>
+              ))}
             </div>
-            <h3 className="text-xl font-bold font-display text-primary mb-4">
-              Our Mission
-            </h3>
-            <p className="text-neutral-600 leading-relaxed">
-              To deliver high-quality solutions through ethical practice, strong
-              partnerships, and continuous improvement—empowering our people and
-              adapting to changing needs.
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white p-8 shadow-sm border border-neutral-100 slant-br text-center"
-          >
-            <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center mx-auto mb-6 text-neutral-600">
-              <Heart size={32} />
-            </div>
-            <h3 className="text-xl font-bold font-display text-primary mb-4">
-              Our Values
-            </h3>
-            <p className="text-neutral-600 leading-relaxed">
-              Authenticity, creativity, bond, and investment in minds guide how
-              we work, lead, and grow.
-            </p>
           </motion.div>
         </div>
       </Section>
@@ -121,7 +169,7 @@ export const About = () => {
                 {
                   year: "Today",
                   title: "Integrated Solutions",
-                  desc: "A leader in six infrastructure divisions, delivering turnkey projects across the region.",
+                  desc: "A leader in six specialized divisions, delivering turnkey projects across the region.",
                 },
               ].map((item, index) => (
                 <motion.div

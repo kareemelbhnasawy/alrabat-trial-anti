@@ -28,6 +28,7 @@ export const Footer = () => {
             <p>+971 4 267 6054 / +971 4 337 8073</p>
             <p>info@alrabatse.com</p>
             <p>401, Red Crescent Building, Al Garhoud, Dubai, U.A.E</p>
+            <p>411, DBCS Building, Al Garhoud, Dubai, U.A.E</p>
           </div>
           <div className="flex space-x-4">
             <a

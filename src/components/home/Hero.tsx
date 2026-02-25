@@ -6,10 +6,8 @@ import { FadeIn } from "../animations/FadeIn";
 import { TextReveal } from "../animations/TextReveal";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// Placeholder for remote video URL
-// URL from uploaded 'hero-v2.mp4' to 'videos' bucket
 const HERO_VIDEO_URL =
-  "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/videos/hero-v2.mp4";
+  "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/videos/hero-rabat.mp4";
 
 export const Hero = () => {
   const { scrollY } = useScroll();
@@ -50,7 +48,6 @@ export const Hero = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-110"
         >
-          {/* TODO: Update this URL with the actual Supabase or remote video URL */}
           <source src={HERO_VIDEO_URL} type="video/mp4" />
           Your browser does not support the video tag.
         </video>

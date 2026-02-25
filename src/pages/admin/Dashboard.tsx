@@ -9,6 +9,7 @@ import {
   Home,
   Users,
   Award,
+  Image,
 } from "lucide-react";
 import { ProjectList } from "./ProjectList";
 import { ProjectForm } from "./ProjectForm";
@@ -22,6 +23,7 @@ import { QualificationAdminList } from "./QualificationAdminList";
 import { QualificationAdminForm } from "./QualificationAdminForm";
 import { TeamList } from "./TeamList";
 import { TeamForm } from "./TeamForm";
+import { DivisionImageAdmin } from "./DivisionImageAdmin";
 import { useAuth } from "../../context/AuthContext";
 import { useData } from "../../context/DataContext";
 
@@ -40,6 +42,7 @@ const AdminLayout = ({
     { icon: Users, label: "Clients", path: "/admin/clients" },
     { icon: Newspaper, label: "News", path: "/admin/news" },
     { icon: Award, label: "Qualifications", path: "/admin/qualifications" },
+    { icon: Image, label: "Division Images", path: "/admin/divisions" },
     { icon: SettingsIcon, label: "Settings", path: "/admin/settings" },
   ];
 
@@ -186,6 +189,7 @@ export const Dashboard = () => {
                   <Route path="new" element={<QualificationAdminForm />} />
                   <Route path=":id/edit" element={<QualificationAdminForm />} />
                 </Route>
+                <Route path="divisions" element={<DivisionImageAdmin />} />
                 <Route path="settings" element={<Settings />} />
                 <Route path="*" element={<Navigate to="/admin" />} />
               </Routes>

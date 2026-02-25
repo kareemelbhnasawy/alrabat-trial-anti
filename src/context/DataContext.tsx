@@ -21,6 +21,7 @@ interface DataContextType {
   projects: Project[];
   news: NewsArticle[];
   divisions: Division[];
+  reloadDivisions: () => Promise<void>;
   addProject: (project: Project) => void;
   updateProject: (id: string, project: Partial<Project>) => void;
   deleteProject: (id: string) => void;
@@ -37,7 +38,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   // Initialize with empty arrays to prevent mapping errors before fetch
   const [projects, setProjects] = useState<Project[]>([]);
   const [news, setNews] = useState<NewsArticle[]>([]);
-  const [divisions] = useState<Division[]>(
+  const [divisions, setDivisions] = useState<Division[]>(
     initialDivisions as unknown as Division[]
   );
   const [clientCategories, setClientCategories] = useState<ClientCategory[]>(
@@ -68,9 +69,55 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const applyDivisionOverrides = (
+    baseDivisions: Division[],
+    overrides: Record<string, string>
+  ) => {
+    return baseDivisions.map((division) => ({
+      ...division,
+      heroImage: overrides[division.slug] || division.heroImage,
+    }));
+  };
+
+  const fetchDivisionOverrides = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("division_media")
+        .select("slug, hero_image_url");
+
+      if (error) throw error;
+
+      return (data || []).reduce(
+        (acc: Record<string, string>, row: any) => {
+          if (row.slug && row.hero_image_url) {
+            acc[row.slug] = row.hero_image_url;
+          }
+          return acc;
+        },
+        {} as Record<string, string>
+      );
+    } catch (error: any) {
+      // Keep defaults if the table doesn't exist or isn't reachable.
+      console.warn("Division media overrides unavailable:", error?.message);
+      return {};
+    }
+  };
+
+  const reloadDivisions = async () => {
+    const overrides = await fetchDivisionOverrides();
+    setDivisions(
+      applyDivisionOverrides(
+        initialDivisions as unknown as Division[],
+        overrides
+      )
+    );
+  };
+
   // Fetch initial data
   useEffect(() => {
     const fetchData = async () => {
+      await reloadDivisions();
+
       // Fetch Projects
       const { data: projData, error: projError } = await supabase
         .from("projects")
@@ -227,6 +274,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         projects,
         news,
         divisions,
+        reloadDivisions,
         addProject,
         updateProject,
         deleteProject,

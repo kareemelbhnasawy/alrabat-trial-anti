@@ -173,7 +173,7 @@ export const OurTeam = () => {
                   <ul className="space-y-3">
                     {item.stats?.map((s, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="font-bold text-accent min-w-[1.5rem]">
+                        <span className="w-6 h-6 rounded-full bg-accent/15 text-accent font-bold flex items-center justify-center text-xs leading-none shrink-0">
                           <AnimatedCounter to={s.count} duration={1.2} />
                         </span>
                         <span className="text-neutral-600 text-sm leading-relaxed">
