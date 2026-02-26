@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useShouldReduceMotion } from "../../hooks/useShouldReduceMotion";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -33,6 +34,12 @@ export const PageTransition = ({
   children,
   className,
 }: PageTransitionProps) => {
+  const shouldReduceMotion = useShouldReduceMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial="initial"

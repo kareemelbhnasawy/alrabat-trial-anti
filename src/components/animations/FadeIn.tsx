@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useShouldReduceMotion } from "../../hooks/useShouldReduceMotion";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -21,6 +22,7 @@ export const FadeIn = ({
 }: FadeInProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const shouldReduceMotion = useShouldReduceMotion();
 
   const getDirectionOffset = () => {
     switch (direction) {
@@ -41,6 +43,18 @@ export const FadeIn = ({
 
   const offset = getDirectionOffset();
 
+  if (shouldReduceMotion) {
+    return (
+      <div
+        ref={ref}
+        className={className}
+        style={{ width: fullWidth ? "100%" : "auto" }}
+      >
+        {children}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       ref={ref}
@@ -58,7 +72,7 @@ export const FadeIn = ({
               transition: {
                 duration: duration,
                 delay: delay,
-                ease: [0.25, 0.25, 0, 1], // Custom ease for premium feel
+                ease: "easeOut",
               },
             }
           : {

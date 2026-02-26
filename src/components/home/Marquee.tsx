@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import { motion } from "framer-motion";
 import { useData } from "../../context/DataContext";
 
 const FALLBACK_LOGOS = [
@@ -42,13 +41,7 @@ export const Marquee = () => {
   const marqueItems = [...displayItems, ...displayItems, ...displayItems];
 
   return (
-    <motion.div
-      className="bg-white py-20 overflow-hidden relative z-10 border-y border-neutral-100"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
-    >
+    <div className="bg-white py-20 overflow-hidden relative z-10 border-y border-neutral-100">
       <div className="container-custom mb-12 text-center">
         <div className="h-1 w-20 bg-accent mx-auto mb-6" />
         <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">
@@ -66,7 +59,7 @@ export const Marquee = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

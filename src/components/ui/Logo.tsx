@@ -91,15 +91,15 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
       </div>
 
       <div className="relative h-20 md:h-28 w-full -mt-14 md:-mt-20 pointer-events-none">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence>
           <motion.img
             key={divisionIndex}
             src={divisionLogoSrc}
             alt="Alrabat Division"
-            initial={{ opacity: 0, y: 8, filter: "blur(4px)", x: "-50%" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)", x: "-50%" }}
-            exit={{ opacity: 0, y: -8, filter: "blur(4px)", x: "-50%" }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: 6, x: "-50%" }}
+            animate={{ opacity: 1, y: 0, x: "-50%" }}
+            exit={{ opacity: 0, y: -6, x: "-50%" }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
             className="h-full w-auto object-contain absolute left-1/2"
           />
         </AnimatePresence>

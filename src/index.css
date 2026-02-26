@@ -151,6 +151,18 @@
   }
 }
 
+html.low-motion {
+  scroll-behavior: auto;
+}
+
+html.low-motion *,
+html.low-motion *::before,
+html.low-motion *::after {
+  transition-duration: 0ms !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+}
+
 @layer components {
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
