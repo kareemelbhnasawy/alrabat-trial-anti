@@ -30,7 +30,7 @@ export const Footer = () => {
             <p>401, Red Crescent Building, Al Garhoud, Dubai, U.A.E</p>
             <p>411, DBCS Building, Al Garhoud, Dubai, U.A.E</p>
           </div>
-          <div className="flex space-x-4">
+          {/* <div className="flex space-x-4">
             <a
               href="#"
               className="p-2 bg-white/5 rounded-full hover:bg-accent transition-colors"
@@ -49,7 +49,7 @@ export const Footer = () => {
             >
               <Facebook size={18} />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Divisions */}
