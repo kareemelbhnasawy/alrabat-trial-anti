@@ -61,7 +61,7 @@ export const OurStory = () => {
             Our Story
           </span>
           <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">
-            About Alrabat SE
+            About Alrabat
           </h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
             Established in 2007 in Dubai, UAE, as a subsidiary of Alrabat

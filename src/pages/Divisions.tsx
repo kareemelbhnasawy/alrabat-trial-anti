@@ -17,7 +17,7 @@ export const Divisions = () => {
                     <span className="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Our Expertise</span>
                     <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">Integrated Ground Solutions</h1>
                     <p className="text-xl text-neutral-300 max-w-3xl leading-relaxed">
-                        Alrabat SE operates through six specialized divisions, each a leader in its field, working together to deliver turnkey engineering solutions for the most complex challenges.
+                        Alrabat operates through six specialized divisions, each a leader in its field, working together to deliver turnkey engineering solutions for the most complex challenges.
                     </p>
                 </div>
             </div>
