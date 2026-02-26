@@ -4,15 +4,12 @@ import { ArrowDown } from "lucide-react";
 import { Button } from "../ui/Button";
 import { FadeIn } from "../animations/FadeIn";
 import { TextReveal } from "../animations/TextReveal";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const HERO_VIDEO_URL =
-  "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/videos/hero-rabat.mp4";
+  "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/videos/hero-rabat-opt.mp4";
 
 export const Hero = () => {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, 500]);
-
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
   React.useEffect(() => {
@@ -36,22 +33,24 @@ export const Hero = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden z-10">
-      {/* Parallax Background */}
-      <motion.div className="absolute inset-0 z-0 select-none" style={{ y }}>
+      <div className="absolute inset-0 z-0 select-none">
         <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary-dark/70 to-transparent z-10" />
-        <div className="absolute inset-0 bg-primary/20 z-10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-primary/15 z-10" />
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none scale-110"
+          preload="metadata"
+          disablePictureInPicture
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          aria-hidden="true"
         >
           <source src={HERO_VIDEO_URL} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </motion.div>
+      </div>
 
       <div className="container-custom relative z-20 h-full flex flex-col justify-center text-white pt-20">
         <div className="max-w-4xl mx-auto text-center">

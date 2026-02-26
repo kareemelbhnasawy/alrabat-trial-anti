@@ -11,10 +11,23 @@ export const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (ticking) return;
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        const nextIsScrolled = window.scrollY > 20;
+        setIsScrolled((prev) =>
+          prev === nextIsScrolled ? prev : nextIsScrolled,
+        );
+        ticking = false;
+      });
     };
-    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

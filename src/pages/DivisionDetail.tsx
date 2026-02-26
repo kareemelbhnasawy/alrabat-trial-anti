@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Section } from "../components/ui/Section";
 import { Button } from "../components/ui/Button";
@@ -6,8 +6,13 @@ import { ProjectCard } from "../components/cards/ProjectCard";
 import { useData } from "../context/DataContext";
 import type { Division, Project } from "../types";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import { ProjectMap } from "../components/ui/ProjectMap";
 import { FadeIn } from "../components/animations/FadeIn";
+
+const ProjectMap = React.lazy(() =>
+  import("../components/ui/ProjectMap").then((module) => ({
+    default: module.ProjectMap,
+  })),
+);
 
 const SlashMark = ({
   className,
@@ -238,7 +243,17 @@ export const DivisionDetail = () => {
       </Section>
 
       {/* Division Project Map */}
-      {relatedProjects.length > 0 && <ProjectMap projects={relatedProjects} />}
+      {relatedProjects.length > 0 && (
+        <Suspense
+          fallback={
+            <div className="h-[600px] w-full bg-neutral-900 flex items-center justify-center text-white/20">
+              Loading Map...
+            </div>
+          }
+        >
+          <ProjectMap projects={relatedProjects} />
+        </Suspense>
+      )}
 
       {/* Related Projects */}
       {relatedProjects.length > 0 && (

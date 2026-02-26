@@ -14,6 +14,27 @@ const ProjectMap = React.lazy(() =>
 );
 
 export const Home = () => {
+  const mapSectionRef = React.useRef<HTMLDivElement>(null);
+  const [shouldLoadMap, setShouldLoadMap] = React.useState(false);
+
+  React.useEffect(() => {
+    const node = mapSectionRef.current;
+    if (!node || shouldLoadMap) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [shouldLoadMap]);
+
   return (
     <>
       <Hero />
@@ -21,18 +42,22 @@ export const Home = () => {
       <Statistics />
       <Divisions />
       <RecentProjects />
-      <Suspense
-        fallback={
-          <div className="h-[600px] w-full bg-neutral-900 flex items-center justify-center text-white/20">
-            Loading Map...
-          </div>
-        }
-      >
-     
-      </Suspense>
+      <div ref={mapSectionRef} />
+      {shouldLoadMap ? (
+        <Suspense
+          fallback={
+            <div className="h-[600px] w-full bg-neutral-900 flex items-center justify-center text-white/20">
+              Loading Map...
+            </div>
+          }
+        >
+          <ProjectMap />
+        </Suspense>
+      ) : (
+        <div className="h-[600px] w-full bg-neutral-900/95" />
+      )}
       <LatestNews />
       <Marquee />
-         <ProjectMap />
       {/* Clients section placed last per requested order */}
     </>
   );

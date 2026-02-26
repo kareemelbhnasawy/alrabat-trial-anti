@@ -28,14 +28,17 @@ if (!supabaseUrl || !supabaseKey) {
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 async function uploadVideo() {
-  const filePath = path.resolve(process.cwd(), "public/rabat.mp4");
+  const sourceArg = process.argv[2] || "public/rabat.mp4";
+  const targetArg = process.argv[3] || "hero-rabat.mp4";
+
+  const filePath = path.resolve(process.cwd(), sourceArg);
   if (!fs.existsSync(filePath)) {
-    console.error("File public/rabat.mp4 not found!");
+    console.error(`File ${sourceArg} not found!`);
     process.exit(1);
   }
 
   const fileBuffer = fs.readFileSync(filePath);
-  const fileName = "hero-rabat.mp4";
+  const fileName = targetArg;
   const bucketName = "videos"; // Assuming a bucket named 'videos' exists. If not, try 'public' or 'assets'.
 
   // Trying to upload to 'videos' bucket first
