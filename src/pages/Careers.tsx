@@ -1,6 +1,9 @@
 import React from "react";
 import { Button } from "../components/ui/Button";
-import { Mail } from "lucide-react";
+import { ArrowUpRight, FileText, Mail } from "lucide-react";
+
+const CORE_COMPETENCIES_PDF_URL =
+  "https://yhidsiecvccoeillkjvq.supabase.co/storage/v1/object/public/media/core-docs/rpf-core-competencies.pdf";
 
 const CORE_VALUES = [
   {
@@ -98,6 +101,22 @@ export const Careers = () => {
             <p className="text-neutral-500 mt-2">
               Submit your details and we will get back to you.
             </p>
+          </div>
+
+          <div className="mb-8 rounded-xl border border-primary/15 bg-primary/5 p-4">
+            <p className="text-sm text-neutral-600 mb-3">
+              Review our competencies profile before applying.
+            </p>
+            <a
+              href={CORE_COMPETENCIES_PDF_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-primary font-bold border border-primary/20 hover:bg-primary hover:text-white transition-colors"
+            >
+              <FileText size={18} />
+              RPF Core Competencies (PDF)
+              <ArrowUpRight size={16} />
+            </a>
           </div>
 
           <form className="space-y-6">
