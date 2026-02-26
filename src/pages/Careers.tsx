@@ -44,41 +44,43 @@ export const Careers = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
         {/* Info Side */}
-        <div className="bg-primary text-white p-12 lg:p-20 flex flex-col justify-center">
-          <h2 className="text-3xl font-bold mb-10">Why Join Us?</h2>
-          <div className="space-y-8 text-neutral-300">
-            <p className="leading-relaxed">
-              We are committed to fostering a culture of safety, innovation, and
-              professional growth. At Alrabat, you will work on challenging
-              projects that shape the infrastructure of tomorrow.
-            </p>
+        <div className="bg-primary text-white p-10 lg:p-16 flex flex-col">
+          <div>
+            <h2 className="text-3xl font-bold mb-10">Why Join Us?</h2>
+            <div className="space-y-8 text-neutral-300">
+              <p className="leading-relaxed">
+                We are committed to fostering a culture of safety, innovation, and
+                professional growth. At Alrabat, you will work on challenging
+                projects that shape the infrastructure of tomorrow.
+              </p>
 
-            <div className="mt-8">
-              <h3 className="text-white font-bold mb-6">AL RABAT CORE VALUES</h3>
-              <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-                {CORE_VALUES.map((value) => (
-                  <div
-                    key={value.title}
-                    className="rounded-lg border border-white/10 bg-white/[0.03] p-5"
-                  >
-                    <div className="flex items-center mb-3">
-                      <img
-                        src={value.icon}
-                        alt={`${value.title} icon`}
-                        className="w-9 h-9 object-contain mr-3"
-                      />
-                      <h4 className="text-white font-bold text-xl">{value.title}</h4>
+              <div className="mt-8">
+                <h3 className="text-white font-bold mb-6">AL RABAT CORE VALUES</h3>
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                  {CORE_VALUES.map((value) => (
+                    <div
+                      key={value.title}
+                      className="rounded-lg border border-white/10 bg-white/[0.03] p-5"
+                    >
+                      <div className="flex items-center mb-3">
+                        <img
+                          src={value.icon}
+                          alt={`${value.title} icon`}
+                          className="w-9 h-9 object-contain mr-3"
+                        />
+                        <h4 className="text-white font-bold text-xl">{value.title}</h4>
+                      </div>
+                      <p className="text-neutral-300 leading-relaxed">
+                        {value.description}
+                      </p>
                     </div>
-                    <p className="text-neutral-300 leading-relaxed">
-                      {value.description}
-                    </p>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-16 pt-16 border-t border-white/10">
+          <div className="mt-12 pt-10 border-t border-white/10">
             <h3 className="text-xl font-bold mb-4 flex items-center">
               <Mail className="mr-3" size={20} /> HR Contact
             </h3>
@@ -95,7 +97,7 @@ export const Careers = () => {
         </div>
 
         {/* Form Side */}
-        <div className="p-12 lg:p-20 pb-32 lg:pb-40 bg-white">
+        <div className="p-10 lg:p-16 bg-white flex flex-col">
           <div className="mb-10 pb-6 border-b border-neutral-100">
             <h2 className="text-2xl font-bold text-primary">Apply Now</h2>
             <p className="text-neutral-500 mt-2">
@@ -161,8 +163,20 @@ export const Careers = () => {
             </div>
             <Button className="w-full">Submit Application</Button>
           </form>
+
+          <div className="mt-10 pt-8 border-t border-neutral-100">
+            <p className="text-neutral-500 mb-2">Need help with your application?</p>
+            <a
+              href="mailto:careers@alrabat-se.ae"
+              className="text-primary font-bold hover:text-accent transition-colors"
+            >
+              careers@alrabat-se.ae
+            </a>
+          </div>
         </div>
       </div>
+
+      <div className="relative h-20 lg:h-28 bg-gradient-to-r from-accent to-[#E8551E] slant-tl" />
     </>
   );
 };
