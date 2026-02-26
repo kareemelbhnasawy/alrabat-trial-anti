@@ -10,7 +10,7 @@ import { LatestNews } from "../components/home/LatestNews";
 const ProjectMap = React.lazy(() =>
   import("../components/ui/ProjectMap").then((module) => ({
     default: module.ProjectMap,
-  })),
+  }))
 );
 
 export const Home = () => {
@@ -28,7 +28,7 @@ export const Home = () => {
           observer.disconnect();
         }
       },
-      { rootMargin: "300px 0px" },
+      { rootMargin: "300px 0px" }
     );
 
     observer.observe(node);
@@ -43,6 +43,10 @@ export const Home = () => {
       <Divisions />
       <RecentProjects />
       <div ref={mapSectionRef} />
+
+      <LatestNews />
+      <Marquee />
+      {/* Clients section placed last per requested order */}
       {shouldLoadMap ? (
         <Suspense
           fallback={
@@ -56,9 +60,6 @@ export const Home = () => {
       ) : (
         <div className="h-[600px] w-full bg-neutral-900/95" />
       )}
-      <LatestNews />
-      <Marquee />
-      {/* Clients section placed last per requested order */}
     </>
   );
 };
