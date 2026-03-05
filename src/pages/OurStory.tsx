@@ -74,10 +74,14 @@ export const OurStory = () => {
               (strategy, idx) => (
                 <motion.div
                   key={strategy.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: idx * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="bg-white p-8 shadow-sm border border-neutral-100 slant-br text-center"
                 >
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -104,10 +108,10 @@ export const OurStory = () => {
       <Section className="bg-primary text-white py-20 lg:py-24">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <h3 className="text-2xl md:text-3xl font-bold font-display text-white mb-12 text-center">
               OUR CORE VALUES
@@ -144,7 +148,7 @@ export const OurStory = () => {
       <Section className="bg-neutral-50 pb-40 lg:pb-56" slantedTop>
         <div className="container-custom">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-3xl font-display font-bold text-primary mb-16 text-center"
@@ -182,10 +186,14 @@ export const OurStory = () => {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.2,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="relative"
                 >
                   {/* Animated Dot */}
@@ -234,9 +242,10 @@ export const OurStory = () => {
       <Section dark slantedTop>
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl font-display font-bold mb-4">
@@ -278,10 +287,14 @@ export const OurStory = () => {
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{
+                  duration: 0.7,
+                  delay: idx * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className="p-6 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-300"
               >
                 {stat.icon}

@@ -27,17 +27,17 @@ export const FadeIn = ({
   const getDirectionOffset = () => {
     switch (direction) {
       case "up":
-        return { y: 40, x: 0 };
+        return { y: 50, x: 0 };
       case "down":
-        return { y: -40, x: 0 };
+        return { y: -50, x: 0 };
       case "left":
-        return { x: 40, y: 0 };
+        return { x: 50, y: 0 };
       case "right":
-        return { x: -40, y: 0 };
+        return { x: -50, y: 0 };
       case "none":
         return { x: 0, y: 0 };
       default:
-        return { y: 40, x: 0 };
+        return { y: 50, x: 0 };
     }
   };
 
@@ -72,7 +72,7 @@ export const FadeIn = ({
               transition: {
                 duration: duration,
                 delay: delay,
-                ease: "easeOut",
+                ease: [0.22, 1, 0.36, 1],
               },
             }
           : {
@@ -138,11 +138,11 @@ export const FadeInStaggerItem = ({
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 25 },
         show: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.5, ease: "easeOut" },
+          transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
         },
       }}
       className={className}

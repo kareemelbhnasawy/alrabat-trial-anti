@@ -72,10 +72,14 @@ export const About = () => {
               (strategy, idx) => (
                 <motion.div
                   key={strategy.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: idx * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="bg-white p-8 shadow-sm border border-neutral-100 slant-br text-center"
                 >
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -97,10 +101,10 @@ export const About = () => {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="bg-white p-8 shadow-sm border border-neutral-100 slant-br"
           >
             <h3 className="text-xl md:text-2xl font-bold font-display text-primary mb-6 text-center">
@@ -136,7 +140,7 @@ export const About = () => {
       <Section className="bg-neutral-50" slantedTop>
         <div className="container-custom">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-3xl font-display font-bold text-primary mb-16 text-center"
@@ -174,10 +178,14 @@ export const About = () => {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.2,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="relative"
                 >
                   {/* Animated Dot */}
