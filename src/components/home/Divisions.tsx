@@ -40,6 +40,7 @@ const getOptimizedDivisionImage = (url: string) => {
 export const Divisions = () => {
   const { divisions } = useData();
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const shouldReduceMotion = useShouldReduceMotion();
 
   const handleMobileClick = (e: React.MouseEvent, id: string) => {
@@ -82,10 +83,14 @@ export const Divisions = () => {
             <Link
               key={item.id}
               to={`/divisions/${item.slug}`}
+              onMouseEnter={() => setHoveredId(item.id)}
+              onMouseLeave={() => setHoveredId(null)}
               className={cn(
                 "relative min-w-0 flex-1 overflow-hidden rounded-2xl group shadow-md [transform:translateZ(0)]",
                 !shouldReduceMotion &&
-                  "transition-[flex] duration-150 ease-out hover:flex-[3.2]",
+                  "transition-[flex] duration-150 ease-out",
+                hoveredId === item.id ? "flex-[3.2]" : "flex-1",
+                !hoveredId && "hover:flex-[3.2]", // Fallback for pure CSS hover before state updates
               )}
             >
               <div className="absolute inset-0 z-0">
@@ -97,16 +102,19 @@ export const Divisions = () => {
                   decoding="async"
                   className={cn(
                     "w-full h-full object-cover",
-                    !shouldReduceMotion &&
-                      "transition-transform duration-300 group-hover:scale-[1.015]",
+                    !shouldReduceMotion && "transition-transform duration-300",
+                    hoveredId === item.id ? "scale-[1.015]" : "scale-100",
+                    !hoveredId && "group-hover:scale-[1.015]",
                   )}
                 />
 
                 <div
                   className={cn(
                     "absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent",
-                    !shouldReduceMotion &&
-                      "transition-colors duration-200 group-hover:from-black/80 group-hover:via-black/20",
+                    !shouldReduceMotion && "transition-colors duration-200",
+                    hoveredId === item.id ? "from-black/80 via-black/20" : "",
+                    !hoveredId &&
+                      "group-hover:from-black/80 group-hover:via-black/20",
                   )}
                 />
               </div>
@@ -117,7 +125,9 @@ export const Divisions = () => {
                     "absolute inset-0 flex items-center justify-center pointer-events-none p-4",
                     shouldReduceMotion
                       ? "opacity-100"
-                      : "opacity-100 transition-opacity duration-150 group-hover:opacity-0",
+                      : "transition-opacity duration-150",
+                    hoveredId === item.id ? "opacity-0" : "opacity-100",
+                    !hoveredId && "group-hover:opacity-0",
                   )}
                 >
                   <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-6">
@@ -141,7 +151,12 @@ export const Divisions = () => {
                     "flex-col justify-end h-full",
                     shouldReduceMotion
                       ? "hidden"
-                      : "flex opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 group-hover:pointer-events-auto",
+                      : "flex transition-opacity duration-200",
+                    hoveredId === item.id
+                      ? "opacity-100 pointer-events-auto"
+                      : "opacity-0 pointer-events-none",
+                    !hoveredId &&
+                      "group-hover:opacity-100 group-hover:pointer-events-auto",
                   )}
                 >
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-3 leading-tight">

@@ -1,11 +1,6 @@
 import React from "react";
 import { Section } from "../components/ui/Section";
-import {
-  Users,
-  User,
-  Briefcase,
-  TrendingUp,
-} from "lucide-react";
+import { Users, User, Briefcase, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedCounter } from "../components/animations/AnimatedCounter";
 
@@ -102,34 +97,40 @@ export const OurStory = () => {
               ),
             )}
           </div>
+        </div>
+      </Section>
 
+      {/* Core Values - Full Width Dark Green Background */}
+      <Section className="bg-primary text-white py-20 lg:py-24">
+        <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-white p-8 shadow-sm border border-neutral-100 slant-br"
           >
-            <h3 className="text-xl md:text-2xl font-bold font-display text-primary mb-6 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold font-display text-white mb-12 text-center">
               OUR CORE VALUES
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {CORE_VALUES.map((value) => (
                 <div
                   key={value.title}
-                  className="rounded-lg border border-neutral-200 bg-neutral-50 p-5"
+                  className="rounded-lg border border-white/20 bg-white/5 p-6 hover:bg-white/10 transition-colors duration-300"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <img
-                      src={value.icon}
-                      alt={`${value.title} icon`}
-                      className="w-7 h-7 object-contain"
-                    />
-                    <h4 className="text-lg font-bold text-primary">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                      <img
+                        src={value.icon}
+                        alt={`${value.title} icon`}
+                        className="w-5 h-5 object-contain filter brightness-0 invert"
+                      />
+                    </div>
+                    <h4 className="text-lg font-bold text-white tracking-wide">
                       {value.title}
                     </h4>
                   </div>
-                  <p className="text-neutral-600 leading-relaxed text-sm">
+                  <p className="text-white/80 leading-relaxed text-sm lg:text-base font-light">
                     {value.description}
                   </p>
                 </div>
@@ -140,7 +141,7 @@ export const OurStory = () => {
       </Section>
 
       {/* Story */}
-      <Section className="bg-neutral-50" slantedTop>
+      <Section className="bg-neutral-50 pb-40 lg:pb-56" slantedTop>
         <div className="container-custom">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -270,7 +271,9 @@ export const OurStory = () => {
                 value: 95,
                 suffix: "%",
                 label: "Annual Revenue Growth",
-                icon: <TrendingUp className="w-8 h-8 mb-4 mx-auto text-white" />,
+                icon: (
+                  <TrendingUp className="w-8 h-8 mb-4 mx-auto text-white" />
+                ),
               },
             ].map((stat, idx) => (
               <motion.div

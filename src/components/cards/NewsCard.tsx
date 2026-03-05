@@ -45,9 +45,17 @@ export const NewsCard = ({
             <div className="text-xs font-bold uppercase tracking-widest text-accent mb-2">
               {news.category || "Update"}
             </div>
-            <h3 className="text-xl font-display font-bold text-white leading-tight line-clamp-2">
-              {news.title || news.name}
-            </h3>
+            <div className="flex items-center">
+              {accentColor && (
+                <span
+                  className="w-5 h-6 mr-4 -skew-x-[45deg] transition-transform group-hover:scale-110 shrink-0 -translate-y-[2px]"
+                  style={{ backgroundColor: accentColor }}
+                />
+              )}
+              <h3 className="text-xl font-display font-bold text-white leading-tight line-clamp-2">
+                {news.title || news.name}
+              </h3>
+            </div>
           </div>
 
           {/* Sliding Slant Overlay - Covers ~66% */}
@@ -74,9 +82,17 @@ export const NewsCard = ({
                 )}
               </div>
 
-              <h3 className="text-xl font-display font-bold text-white leading-tight mb-4 line-clamp-3">
-                {news.title || news.name}
-              </h3>
+              <div className="flex items-center mb-4">
+                {accentColor && (
+                  <span
+                    className="w-5 h-6 mr-4 -skew-x-[45deg] transition-transform group-hover:scale-110 shrink-0 -translate-y-[2px]"
+                    style={{ backgroundColor: accentColor }}
+                  />
+                )}
+                <h3 className="text-xl font-display font-bold text-white leading-tight line-clamp-3">
+                  {news.title || news.name}
+                </h3>
+              </div>
 
               <div className="w-8 h-1 bg-white/20 mb-4" />
 

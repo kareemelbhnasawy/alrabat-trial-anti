@@ -45,7 +45,7 @@ export const Projects = () => {
                 "px-4 py-2 rounded-full text-sm font-medium transition-colors",
                 activeDivision === "All"
                   ? "bg-primary text-white"
-                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
+                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
               )}
             >
               Our Divisions
@@ -58,7 +58,7 @@ export const Projects = () => {
                   "px-4 py-2 rounded-full text-sm font-medium transition-colors",
                   activeDivision === div.slug
                     ? "bg-primary text-white"
-                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200",
                 )}
               >
                 {div.name}
@@ -82,7 +82,7 @@ export const Projects = () => {
         </div>
       </div>
 
-      <Section>
+      <Section className="pb-24 lg:pb-32">
         <div className="container-custom">
           {filteredProjects.length === 0 ? (
             <div className="text-center py-20 text-neutral-500">

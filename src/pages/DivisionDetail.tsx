@@ -63,21 +63,24 @@ export const DivisionDetail = () => {
   return (
     <>
       {/* Hero */}
-      <div className="relative pt-32 pb-20 md:py-0 md:h-[60vh] md:min-h-[500px] flex items-center slant-divider-bottom-lg">
-        <div className="absolute inset-0 z-0">
+      <div className="relative pt-32 pb-20 md:py-0 w-full md:h-[70vh] md:min-h-[600px] flex items-center slant-divider-bottom-lg overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-neutral-900">
+          {/* Color Gradient Overlay */}
           <div
             className="absolute inset-0 z-10"
             style={{
               background: `linear-gradient(to right, ${heroAccent}B3, ${heroAccent}4D)`,
             }}
           />
+
+          {/* Actual Un-cropped Media */}
           {division.heroVideo ? (
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center md:object-bottom"
               poster={division.heroImage}
             >
               <source src={division.heroVideo} type="video/mp4" />
@@ -87,11 +90,11 @@ export const DivisionDetail = () => {
             <img
               src={division.heroImage}
               alt={division.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center md:object-bottom opacity-90"
             />
           )}
         </div>
-        <div className="container-custom relative z-20 text-white mt-0 md:mt-0">
+        <div className="container-custom relative z-30 text-white mt-0 md:mt-0">
           <FadeIn delay={0.1}>
             <Link
               to="/divisions"
@@ -130,14 +133,14 @@ export const DivisionDetail = () => {
         <div className="container-custom py-24">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
-              <SlashMark className="w-14 h-2.5 md:w-20 md:h-3 mb-6" color={accent} />
+              <SlashMark
+                className="w-14 h-2.5 md:w-20 md:h-3 mb-6"
+                color={accent}
+              />
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <h2
-                className="text-4xl md:text-6xl font-display font-bold mb-8 uppercase leading-[0.95]"
-                style={{ color: accent }}
-              >
+              <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 uppercase leading-[0.95] text-primary">
                 {division.introSection.title}
               </h2>
             </FadeIn>
@@ -150,10 +153,7 @@ export const DivisionDetail = () => {
 
             <div className="mb-8">
               <FadeIn delay={0.3}>
-                <h3
-                  className="text-lg font-bold mb-6"
-                  style={{ color: accent }}
-                >
+                <h3 className="text-lg font-bold mb-6 text-primary">
                   Our services include:
                 </h3>
               </FadeIn>
@@ -167,10 +167,7 @@ export const DivisionDetail = () => {
                           color={accent}
                         />
                         <div>
-                          <h4
-                            className="text-xl md:text-2xl font-display font-bold uppercase mb-1"
-                            style={{ color: accent }}
-                          >
+                          <h4 className="text-xl md:text-2xl font-display font-bold uppercase mb-1 text-primary">
                             {service.title}
                           </h4>
                           <p className="text-neutral-700 text-lg md:text-2xl leading-relaxed">
@@ -192,10 +189,7 @@ export const DivisionDetail = () => {
         <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
             <FadeIn>
-              <h2
-                className="text-3xl font-display font-bold mb-8"
-                style={{ color: accent }}
-              >
+              <h2 className="text-3xl font-display font-bold mb-8 text-primary">
                 Core Capabilities
               </h2>
             </FadeIn>
@@ -217,10 +211,7 @@ export const DivisionDetail = () => {
 
           <div>
             <FadeIn delay={0.2}>
-              <h2
-                className="text-3xl font-display font-bold mb-8"
-                style={{ color: accent }}
-              >
+              <h2 className="text-3xl font-display font-bold mb-8 text-primary">
                 Key Services
               </h2>
             </FadeIn>
@@ -231,9 +222,7 @@ export const DivisionDetail = () => {
                     className="bg-neutral-50 p-6 slant-br border-l-4 hover:bg-white hover:shadow-md transition-all"
                     style={{ borderColor: accent }}
                   >
-                    <h3 className="font-bold mb-2" style={{ color: accent }}>
-                      {service}
-                    </h3>
+                    <h3 className="font-bold mb-2 text-primary">{service}</h3>
                   </div>
                 </FadeIn>
               ))}
@@ -260,10 +249,7 @@ export const DivisionDetail = () => {
         <Section className="bg-neutral-50" slantedTop>
           <div className="container-custom">
             <FadeIn>
-              <h2
-                className="text-3xl font-display font-bold mb-12"
-                style={{ color: accent }}
-              >
+              <h2 className="text-3xl font-display font-bold mb-12 text-primary">
                 Related Projects
               </h2>
             </FadeIn>

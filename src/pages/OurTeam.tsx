@@ -76,7 +76,7 @@ export const OurTeam = () => {
       <Section>
         <div className="container-custom">
           <h2 className="text-3xl font-display font-bold text-primary mb-12 border-l-4 border-accent pl-4">
-            Executive Leadership
+            Board of Directors
           </h2>
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -133,7 +133,11 @@ export const OurTeam = () => {
       </Section>
 
       {/* Qualifications Section */}
-      <Section className="bg-white mt-32 md:mt-60" slantedTop primaryAccent>
+      <Section
+        className="bg-white mt-12 md:mt-12 pb-24 lg:pb-32"
+        slantedTop
+        primaryAccent
+      >
         <div className="container-custom">
           <FadeIn>
             <h2 className="text-3xl font-display font-bold text-primary mb-12 border-l-4 border-accent pl-4">

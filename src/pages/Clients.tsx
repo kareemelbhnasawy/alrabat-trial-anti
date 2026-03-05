@@ -11,7 +11,7 @@ export const Clients = () => {
       <div className="pt-32 pb-40 bg-neutral-dark text-white text-center slant-divider-bottom-lg">
         <div className="container-custom">
           <span className="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">
-            Trusted Partners
+            Trusted By
           </span>
           <h1 className="text-5xl font-display font-bold mb-6">Our Clients</h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
@@ -84,29 +84,31 @@ export const Clients = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center">
                 {(category.clients || [])
-                  .filter((client) => !client.name.toLowerCase().includes("al safa"))
+                  .filter(
+                    (client) => !client.name.toLowerCase().includes("al safa"),
+                  )
                   .map((client, i) => (
-                  <div
-                    key={i}
-                    className="w-full h-24 flex items-center justify-center relative"
-                  >
-                    {(client as any).image ? (
-                      <div className="relative w-full h-full flex items-center justify-center">
-                        <img
-                          src={(client as any).image}
-                          alt={client.name}
-                          className="h-16 w-auto object-contain"
-                        />
-                      </div>
-                    ) : (
-                      <span
-                        className={`font-bold text-sm text-center ${client.is_highlighted ? "text-primary" : "text-neutral-300"}`}
-                      >
-                        {client.name}
-                      </span>
-                    )}
-                  </div>
-                ))}
+                    <div
+                      key={i}
+                      className="w-full h-24 flex items-center justify-center relative"
+                    >
+                      {(client as any).image ? (
+                        <div className="relative w-full h-full flex items-center justify-center">
+                          <img
+                            src={(client as any).image}
+                            alt={client.name}
+                            className="h-16 w-auto object-contain"
+                          />
+                        </div>
+                      ) : (
+                        <span
+                          className={`font-bold text-sm text-center ${client.is_highlighted ? "text-primary" : "text-neutral-300"}`}
+                        >
+                          {client.name}
+                        </span>
+                      )}
+                    </div>
+                  ))}
               </div>
             </div>
           ))}

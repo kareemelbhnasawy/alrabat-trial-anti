@@ -52,7 +52,7 @@ export const News = () => {
       </div>
 
       {/* Grid */}
-      <Section>
+      <Section className="pb-24 lg:pb-32">
         <div className="container-custom">
           {filteredNews.length === 0 ? (
             <div className="text-center py-20 text-neutral-500">

@@ -185,7 +185,7 @@ export const TeamForm = () => {
                 onChange={(e) => setCategory(e.target.value as any)}
                 className="w-full px-4 py-2 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
               >
-                <option value="executive">Executive Leadership</option>
+                <option value="executive">Board of Directors</option>
                 <option value="division_head">Division Head</option>
                 <option value="other">Other</option>
               </select>

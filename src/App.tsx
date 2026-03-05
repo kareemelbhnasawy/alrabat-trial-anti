@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
 import { Layout } from "./Layout";
 import { useShouldReduceMotion } from "./hooks/useShouldReduceMotion";
 
@@ -57,7 +56,7 @@ function App() {
   const shouldReduceMotion = useShouldReduceMotion();
 
   const routes = (
-    <Routes location={location} key={location.pathname}>
+    <Routes location={location}>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about/story" element={<OurStory />} />
@@ -84,7 +83,7 @@ function App() {
         </div>
       }
     >
-      {shouldReduceMotion ? routes : <AnimatePresence mode="wait">{routes}</AnimatePresence>}
+      {routes}
     </Suspense>
   );
 }

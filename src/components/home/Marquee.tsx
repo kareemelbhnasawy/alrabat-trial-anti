@@ -28,7 +28,7 @@ export const Marquee = () => {
     // For now, let's filter out "Al Safa" as requested.
 
     const filtered = clients.filter(
-      (c) => !c.name.toLowerCase().includes("al safa")
+      (c) => !c.name.toLowerCase().includes("al safa"),
     );
     const highlighted = filtered.filter((c) => c.is_highlighted);
     return highlighted.length > 0 ? highlighted : filtered;
@@ -45,16 +45,29 @@ export const Marquee = () => {
       <div className="container-custom mb-12 text-center">
         <div className="h-1 w-20 bg-accent mx-auto mb-6" />
         <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">
-          Trusted Partners
+          Trusted By
         </h2>
       </div>
 
-      <div className="relative w-full flex overflow-hidden">
+      <div className="relative w-full flex overflow-hidden group">
         {/* Slower animation speed is handled in tailwind config 'animate-marquee' */}
-        <div className="flex animate-marquee whitespace-nowrap items-center select-none">
+        {/* We use two identical side-by-side containers that both translate from 0% to -100% of their own width */}
+        <div className="flex shrink-0 animate-marquee whitespace-nowrap items-center select-none cursor-pointer group-hover:[animation-play-state:paused]">
           <div className="flex space-x-16 md:space-x-24 px-8 md:px-12 items-center">
             {marqueItems.map((item, idx) => (
-              <MarqueeItem key={`${idx}`} item={item} />
+              <MarqueeItem key={`m1-${idx}`} item={item} />
+            ))}
+          </div>
+        </div>
+
+        {/* Second identical container for seamless infinite loop */}
+        <div
+          className="flex shrink-0 animate-marquee whitespace-nowrap items-center select-none cursor-pointer group-hover:[animation-play-state:paused]"
+          aria-hidden="true"
+        >
+          <div className="flex space-x-16 md:space-x-24 px-8 md:px-12 items-center">
+            {marqueItems.map((item, idx) => (
+              <MarqueeItem key={`m2-${idx}`} item={item} />
             ))}
           </div>
         </div>
