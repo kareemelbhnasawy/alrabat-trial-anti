@@ -26,15 +26,9 @@ const getIconPath = (slug: string) => {
 };
 
 const getOptimizedDivisionImage = (url: string) => {
-  const marker = "/storage/v1/object/public/media/division-heroes/";
-  if (!url.includes(marker)) return url;
-
-  const optimizedBase = url.replace(
-    "/storage/v1/object/public/",
-    "/storage/v1/render/image/public/",
-  );
-
-  return `${optimizedBase}?width=1400&quality=70`;
+  // Supabase Image Transform (/render/image/) requires a Pro plan.
+  // Return the original URL directly to avoid broken images on Free plans.
+  return url;
 };
 
 export const Divisions = () => {
@@ -97,8 +91,8 @@ export const Divisions = () => {
                 <img
                   src={getOptimizedDivisionImage(item.heroImage)}
                   alt={item.name}
-                  loading={index < 2 ? "eager" : "lazy"}
-                  fetchPriority={index === 0 ? "high" : "auto"}
+                  loading="eager"
+                  fetchPriority={index < 3 ? "high" : "auto"}
                   decoding="async"
                   className={cn(
                     "w-full h-full object-cover",
@@ -203,8 +197,8 @@ export const Divisions = () => {
                 <img
                   src={getOptimizedDivisionImage(item.heroImage)}
                   alt={item.name}
-                  loading={index < 2 ? "eager" : "lazy"}
-                  fetchPriority={index === 0 ? "high" : "auto"}
+                  loading="eager"
+                  fetchPriority={index < 3 ? "high" : "auto"}
                   decoding="async"
                   className={cn(
                     "w-full h-full object-cover",
