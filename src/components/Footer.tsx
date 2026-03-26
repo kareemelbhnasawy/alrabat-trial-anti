@@ -12,23 +12,23 @@ import { Logo } from "./ui/Logo";
 export const Footer = () => {
   return (
     <footer className="bg-primary text-white pt-32 pb-10 slant-divider-lg -mt-20 relative z-20">
-      <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative">
+      <div className="container-custom grid grid-cols-1 gap-12 mb-16 relative md:grid-cols-2 lg:grid-cols-[minmax(0,1.3fr)_minmax(15rem,0.85fr)_minmax(15rem,0.85fr)] lg:gap-x-24 lg:gap-y-12 lg:items-start">
         {/* Brand */}
-        <div className="space-y-6 md:space-y-6 relative">
-          <div className="absolute top-0 right-0 md:static">
-            <Logo />
-          </div>
-          <p className="text-neutral-300 text-sm leading-relaxed max-w-xs pt-16 md:pt-0">
-            "THE BOND OF SUCCESS"
-            <br className="mb-2" />
-            Providing fully tailored integrated ground solutions with highest
-            quality standards since 2007.
-          </p>
-          <div className="text-xs text-neutral-300 space-y-1">
-            <p>+971 4 267 6054 / +971 4 337 8073</p>
-            <p>info@alrabatse.com</p>
-            <p>401, Red Crescent Building, Al Garhoud, Dubai, U.A.E</p>
-            <p>411, DBCS Building, Al Garhoud, Dubai, U.A.E</p>
+        <div className="space-y-2 max-w-[34rem] lg:pr-8">
+          <Logo className="-ml-60 md:-ml-14 lg:-ml-44 -mt-10" />
+          <div className="space-y-4 max-w-[29rem]">
+            <p className="text-neutral-300 text-sm leading-relaxed text-justify">
+              "THE BOND OF SUCCESS"
+              <br className="mb-2" />
+              Providing fully tailored integrated ground solutions with highest
+              quality standards since 2007.
+            </p>
+            <div className="text-xs text-neutral-300 space-y-3 text-justify">
+              <p>+971 4 267 6054 / +971 4 337 8073</p>
+              <p>info@alrabatse.com</p>
+              <p>401, Red Crescent Building, Al Garhoud, Dubai, U.A.E</p>
+              <p>411, DBCS Building, Al Garhoud, Dubai, U.A.E</p>
+            </div>
           </div>
           {/* <div className="flex space-x-4">
             <a
@@ -53,11 +53,11 @@ export const Footer = () => {
         </div>
 
         {/* Divisions */}
-        <div>
-          <h4 className="font-display font-bold text-lg mb-6 text-accent">
+        <div className="max-w-[18rem] justify-self-start lg:pt-4">
+          <h4 className="font-display font-bold text-lg mb-8 text-accent">
             Our Divisions
           </h4>
-          <ul className="space-y-3 text-sm text-neutral-300">
+          <ul className="space-y-4 text-sm text-neutral-300">
             <li>
               <Link
                 to="/divisions/foundations"
@@ -110,11 +110,11 @@ export const Footer = () => {
         </div>
 
         {/* Quick Links */}
-        <div>
-          <h4 className="font-display font-bold text-lg mb-6 text-accent">
+        <div className="max-w-[18rem] justify-self-start lg:pt-4">
+          <h4 className="font-display font-bold text-lg mb-8 text-accent">
             Quick Links
           </h4>
-          <ul className="space-y-3 text-sm text-neutral-300">
+          <ul className="space-y-4 text-sm text-neutral-300">
             <li>
               <Link to="/about" className="hover:text-white transition-colors">
                 About Us

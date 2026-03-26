@@ -185,7 +185,7 @@ export const DivisionDetail = () => {
       )}
 
       {/* Capabilities & Services */}
-      <Section className="bg-neutral-bg">
+      <Section className="bg-neutral-bg pb-24 lg:pb-32">
         <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
             <FadeIn>

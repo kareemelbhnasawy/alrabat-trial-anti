@@ -380,12 +380,33 @@ export const NavigationOverlay = ({
                       ))}
                     </div>
                   ) : (
-                    /* Mode 3: Default Empty State (or "Featured") */
-                    <div className="text-white/30 text-2xl md:text-3xl font-display font-medium tracking-tight">
-                      {activeCategory
-                        ? `Explore ${activeCategory}`
-                        : "Select a category"}
-                    </div>
+                    /* Mode 3: Direct-link category (e.g. Projects, News) or empty state */
+                    (() => {
+                      const activeCat = NAV_STRUCTURE.find(
+                        (n) => n.name === activeCategory
+                      );
+                      if (activeCategory && activeCat?.href) {
+                        return (
+                          <div
+                            onClick={() => handleNav(activeCat.href!)}
+                            className="group cursor-pointer flex items-center gap-4"
+                          >
+                            <span className="text-white/60 text-2xl md:text-3xl font-display font-medium tracking-tight group-hover:text-white transition-colors">
+                              Explore {activeCategory}
+                            </span>
+                            <ArrowRight
+                              className="text-white/40 group-hover:text-accent group-hover:translate-x-1 transition-all duration-200"
+                              size={28}
+                            />
+                          </div>
+                        );
+                      }
+                      return (
+                        <div className="text-white/30 text-2xl md:text-3xl font-display font-medium tracking-tight">
+                          Select a category
+                        </div>
+                      );
+                    })()
                   )}
                 </motion.div>
               )}

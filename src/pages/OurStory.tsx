@@ -105,7 +105,7 @@ export const OurStory = () => {
       </Section>
 
       {/* Core Values - Full Width Dark Green Background */}
-      <Section className="bg-primary text-white py-20 lg:py-24">
+      <Section className="bg-primary text-white py-20 lg:py-32">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 40 }}

@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface LogoProps {
   isScrolled?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
+  variant?: "default" | "footer";
 }
 
 const WORD_LOGOS = {
@@ -20,7 +23,12 @@ const DIVISION_LOGOS = [
   "/logos/divisions/SE.png",
 ];
 
-export const Logo = ({ isScrolled = false }: LogoProps) => {
+export const Logo = ({
+  isScrolled = false,
+  className = "",
+  style,
+  variant = "default",
+}: LogoProps) => {
   const location = useLocation();
   const [divisionIndex, setDivisionIndex] = useState(0);
 
@@ -61,13 +69,23 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
   }, [location.pathname]);
 
   const divisionLogoSrc = DIVISION_LOGOS[divisionIndex];
+  const isFooter = variant === "footer";
 
   return (
     <Link
       to="/"
-      className="flex flex-col items-center gap-0 -my-4 relative z-50 group"
+      className={`flex flex-col gap-0 relative z-50 group ${
+        isFooter ? "items-start -my-2" : "items-center -my-4"
+      } ${className}`}
+      style={style}
     >
-      <div className="relative h-20 md:h-28 w-auto flex items-center justify-center">
+      <div
+        className={`relative w-auto flex items-center ${
+          isFooter
+            ? "justify-start h-16 md:h-20"
+            : "justify-center h-20 md:h-28"
+        }`}
+      >
         {/* White Logo - Visible when NOT scrolled */}
         <motion.img
           src={WORD_LOGOS.white}
@@ -90,7 +108,13 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
         />
       </div>
 
-      <div className="relative h-20 md:h-28 w-full -mt-14 md:-mt-20 pointer-events-none">
+      <div
+        className={`relative w-full pointer-events-none ${
+          isFooter
+            ? "h-12 md:h-16 -mt-9 md:-mt-11"
+            : "h-20 md:h-28 -mt-14 md:-mt-20"
+        }`}
+      >
         <AnimatePresence>
           <motion.img
             key={divisionIndex}
@@ -100,7 +124,9 @@ export const Logo = ({ isScrolled = false }: LogoProps) => {
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: -6, x: "-50%" }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="h-full w-auto object-contain absolute left-1/2"
+            className={`h-full w-auto object-contain absolute ${
+              isFooter ? "left-[56%] md:left-[58%]" : "left-1/2"
+            }`}
           />
         </AnimatePresence>
       </div>
